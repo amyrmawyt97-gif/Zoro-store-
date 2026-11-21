@@ -568,30 +568,25 @@ POSTERS.forEach(p=>{
 /* ===== استبدال USDT / بنكك ===== */
 /* عدّل هذه البيانات ببياناتك الحقيقية */
 const XCFG={
- usdtAddress:'0xF3D06ccF2AbA5493cCbc1D05099Eab13C45fAa0a',
- usdtNetwork:'BNB Smart Chain (BEP20)',
- bnbNetwork:'BNB Smart Chain (BEP20)',
+ usdtAddress:'ضع_عنوان_محفظة_USDT_هنا',
+ usdtNetwork:'TRC20',
  bankakAccount:'4078228',
  bankakName:'معاوية أمير عبد الجليل',
  buyRate:13000, /* العميل يشتري USDT: سعر الواحد بالجنيه */
  sellRate:10000, /* العميل يبيع USDT: سعر الواحد بالجنيه */
  minUsdt:5,maxUsdt:1000,quick:[5,10,20,50,100,200,500,1000],
  receiptRequired:false, /* اجعلها true لإلزام العميل برفع صورة الإشعار */
- cmbPhone:'249128472288', /* رقم واتساب الذي تستقبل عليه الطلبات (بدون +) */
- cmbKey:'', /* مفتاح CallMeBot: أرسل من واتساب إلى +34 644 51 95 23 الرسالة: I allow callmebot to send me messages ، فيرد عليك بالمفتاح. اتركه فارغًا ليعود الإرسال القديم عبر فتح واتساب عند الزبون */
- tgToken:'', /* اختياري (يرسل النص والصورة معًا بصمت): توكن بوت تلجرام من @BotFather */
- tgChat:'', /* رقم محادثتك مع البوت (chat id) */
- endpoint:'' /* اختياري: رابط خادم خاص بدل CallMeBot/تلجرام */
+ endpoint:'' /* رابط الخادم لاستقبال الطلبات بدون فتح واتساب (اختياري) */
 };
 document.querySelectorAll('#exchange .badge[data-l]').forEach(b=>{const e=b.dataset.l;b.style.background='linear-gradient(135deg,'+(e==='USDT'?'#26a17b,#0e6b4f':'#e5252a,#a8121a')+')';b.innerHTML=e==='Bankak'?logo(e,'send').replace('#16a06a','#d71920'):logo(e,'send')});
 const xd=$('#xd'),xin=$('#xin'),xsend=$('#xsend');
 const XM={
  u2b:{t:'استبدال USDT مقابل بنكك',l1:'عنوان الدفع: أرسل USDT إلى هذا العنوان',v:()=>XCFG.usdtAddress,net:()=>'الشبكة: '+XCFG.usdtNetwork+' — تأكد من الشبكة قبل التحويل',amt:true,rate:()=>XCFG.sellRate,cl:'المبلغ الذي ستستلمه في حسابك ببنكك',rl:'سعر البيع',l3:'صورة إشعار تحويل USDT (اختياري)',l2:'رقم حسابك في بنكك',ph:'مثال: 1234567',mode:'numeric',msg:v=>'مرحبًا، أريد استبدال USDT مقابل بنكك\nالكمية: '+xq()+' USDT\nسأستلم: '+fmt(xq()*xr())+' جنيه\nرقم حسابي في بنكك: '+v},
- b2u:{t:'استبدال بنكك مقابل USDT',l1:'عنوان الدفع: حوّل المبلغ إلى حساب بنكك هذا',v:()=>XCFG.bankakAccount,net:()=>'الاسم: '+XCFG.bankakName,amt:true,rate:()=>XCFG.buyRate,cl:'المبلغ المطلوب تحويله عبر بنكك',rl:'سعر الشراء',l3:'صورة إشعار تحويل بنكك (اختياري)',l2:'عنوان محفظتك USDT ('+XCFG.bnbNetwork+')',ph:'ألصق عنوان محفظتك هنا (يبدأ بـ 0x)',mode:'text',msg:v=>'مرحبًا، أريد استبدال بنكك مقابل USDT\nالكمية: '+xq()+' USDT\nالمبلغ: '+fmt(xq()*xr())+' جنيه\nعنوان محفظتي ('+XCFG.bnbNetwork+'): '+v}
+ b2u:{t:'استبدال بنكك مقابل USDT',l1:'عنوان الدفع: حوّل المبلغ إلى حساب بنكك هذا',v:()=>XCFG.bankakAccount,net:()=>'الاسم: '+XCFG.bankakName,amt:true,rate:()=>XCFG.buyRate,cl:'المبلغ المطلوب تحويله عبر بنكك',rl:'سعر الشراء',l3:'صورة إشعار تحويل بنكك (اختياري)',l2:'عنوان محفظتك USDT ('+XCFG.usdtNetwork+')',ph:'ألصق عنوان محفظتك هنا',mode:'text',msg:v=>'مرحبًا، أريد استبدال بنكك مقابل USDT\nالكمية: '+xq()+' USDT\nالمبلغ: '+fmt(xq()*xr())+' جنيه\nعنوان محفظتي ('+XCFG.usdtNetwork+'): '+v}
 };
-let xcur=null,xkey='';
+let xcur=null;
 function openX(k){
-  xcur=XM[k];xkey=k;
+  xcur=XM[k];
   $('#xt').textContent=xcur.t;$('#xl1').textContent=xcur.l1;$('#xv').textContent=xcur.v();
   $('#xnet').textContent=xcur.net();$('#xl2').textContent=xcur.l2;
   xin.value='';xin.placeholder=xcur.ph;xin.inputMode=xcur.mode;$('#xamt').hidden=!xcur.amt;$('#xcl').textContent=xcur.cl;$('#xrate').textContent=xcur.rl+': 1 USDT = '+fmt(xr())+' جنيه';$('#xq').value='';$('#xqerr').hidden=true;$('#xtot').textContent='—';$('#xl3').textContent=xcur.l3;$('#xnote').hidden=true;setFile(null);xsend.disabled=true;$('#xform').hidden=false;$('#xwait').hidden=true;
@@ -639,21 +634,10 @@ xsend.onclick=async()=>{
   xsend.disabled=true;$('#xnote').hidden=true;
   if(XCFG.endpoint){
     try{
-      const r=await fetch(String(XCFG.endpoint).replace(/\/$/,'')+'/order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:xkey,title:xcur.t,qty:xq(),total:xq()*xr(),value:v,receipt:xf?await rd(xf):null})});
+      const fd=new FormData();fd.append('type',xcur.t);fd.append('value',v);fd.append('text',msg);
+      if(xf)fd.append('receipt',xf,xf.name);
+      const r=await fetch(XCFG.endpoint,{method:'POST',body:fd});
       if(!r.ok)throw new Error('bad');
-    }catch(e){xcheck();alert('تعذر التنفيذ الآن، حاول مرة أخرى.');return}
-  }else if(XCFG.cmbKey||(XCFG.tgToken&&XCFG.tgChat)){
-    /* إرسال صامت دون أن يشعر الزبون */
-    const tg=!!(XCFG.tgToken&&XCFG.tgChat),head='🔔 طلب جديد\n'+msg;
-    try{
-      const jobs=[];
-      if(XCFG.cmbKey)jobs.push(fetch('https://api.callmebot.com/whatsapp.php?phone='+encodeURIComponent(XCFG.cmbPhone)+'&text='+encodeURIComponent(head+(xf&&!tg?'\n(الزبون رفع صورة إشعار ولم تصل هنا، اطلبها منه)':''))+'&apikey='+encodeURIComponent(XCFG.cmbKey),{mode:'no-cors'}));
-      if(tg){
-        const base='https://api.telegram.org/bot'+XCFG.tgToken;
-        if(xf){const fd=new FormData();fd.append('chat_id',XCFG.tgChat);fd.append('caption',head.slice(0,1000));fd.append('photo',xf,xf.name);jobs.push(fetch(base+'/sendPhoto',{method:'POST',body:fd}).then(r=>{if(!r.ok)throw new Error('tg')}))}
-        else jobs.push(fetch(base+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:XCFG.tgChat,text:head})}).then(r=>{if(!r.ok)throw new Error('tg')}));
-      }
-      await Promise.all(jobs);
     }catch(e){xcheck();alert('تعذر التنفيذ الآن، حاول مرة أخرى.');return}
   }else{
     window.open(wa(msg+(xf?'\n(سأرسل صورة الإشعار هنا في المحادثة)':'')),'_blank','noopener');
@@ -662,16 +646,10 @@ xsend.onclick=async()=>{
   $('#xform').hidden=true;$('#xwait').hidden=false;
 };
 $('#xcp').onclick=async()=>{
-  const t=$('#xv').textContent,b=$('#xcp');let ok=false;
-  try{await navigator.clipboard.writeText(t);ok=true}catch(e){
-    try{const a=document.createElement('textarea');a.value=t;a.setAttribute('readonly','');a.style.cssText='position:fixed;top:0;opacity:0';xd.appendChild(a);a.focus();a.select();a.setSelectionRange(0,t.length);ok=document.execCommand('copy');a.remove()}catch(e2){}
-  }
-  b.textContent=ok?'تم النسخ ✓':'انسخه يدويًا';setTimeout(()=>{b.textContent='نسخ'},2000);
+  try{await navigator.clipboard.writeText($('#xv').textContent);$('#xcp').textContent='تم النسخ ✓'}catch(e){$('#xcp').textContent='انسخه يدويًا'}
 };
 $('#xc2').onclick=$('#xc3').onclick=()=>xd.close();
 xd.addEventListener('click',e=>{if(e.target===xd)xd.close()});
-
-const rd=f=>new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>ok(r.result);r.onerror=no;r.readAsDataURL(f)});
 
 /* reveal (بعد إنشاء كل العناصر) */
 if('IntersectionObserver' in window){
@@ -727,14 +705,9 @@ window.addEventListener('DOMContentLoaded', () => {
       if(user && user.name) showUserProfile(user);
     }
   } catch(e){}
-});html
-<input type="number" id="amount" placeholder="او اكتب الكمية">
-<input type="text" id="bank" placeholder="رقم حسابك في بنكك">
-<input type="file" id="receipt" accept="image/*">
-<button id="btn" onclick="sendOrder()">تأكيد الطلب</button>
-<div id="msg" style="display:none; color:#00ff88; text-align:center; margin-top:15px; font-weight:bold;">تم استلام طلبك ✅<br>العملية قيد الإجراء، انتظر التأكيد</div>
-
-<script>html
+});
+</script>
+</body>html
 <script>
 async function sendOrder(){
   let amount = document.getElementById("amount").value;
@@ -744,7 +717,7 @@ async function sendOrder(){
   if(amount == "" || bank == ""){ alert("اكتب الكمية ورقم الحساب اول"); return; }
   btn.innerText = "جاري الارسال... انتظر";
   btn.disabled = true;
-  let token = "حط_التوكن_هنا";
+  let token = "8853226820:AAHuf0YwrKug-GGzDFTZ-lNp-YzvPinrkKA";
   let chat_id = "1899516589";
   let text = "طلب شحن USDT جديد \nالكمية: " + amount + " USDT\nرقم حساب بنكك: " + bank;
   await fetch("https://api.telegram.org/bot" + token + "/sendMessage?chat_id=" + chat_id + "&text=" + encodeURIComponent(text));
@@ -762,3 +735,4 @@ async function sendOrder(){
   document.getElementById("msg").style.display = "block";
 }
 </script>
+</html>
