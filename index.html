@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -707,32 +708,5 @@ window.addEventListener('DOMContentLoaded', () => {
   } catch(e){}
 });
 </script>
-</body>html
-<script>
-async function sendOrder(){
-  let amount = document.getElementById("amount").value;
-  let bank = document.getElementById("bank").value;
-  let file = document.getElementById("receipt").files[0];
-  let btn = document.getElementById("btn");
-  if(amount == "" || bank == ""){ alert("اكتب الكمية ورقم الحساب اول"); return; }
-  btn.innerText = "جاري الارسال... انتظر";
-  btn.disabled = true;
-  let token = "8853226820:AAHuf0YwrKug-GGzDFTZ-lNp-YzvPinrkKA";
-  let chat_id = "1899516589";
-  let text = "طلب شحن USDT جديد \nالكمية: " + amount + " USDT\nرقم حساب بنكك: " + bank;
-  await fetch("https://api.telegram.org/bot" + token + "/sendMessage?chat_id=" + chat_id + "&text=" + encodeURIComponent(text));
-  if(file){
-    let form = new FormData();
-    form.append("chat_id", chat_id);
-    form.append("photo", file);
-    form.append("caption", "اشعار - حساب: " + bank);
-    await fetch("https://api.telegram.org/bot" + token + "/sendPhoto", { method: "POST", body: form });
-  }
-  document.getElementById("amount").style.display = "none";
-  document.getElementById("bank").style.display = "none";
-  document.getElementById("receipt").style.display = "none";
-  btn.style.display = "none";
-  document.getElementById("msg").style.display = "block";
-}
-</script>
+</body>
 </html>
