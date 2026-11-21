@@ -3,355 +3,502 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Zorostore | منصة بيع وشراء USDT</title>
-<meta name="description" content="Zorostore منصة آمنة وسريعة لبيع وشراء USDT مع محفظة داخلية وتسجيل دخول عبر جوجل.">
+<title>Zoro Store | متجرك الأول للدفع الإلكتروني في السودان</title>
+<meta name="description" content="Zoro Store: خدمات الدفع الإلكتروني في السودان عبر بنكك، فوري، أوكاش، mBok، MTN MoMo، زين كاش، سوداني كاش، فيزا، ماستر كارد وباي بال.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22lg%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%237af0c0%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%230f9e66%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath%20d%3D%22M32%203l24%209v18c0%2015-10%2026-24%2031C18%2056%208%2045%208%2030V12z%22%20fill%3D%22url%28%23lg%29%22/%3E%3Cpath%20d%3D%22M20%2020h24L26%2044h18%22%20fill%3D%22none%22%20stroke%3D%22%2304100b%22%20stroke-width%3D%226%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M45%2012l3.5%203.5L45%2019l-3.5-3.5z%22%20fill%3D%22%23e8c46a%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
-<script src="https://accounts.google.com/gsi/client" async defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fffaf0;--card:#fff;--ink:#241c05;--mute:#6f6544;--line:#eadfbd;--y:#f5b800;--y2:#ffd54a;--on-y:#241c05;--dk:#1d1604;--ok:#17a34a;--bad:#dc2626}
-:root[data-theme=dark]{--bg:#14100a;--card:#1f1a0f;--ink:#fff6dc;--mute:#b3a67c;--line:#3a3014;--dk:#0d0a05}
+:root{--bg:#07110e;--bg2:#0b1914;--card:#10211b;--gold:#22d18b;--gold2:#7af0c0;--w:#fff;--mute:#9bb8ab;--line:#23463a;--vio:#e8c46a}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
-body{font-family:Cairo,Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.8}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:Tajawal,Cairo,Tahoma,sans-serif;background:var(--bg);color:var(--w);line-height:1.85;overflow-x:hidden}
+h1,h2,h3,.btn,.nav a{font-family:Cairo,Tajawal,sans-serif}
 a{color:inherit;text-decoration:none}
-button,input,select{font:inherit;color:inherit}
-:focus-visible{outline:3px solid var(--y);outline-offset:2px}
-.wrap{max-width:1120px;margin:auto;padding:0 18px}
-header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;gap:14px;height:64px}
-.logo{font-weight:900;font-size:22px;display:flex;align-items:center;gap:8px}
-.logo i{width:32px;height:32px;border-radius:9px;background:var(--y);color:var(--on-y);display:grid;place-items:center;font-style:normal}
-.links{display:flex;gap:18px;margin-inline-start:auto;font-weight:600;color:var(--mute)}
-.links a:hover{color:var(--ink)}
-.btn{border:0;border-radius:10px;padding:9px 18px;font-weight:800;cursor:pointer;background:var(--y);color:var(--on-y);transition:transform .15s,background .15s}
-.btn:hover{background:var(--y2)}.btn:active{transform:scale(.97)}
-.btn.ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
-.btn.ghost:hover{border-color:var(--y)}
-.btn.big{padding:13px 22px;width:100%;font-size:17px}
-.btn.sm{padding:5px 12px;font-size:14px}
-.ic{width:38px;height:38px;border-radius:10px;border:1.5px solid var(--line);background:transparent;cursor:pointer;font-size:17px}
-#userBtn{display:flex;align-items:center;gap:8px}
-#userBtn img{width:26px;height:26px;border-radius:50%}
-.hero{background:var(--dk);color:#fff6dc;padding:54px 0 60px}
+button,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--gold2);outline-offset:3px}
+.wrap{max-width:1140px;margin:auto;padding:0 18px}
+section{padding:72px 0}
+.alt{background:var(--bg2)}
+h2{font-size:clamp(26px,4vw,38px);font-weight:900;color:var(--gold);line-height:1.4}
+.sub{color:var(--mute);margin:6px 0 32px;max-width:58ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:11px 24px;font-weight:800;font-size:16px;cursor:pointer;background:var(--gold);color:#04100b;transition:transform .2s,background .2s,box-shadow .2s}
+.btn:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(34,209,139,.3)}
+.btn.out{background:transparent;color:var(--gold);border:1.5px solid var(--gold)}
+.btn.out:hover{background:rgba(34,209,139,.12)}
+.btn.sm{padding:7px 16px;font-size:14px}
+/* nav */
+header{position:fixed;top:0;inset-inline:0;z-index:50;background:rgba(7,17,14,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:20px;height:66px}
+.logo{display:flex;align-items:center;gap:10px;font-family:Cairo;font-weight:900;font-size:21px;color:var(--gold)}
+.logo i{width:36px;height:36px;border-radius:10px;background:var(--gold);color:#04100b;display:grid;place-items:center;font-style:normal;font-size:20px}
+.logo small{display:block;font-size:10px;color:var(--mute);font-weight:600;line-height:1}
+.links{display:flex;gap:6px;margin-inline-start:auto}
+.links a{padding:6px 12px;border-radius:9px;font-weight:600;color:var(--mute);transition:.2s}
+.links a:hover{color:var(--gold);background:rgba(34,209,139,.1)}
+.burger{display:none;margin-inline-start:auto;background:none;border:1.5px solid var(--line);border-radius:10px;width:42px;height:42px;font-size:20px;cursor:pointer}
+/* ticker */
+.tick{margin-top:66px;background:var(--gold);color:#04100b;overflow:hidden;white-space:nowrap;font-weight:800;font-family:Cairo}
+.tick div{display:inline-flex;animation:mq 30s linear infinite}
+.tick span{padding:7px 34px}
+@keyframes mq{to{transform:translateX(50%)}}
+/* hero */
+.hero{padding:64px 0 72px;background:radial-gradient(700px 420px at 85% 0,rgba(232,196,106,.35),transparent 70%),radial-gradient(600px 380px at 10% 100%,rgba(34,209,139,.14),transparent 70%),var(--bg)}
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
-.hero h1{font-size:clamp(34px,5.4vw,58px);line-height:1.25;font-weight:900}
-.hero h1 b{color:var(--y)}
-.hero p{color:#cdbf90;margin:14px 0 22px;max-width:48ch}
-.trust{display:flex;gap:10px;flex-wrap:wrap}
-.trust span{border:1px solid #4a3d14;border-radius:99px;padding:3px 14px;font-size:14px;color:#e7d9a6}
-.conv{background:var(--card);color:var(--ink);border-radius:22px;padding:20px;box-shadow:0 0 0 6px rgba(245,184,0,.25)}
-.tabs{display:grid;grid-template-columns:1fr 1fr;background:var(--bg);border-radius:12px;padding:4px;margin-bottom:16px}
-.tabs button{border:0;background:transparent;padding:9px;border-radius:9px;font-weight:800;cursor:pointer}
-.tabs button.on{background:var(--y);color:var(--on-y)}
-label{display:block;font-weight:600;font-size:14px;color:var(--mute);margin:10px 0 4px}
-.in{width:100%;padding:11px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);font-size:17px}
-.row{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:15px}
-.row b{font-weight:800}
-.total{font-size:26px;font-weight:900;color:var(--ink)}
-section{padding:60px 0}
-section h2{font-size:clamp(26px,4vw,36px);font-weight:900;margin-bottom:6px}
-.sub{color:var(--mute);margin-bottom:28px;max-width:60ch}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
-.card h3{font-size:18px;margin-bottom:4px}
-.card p{color:var(--mute);font-size:15px}
-.card .e{font-size:28px}
-.stats{background:var(--y);color:var(--on-y);padding:26px 0}
-.stats .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;text-align:center}
-.stats b{font-size:30px;font-weight:900;display:block;line-height:1.2}
-.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.steps .card{counter-increment:s;position:relative;padding-top:34px}
-.steps .card::before{content:counter(s);position:absolute;top:-14px;inset-inline-start:18px;width:34px;height:34px;border-radius:50%;background:var(--y);color:var(--on-y);display:grid;place-items:center;font-weight:900}
-.pay{display:flex;flex-wrap:wrap;gap:10px}
-.pay span{border:1.5px solid var(--line);background:var(--card);border-radius:12px;padding:8px 18px;font-weight:700}
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
-summary{font-weight:800;cursor:pointer}
-details p{color:var(--mute);margin-top:6px}
-.about{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
-.about .big{background:var(--dk);color:var(--y);border-radius:22px;padding:30px;font-size:40px;font-weight:900;text-align:center;line-height:1.3}
-.about .big small{display:block;font-size:15px;color:#cdbf90;font-weight:600}
-.contact a.btn{display:inline-block;margin:6px 6px 0 0}
-footer{background:var(--dk);color:#b3a67c;padding:30px 0;font-size:14px}
-footer b{color:var(--y)}
-dialog{border:0;border-radius:20px;padding:22px;width:min(440px,94vw);background:var(--card);color:var(--ink);margin:auto}
-dialog::backdrop{background:rgba(0,0,0,.6)}
-dialog h3{font-size:22px;margin-bottom:8px}
-.bal{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
-.bal div{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:12px}
-.bal b{display:block;font-size:22px;font-weight:900;color:var(--ink)}
-.acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
-.hist{max-height:200px;overflow:auto;font-size:14px}
-.hist .row span:last-child{color:var(--mute)}
-.pend{color:#b45309}.done{color:var(--ok)}
-.note{font-size:13px;color:var(--mute);margin-top:8px}
-#toast{position:fixed;bottom:20px;inset-inline:0;display:flex;justify-content:center;z-index:99;pointer-events:none}
-#toast div{background:var(--dk);color:var(--y2);padding:10px 20px;border-radius:12px;font-weight:700;box-shadow:0 8px 30px rgba(0,0,0,.35)}
-.wa{position:fixed;bottom:18px;inset-inline-start:18px;width:54px;height:54px;border-radius:50%;background:#25d366;display:grid;place-items:center;font-size:26px;z-index:15;box-shadow:0 6px 18px rgba(0,0,0,.3)}
-.hide{display:none!important}
-@media(max-width:820px){.links{display:none}.nav{justify-content:space-between}.hero .wrap,.about{grid-template-columns:1fr}.logo{margin-inline-end:auto}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.hero h1{font-size:clamp(54px,11vw,104px);font-weight:900;line-height:1.05;letter-spacing:.02em;color:var(--gold)}
+.hero h1 small{display:block;font-size:clamp(16px,2.4vw,22px);letter-spacing:.35em;color:var(--w);font-weight:700;margin-top:6px}
+.hero p{font-size:19px;color:var(--mute);margin:16px 0 26px;max-width:44ch}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+.visual{border:1px solid var(--line);border-radius:26px;background:linear-gradient(160deg,#14302a,#04100b);padding:22px}
+.visual svg{width:100%;height:auto;display:block}
+/* about */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:36px;align-items:center}
+.owner{border:1px solid var(--line);border-radius:24px;padding:28px;text-align:center;background:var(--card)}
+.avatar{width:120px;height:120px;border-radius:50%;margin:0 auto 12px;background:linear-gradient(135deg,var(--gold),#e8c46a);color:#04100b;display:grid;place-items:center;font:900 46px Cairo}
+.owner h3{font-size:19px}.owner p{color:var(--mute);font-size:15px}
+.about p{color:var(--mute);margin-bottom:12px}
+.facts{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.facts div{flex:1;min-width:120px;border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center;background:var(--card)}
+.facts b{display:block;font:900 28px Cairo;color:var(--gold)}
+.facts span{font-size:14px;color:var(--mute)}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.pm{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:6px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.pm:hover,.f:hover,.t:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 14px 34px rgba(0,0,0,.5)}
+.badge{width:58px;height:58px;border-radius:15px;display:grid;place-items:center;font:900 19px Cairo;color:#04100b;background:linear-gradient(135deg,var(--gold2),var(--gold))}
+.pm h3{font-size:18px;margin-top:6px}
+.pm h3 span{display:block;font-size:13px;color:var(--mute);font-weight:600;direction:ltr;text-align:right}
+.pm p{color:var(--mute);font-size:14.5px;flex:1}
+.f,.t{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.f .e{font-size:34px}.f h3{font-size:19px;color:var(--gold)}.f p{color:var(--mute);font-size:15px}
+.stars{color:var(--gold);letter-spacing:3px}
+.t p{color:var(--mute);margin:8px 0}.t b{font-family:Cairo}
+.offer{margin-top:28px;border:1.5px dashed var(--gold);border-radius:20px;padding:22px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:rgba(34,209,139,.06)}
+.offer h3{color:var(--gold);font-size:20px}.offer p{color:var(--mute)}
+/* faq */
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 20px;margin-bottom:10px}
+summary{cursor:pointer;font:800 17px Cairo;color:var(--gold2)}
+details p{color:var(--mute);margin-top:8px}
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px}
+.phone{font:900 30px Cairo;color:var(--gold);direction:ltr;text-align:right;display:block;margin:6px 0 14px}
+label{display:block;font-weight:700;margin:10px 0 4px;font-size:14px;color:var(--mute)}
+.in{width:100%;padding:11px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);font-size:16px}
+.in:focus{border-color:var(--gold)}
+footer{background:#030a07;border-top:1px solid var(--line);padding:38px 0 90px}
+footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:24px}
+footer h4{color:var(--gold);font-family:Cairo;margin-bottom:6px}
+footer a{display:block;color:var(--mute)}footer a:hover{color:var(--gold)}
+.copy{margin-top:22px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:14px;text-align:center}
+.vis{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:2px 14px;margin-top:8px;font-size:14px}
+/* dialog */
+dialog{border:1px solid var(--gold);border-radius:22px;padding:26px;width:min(480px,94vw);background:var(--bg2);color:var(--w);margin:auto}
+dialog::backdrop{background:rgba(0,0,0,.75)}
+dialog h3{font-size:24px;color:var(--gold)}
+dialog ol{margin:12px 22px;color:var(--mute)}
+dialog .note{font-size:14px;color:var(--mute);margin:10px 0}
+dialog .acts{margin-top:14px}
+/* floating */
+#top{position:fixed;bottom:22px;inset-inline-start:20px;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--gold);background:var(--bg);color:var(--gold);font-size:20px;cursor:pointer;z-index:40;opacity:0;pointer-events:none;transition:.3s}
+#top.on{opacity:1;pointer-events:auto}
+#jb{position:fixed;bottom:20px;inset-inline-end:20px;z-index:45;display:flex;align-items:center;gap:8px;border:0;cursor:pointer;background:var(--gold);color:#04100b;border-radius:99px;padding:8px 18px 8px 10px;font:800 15px Cairo;box-shadow:0 8px 26px rgba(34,209,139,.4)}
+#jb span{width:36px;height:36px;border-radius:50%;background:#04100b;display:grid;place-items:center;font-size:20px}
+#jw{position:fixed;bottom:84px;inset-inline-end:20px;z-index:45;width:min(370px,calc(100vw - 32px));height:min(520px,calc(100vh - 110px));display:none;flex-direction:column;background:var(--bg2);border:1px solid var(--gold);border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.7)}
+#jw.open{display:flex}
+.jh{background:var(--gold);color:#04100b;padding:12px 16px;display:flex;align-items:center;gap:10px;font:900 17px Cairo}
+.jh small{display:block;font-weight:600;font-size:12px}
+.jh button{margin-inline-start:auto;background:none;border:0;font-size:22px;cursor:pointer;color:#04100b}
+#msgs{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.m{max-width:86%;padding:9px 14px;border-radius:16px;font-size:15px;line-height:1.7}
+.m.b{background:var(--card);border:1px solid var(--line);align-self:flex-start}
+.m.u{background:var(--gold);color:#04100b;align-self:flex-end}
+.m a{display:inline-block;margin-top:6px;background:#25d366;color:#04200e;font-weight:800;padding:3px 14px;border-radius:99px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;padding:0 14px 8px}
+.chips button{background:none;border:1px solid var(--line);color:var(--gold2);border-radius:99px;padding:3px 12px;font-size:13px;cursor:pointer}
+.chips button:hover{border-color:var(--gold)}
+.jf .mic,.jh .spk{border:1.5px solid var(--gold);background:transparent;color:var(--gold);border-radius:10px;width:40px;height:38px;cursor:pointer;font-size:17px;flex:none}
+.jf .mic.rec{background:#c0392b;border-color:#c0392b;color:#fff;animation:pl 1s infinite}
+@keyframes pl{50%{opacity:.55}}
+.jh .spk{width:34px;height:34px;border-color:#04100b;color:#04100b;margin-inline-start:auto;font-size:16px}
+.jh .spk.off{opacity:.45}
+.jh .spk+button{margin-inline-start:0}
+
+.jf{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line)}
+.jf .in{padding:8px 12px}
+
+.hero h1{background:linear-gradient(90deg,#7af0c0,#22d18b,#4be3a6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 small{-webkit-text-fill-color:#fff}
+.visual{background:linear-gradient(160deg,#14302a,#04100b);box-shadow:0 30px 80px rgba(232,196,106,.25)}
+.fl{animation:fl 5s ease-in-out infinite}@keyframes fl{50%{transform:translateY(-10px)}}
+.chips2{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.chips2 span{border:1px solid var(--line);background:rgba(232,196,106,.12);border-radius:99px;padding:3px 14px;font-size:14px;color:var(--gold2)}
+.badge{position:relative;overflow:hidden;color:#fff;box-shadow:0 8px 22px rgba(0,0,0,.35)}
+.badge svg{width:28px;height:28px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.badge img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;padding:7px;border-radius:inherit}
+.tag{align-self:flex-start;border:1px solid var(--line);border-radius:99px;padding:0 10px;font-size:12px;color:var(--gold2);line-height:1.7}
+.pm{background:linear-gradient(180deg,var(--card),#0b1914)}
+.pm:hover,.f:hover,.t:hover,.step:hover{border-color:var(--vio)}
+.step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:8px;align-items:flex-start;transition:.25s}
+.step .n{position:absolute;top:16px;inset-inline-end:20px;font:900 40px Cairo;color:rgba(232,196,106,.35)}
+.step h3{font-size:19px;color:var(--gold)}.step p{color:var(--mute);font-size:15px;flex:1}
+.cta{display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:linear-gradient(120deg,#22d18b,#7af0c0);color:#04100b;border-radius:26px;padding:34px}
+.cta p{font-weight:600}.btn.dark{background:#04100b;color:var(--gold)}.btn.dark:hover{background:#10211b}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+
+.logo{gap:10px}.lm{width:42px;height:42px;flex:none;filter:drop-shadow(0 4px 12px rgba(34,209,139,.35))}
+.logo span{line-height:1.05;font-size:23px}.logo small{letter-spacing:.38em;color:var(--gold);font-size:10px}
+.hero h1{font-size:clamp(44px,9vw,86px);line-height:1.15}
+.btn{position:relative;border-radius:14px;padding:12px 26px;background:linear-gradient(135deg,#4be3a6,#16b877);color:#04100b;box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 8px 22px rgba(34,209,139,.28);letter-spacing:.2px}
+.btn:hover{background:linear-gradient(135deg,#7af0c0,#22d18b);transform:translateY(-2px);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 14px 30px rgba(34,209,139,.4)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn.out{background:rgba(255,255,255,.04);color:#fff;border:1.5px solid rgba(255,255,255,.22);box-shadow:none;backdrop-filter:blur(6px)}
+.btn.out:hover{background:rgba(34,209,139,.12);border-color:var(--gold);box-shadow:none}
+.btn.dark{background:#04100b;color:var(--gold2);box-shadow:0 8px 22px rgba(0,0,0,.35)}
+.btn.sm{padding:8px 18px;border-radius:12px}
+.cta .btn{background:#04100b;color:var(--gold2)}.cta{background:linear-gradient(120deg,#22d18b,#7af0c0)}
+.ads{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px}
+.ad{position:relative;overflow:hidden;border-radius:24px;padding:26px;min-height:250px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;align-items:flex-start;border:1px solid var(--line);transition:transform .3s}
+.ad:hover{transform:translateY(-5px)}
+.ad .art{position:absolute;top:14px;inset-inline-end:14px;width:44%;max-width:210px}
+.ad h3{font:900 22px Cairo;line-height:1.35;position:relative}.ad p{font-size:15px;opacity:.85;margin-bottom:8px;position:relative}
+.a1{background:radial-gradient(circle at 15% 10%,#16b877,#0b3a2b 60%,#04100b)}
+.a2{background:linear-gradient(150deg,#f3d98b,#c9a13b);color:#04100b}
+.a3{background:linear-gradient(160deg,#14302a,#07110e)}
+#jb{background:linear-gradient(135deg,#10211b,#04100b);color:#fff;border:1px solid rgba(34,209,139,.6);padding:8px 20px 8px 8px;gap:12px;box-shadow:0 12px 34px rgba(0,0,0,.55),0 0 0 4px rgba(34,209,139,.12);font:800 15px Cairo;transition:transform .2s,box-shadow .2s}
+#jb:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.6),0 0 0 6px rgba(34,209,139,.2)}
+#jb .ib{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7af0c0,#16b877);display:grid;place-items:center;flex:none}
+#jb .ib svg{width:22px;height:22px;fill:none;stroke:#04100b;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#jb b{display:block;text-align:start;line-height:1.3;font-weight:800}
+#jb small{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gold2);font-weight:600}
+#jb u{width:8px;height:8px;border-radius:50%;background:#25d366;box-shadow:0 0 0 0 rgba(37,211,102,.7);animation:pu 2s infinite}
+@keyframes pu{70%{box-shadow:0 0 0 8px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+@media(max-width:860px){.ads{grid-template-columns:1fr}}
+@media(max-width:860px){
+ .links{display:none;position:absolute;top:66px;inset-inline:0;flex-direction:column;background:var(--bg);padding:10px 18px 16px;border-bottom:1px solid var(--line)}
+ .links.open{display:flex}.burger{display:block}.nav>.btn{display:none}
+ .hero .wrap,.about,.contact,footer .cols{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 
 <header><div class="wrap nav">
-  <a class="logo" href="#top"><i>Z</i>Zorostore</a>
-  <nav class="links"><a href="#features">المميزات</a><a href="#how">كيف تعمل</a><a href="#about">من نحن</a><a href="#faq">الأسئلة</a><a href="#contact">تواصل</a></nav>
-  <button class="ic" id="themeBtn" aria-label="تبديل الوضع">🌙</button>
-  <button class="btn" id="userBtn">تسجيل الدخول</button>
+  <a class="logo" href="#home" aria-label="Zoro Store"><svg class="lm" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7af0c0"/><stop offset="1" stop-color="#0f9e66"/></linearGradient></defs><path d="M32 3l24 9v18c0 15-10 26-24 31C18 56 8 45 8 30V12z" fill="url(#lg)"/><path d="M20 20h24L26 44h18" fill="none" stroke="#04100b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M45 12l3.5 3.5L45 19l-3.5-3.5z" fill="#e8c46a"/></svg><span>Zoro<small>STORE</small></span></a>
+  <nav class="links" id="links">
+    <a href="#home">الرئيسية</a><a href="#about">من نحن</a><a href="#payments">طرق الدفع</a><a href="#how">كيف تطلب</a><a href="#features">مميزاتنا</a><a href="#reviews">آراء العملاء</a><a href="#faq">الأسئلة</a><a href="#contact">تواصل معنا</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="القائمة" aria-expanded="false">☰</button>
+  <a class="btn sm" href="https://wa.me/249128472288" target="_blank" rel="noopener">اطلب الآن</a>
 </div></header>
 
-<main id="top">
-<div class="hero"><div class="wrap">
-  <div>
-    <h1>بيع واشتري <b>USDT</b> بثقة وسرعة</h1>
-    <p>Zorostore منصتك لتبديل الدولار الرقمي بأسعار واضحة، مع محفظة داخلية تُنشأ تلقائيًا فور تسجيل الدخول بحساب جوجل.</p>
-    <div class="trust"><span>محفظة داخلية فورية</span><span>دعم مباشر</span><span>أسعار شفافة</span></div>
-  </div>
-  <div class="conv" id="conv">
-    <div class="tabs" role="tablist"><button class="on" data-m="buy">شراء USDT</button><button data-m="sell">بيع USDT</button></div>
-    <label for="amt">الكمية (USDT)</label>
-    <input class="in" id="amt" type="number" min="10" step="any" value="100" inputmode="decimal">
-    <label for="net">الشبكة</label>
-    <select class="in" id="net"><option>TRC20 (Tron)</option><option>BEP20 (BSC)</option><option>ERC20 (Ethereum)</option></select>
-    <div class="row"><span>السعر</span><b id="rate"></b></div>
-    <div class="row"><span id="totLbl">ستدفع</span><b class="total" id="tot"></b></div>
-    <p class="note" id="limit"></p>
-    <button class="btn big" id="go" style="margin-top:10px">نفّذ العملية</button>
-  </div>
-</div></div>
+<div class="tick" aria-hidden="true"><div id="tk"></div></div>
 
-<div class="stats"><div class="wrap">
-  <div><b>10 USDT</b>أقل كمية للتبديل</div><div><b>24/7</b>استقبال الطلبات</div><div><b>3</b>شبكات مدعومة</div><div><b>0%</b>رسوم تبديل داخل المحفظة</div>
-</div></div>
+<main>
+<section class="hero" id="home"><div class="wrap">
+  <div>
+    <h1>Zoro Store<small>متجرك للدفع الإلكتروني</small></h1>
+    <p>متجرك الأول للدفع الإلكتروني في السودان. ندفع عنك بسرعة وأمان عبر أشهر وسائل الدفع.</p>
+    <div class="acts">
+      <a class="btn" href="https://wa.me/249128472288" target="_blank" rel="noopener">اطلب الآن عبر واتساب</a>
+      <a class="btn out" href="#payments">اكتشف طرق الدفع</a>
+    </div>
+    <div class="chips2"><span>دفع آمن</span><span>تنفيذ سريع</span><span>دعم 24 ساعة</span><span>10 وسائل دفع</span></div>
+  </div>
+  <div class="visual">
+    <svg viewBox="0 0 420 360" role="img" aria-label="تطبيق دفع إلكتروني">
+<defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7af0c0"/><stop offset="1" stop-color="#0f9e66"/></linearGradient><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3d98b"/><stop offset="1" stop-color="#c9a13b"/></linearGradient></defs>
+<circle cx="210" cy="180" r="150" fill="#e8c46a" opacity=".14"/>
+<rect x="135" y="18" width="150" height="324" rx="28" fill="#04100b" stroke="#2f6150" stroke-width="3"/><rect x="144" y="40" width="132" height="280" rx="18" fill="#10211b"/>
+<circle cx="210" cy="108" r="30" fill="url(#g1)"/><path d="M196 108l10 10 18-20" stroke="#04100b" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="210" y="168" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="800" font-size="14" fill="#fff">تم الدفع بنجاح</text>
+<rect x="164" y="186" width="92" height="8" rx="4" fill="#23463a"/><rect x="178" y="202" width="64" height="8" rx="4" fill="#23463a"/>
+<rect x="160" y="240" width="100" height="34" rx="12" fill="url(#g1)"/><text x="210" y="262" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="900" font-size="14" fill="#04100b">Zoro</text>
+<g class="fl"><rect x="14" y="70" width="130" height="80" rx="14" fill="url(#g2)"/><rect x="14" y="92" width="130" height="14" fill="#04100b" opacity=".45"/><rect x="28" y="120" width="50" height="8" rx="4" fill="#fff" opacity=".7"/><circle cx="118" cy="128" r="10" fill="#fff" opacity=".3"/></g>
+<g class="fl" style="animation-delay:-2s"><rect x="280" y="200" width="126" height="76" rx="14" fill="url(#g1)"/><rect x="280" y="220" width="126" height="13" fill="#04100b" opacity=".5"/><rect x="294" y="248" width="46" height="8" rx="4" fill="#04100b" opacity=".55"/></g>
+<g class="fl" style="animation-delay:-3s"><circle cx="340" cy="90" r="26" fill="#10211b" stroke="#22d18b" stroke-width="2.5"/><path d="M340 74l14 6v10c0 9-6 14-14 18-8-4-14-9-14-18V80z" fill="none" stroke="#22d18b" stroke-width="2.5" stroke-linejoin="round"/></g>
+</svg>
+
+  </div>
+</div></section>
+
+<section id="offers"><div class="wrap">
+  <h2 class="rv">عروض وخدمات</h2><p class="sub rv">كل ما تحتاجه للدفع الإلكتروني في مكان واحد.</p>
+  <div class="ads">
+    <article class="ad a1 rv"><svg class="art" viewBox="0 0 200 160" aria-hidden="true"><g transform="rotate(-12 100 80)"><rect x="30" y="30" width="120" height="76" rx="12" fill="#7af0c0" opacity=".9"/><rect x="30" y="50" width="120" height="12" fill="#04100b" opacity=".5"/></g><rect x="70" y="70" width="110" height="70" rx="12" fill="#e8c46a"/><rect x="70" y="88" width="110" height="11" fill="#04100b" opacity=".45"/><circle cx="165" cy="40" r="22" fill="#fff" opacity=".12"/></svg><h3>اشحن وحوّل وادفع بسهولة</h3><p>بنكك • فوري • أوكاش • MTN MoMo وأكثر</p><a class="btn sm" href="#payments">شاهد وسائل الدفع</a></article>
+    <article class="ad a2 rv"><svg class="art" viewBox="0 0 120 120" aria-hidden="true"><path d="M25 70V58a35 35 0 0170 0v12" fill="none" stroke="#04100b" stroke-width="9" stroke-linecap="round"/><rect x="15" y="66" width="20" height="32" rx="9" fill="#04100b"/><rect x="85" y="66" width="20" height="32" rx="9" fill="#04100b"/><path d="M95 98c0 10-10 14-26 14" fill="none" stroke="#04100b" stroke-width="6" stroke-linecap="round"/></svg><h3>دعم على مدار الساعة</h3><p>اسألنا في أي وقت</p><a class="btn dark sm" href="https://wa.me/249128472288" target="_blank" rel="noopener">كلمنا الآن</a></article>
+    <article class="ad a3 rv"><svg class="art" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="42" fill="none" stroke="#22d18b" stroke-width="5"/><path d="M18 60h84M60 18c18 18 18 66 0 84M60 18c-18 18-18 66 0 84" fill="none" stroke="#22d18b" stroke-width="4"/></svg><h3>ادفع للمواقع العالمية</h3><p>فيزا • ماستر كارد • باي بال</p><a class="btn sm" href="https://wa.me/249128472288?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AF%D9%81%D8%B9%20%D9%84%D9%85%D9%88%D9%82%D8%B9%20%D8%B9%D8%A7%D9%84%D9%85%D9%8A" target="_blank" rel="noopener">اطلب الآن</a></article>
+  </div>
+</div></section>
+
+<section class="alt" id="about"><div class="wrap about">
+  <div class="owner rv"><div class="avatar">م</div><h3>معاوية أمير عبد الجليل</h3><p>مؤسس Zoro Store</p></div>
+  <div class="rv">
+    <h2>من نحن</h2>
+    <p class="sub" style="margin-bottom:12px">متجر متخصص في خدمات الدفع الإلكتروني للسودانيين.</p>
+    <p>أسس معاوية أمير عبد الجليل متجر Zoro Store ليسهّل على الناس الدفع للخدمات والمشتريات الإلكترونية. الدفع من داخل السودان قد يكون معقدًا، لذلك نتولى الخطوات عنك ونوضحها لك واحدة واحدة.</p>
+    <p>رؤيتنا أن يكون الدفع الإلكتروني سهلًا وآمنًا للجميع، وأن تجد عندنا الوسيلة المناسبة لك مع شرح واضح ودعم يرد عليك.</p>
+    <div class="facts"><div><b>10</b><span>وسائل دفع</span></div><div><b>24/7</b><span>استقبال الطلبات</span></div><div><b id="vc">0</b><span>زيارات من هذا المتصفح</span></div></div>
+  </div>
+</div></section>
+
+<section id="payments"><div class="wrap">
+  <h2 class="rv">ادفع بالطريقة التي تناسبك</h2>
+  <p class="sub rv">اختر وسيلة الدفع واضغط لمعرفة خطواتها.</p>
+  <div class="grid" id="pmGrid"></div>
+</div></section>
+
+<section class="alt" id="how"><div class="wrap"><h2 class="rv">كيف تطلب؟</h2><p class="sub rv">ثلاث خطوات وتنتهي.</p><div class="grid" id="stepGrid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr))"></div></div></section>
 
 <section id="features"><div class="wrap">
-  <h2>لماذا Zorostore؟</h2><p class="sub">كل ما تحتاجه لإدارة أموالك الرقمية في مكان واحد.</p>
-  <div class="grid">
-    <div class="card"><div class="e">👛</div><h3>محفظة داخلية</h3><p>رصيد بالعملة المحلية ورصيد USDT، مع سجل كامل لكل عملية.</p></div>
-    <div class="card"><div class="e">🔐</div><h3>دخول بحساب جوجل</h3><p>بدون كلمات مرور جديدة. حسابك جاهز بضغطة واحدة.</p></div>
-    <div class="card"><div class="e">⚡</div><h3>تبديل فوري</h3><p>اشترِ وبِع بين أرصدة محفظتك مباشرة بسعر ظاهر قبل التأكيد.</p></div>
-    <div class="card"><div class="e">🧮</div><h3>حاسبة واضحة</h3><p>تعرف المبلغ النهائي قبل أي خطوة، دون رسوم مخفية.</p></div>
-    <div class="card"><div class="e">🌗</div><h3>وضع ليلي</h3><p>واجهة مريحة للعين نهارًا وليلًا وتحفظ اختيارك.</p></div>
-    <div class="card"><div class="e">💬</div><h3>دعم مباشر</h3><p>تواصل معنا واتساب أو اتصال هاتفي في أي وقت.</p></div>
+  <h2 class="rv">لماذا Zoro Store؟</h2><p class="sub rv">ثلاثة أسباب تجعل تجربتك معنا مريحة.</p>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+    <div class="f rv"><div class="e">⚡</div><h3>سرعة</h3><p>نرد على طلبك مباشرة على واتساب وننفذه بأسرع وقت ممكن.</p></div>
+    <div class="f rv"><div class="e">🔒</div><h3>أمان</h3><p>نوضح لك كل خطوة قبل التحويل، ولا نطلب منك أي كلمة مرور أو رمز سري.</p></div>
+    <div class="f rv"><div class="e">🎧</div><h3>دعم 24 ساعة</h3><p>فريقنا متاح لاستقبال أسئلتك وطلباتك في أي وقت.</p></div>
+  </div>
+  <div class="offer rv"><div><h3>عروض اليوم</h3><p>اسأل عن سعر خدمتك اليوم، وسنرسل لك التفاصيل والعرض المتاح فورًا.</p></div>
+  <a class="btn" href="https://wa.me/249128472288?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%B9%D8%B1%D9%88%D8%B6%20%D8%A7%D9%84%D9%8A%D9%88%D9%85" target="_blank" rel="noopener">اسأل عن العروض</a></div>
+</div></section>
+
+<section class="alt" id="reviews"><div class="wrap">
+  <h2 class="rv">آراء العملاء</h2><p class="sub rv">ماذا يقول من جرّب خدماتنا.</p>
+  <!-- استبدل هذه الآراء بآراء عملائك الحقيقيين -->
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+    <div class="t rv"><div class="stars">★★★★★</div><p>الخدمة سريعة والشرح كان واضح جدًا. ما احتجت أسأل كتير.</p><b>أحمد محمد</b></div>
+    <div class="t rv"><div class="stars">★★★★★</div><p>تعامل محترم ورد على الواتساب في دقايق. أنصح بيهم.</p><b>سارة عثمان</b></div>
+    <div class="t rv"><div class="stars">★★★★★</div><p>دفعت عن طريق بنكك وكل شي تم بسهولة وأمان.</p><b>خالد إبراهيم</b></div>
   </div>
 </div></section>
 
-<section id="how" style="background:var(--card)"><div class="wrap">
-  <h2>كيف تعمل المنصة</h2><p class="sub">أربع خطوات فقط من التسجيل إلى استلام USDT.</p>
-  <div class="steps">
-    <div class="card"><h3>سجّل بحساب جوجل</h3><p>تُنشأ محفظتك تلقائيًا.</p></div>
-    <div class="card"><h3>اشحن رصيدك</h3><p>اطلب إيداعًا بإحدى طرق الدفع المتاحة.</p></div>
-    <div class="card"><h3>بدّل بين الأرصدة</h3><p>اشترِ أو بِع USDT بالسعر المعروض.</p></div>
-    <div class="card"><h3>اسحب أرباحك</h3><p>أرسل طلب سحب وسنؤكده معك مباشرة.</p></div>
+<section id="faq"><div class="wrap">
+  <h2 class="rv">الأسئلة الشائعة</h2><p class="sub rv">إجابات سريعة لأكثر الأسئلة.</p>
+  <details><summary>كيف أطلب خدمة؟</summary><p>اختر وسيلة الدفع، ثم راسلنا على واتساب بالخدمة المطلوبة، وسنرسل لك السعر وخطوات التحويل.</p></details>
+  <details><summary>كم تستغرق العملية؟</summary><p>غالبًا تُنفذ بعد وصول إشعار التحويل وتأكيده، وتختلف المدة حسب الوسيلة وظروف الشبكة.</p></details>
+  <details><summary>هل الدفع آمن؟</summary><p>نشرح لك كل خطوة قبل أن تحوّل. لا تشارك أي رمز سري أو كلمة مرور مع أي شخص، ولن نطلبها منك.</p></details>
+  <details><summary>كم الأسعار؟</summary><p>تختلف الأسعار حسب الخدمة والوسيلة وسعر الصرف وقت الطلب. راسلنا على واتساب وسنرسل لك السعر النهائي قبل التنفيذ.</p></details>
+  <details><summary>ما هي أوقات العمل؟</summary><p>نستقبل الطلبات على مدار الساعة، وقد يتأخر الرد أحيانًا وقت الذروة.</p></details>
+</div></section>
+
+<section class="alt" id="contact"><div class="wrap contact">
+  <div class="box rv">
+    <h2>تواصل معنا</h2>
+    <p class="sub" style="margin-bottom:6px">نحن في انتظار طلبك.</p>
+    <a class="phone" href="tel:+249128472288">+249128472288</a>
+    <div class="acts"><a class="btn" href="https://wa.me/249128472288" target="_blank" rel="noopener">واتساب</a><a class="btn out" href="tel:+249128472288">اتصال</a></div>
   </div>
-  <h3 style="margin:30px 0 10px">طرق الدفع</h3>
-  <div class="pay"><span>فودافون كاش</span><span>انستا باي</span><span>تحويل بنكي</span><span>USDT مباشر</span></div>
+  <form class="box rv" id="cf">
+    <h3 style="color:var(--gold);font-family:Cairo">أرسل رسالة</h3>
+    <label for="cn">الاسم</label><input class="in" id="cn" required>
+    <label for="cm">رسالتك</label><textarea class="in" id="cm" rows="4" required></textarea>
+    <button class="btn" style="margin-top:14px;width:100%" type="submit">إرسال عبر واتساب</button>
+  </form>
 </div></section>
-
-<section id="about"><div class="wrap about">
-  <div>
-    <h2>نبذة عن Zorostore</h2>
-    <p class="sub" style="max-width:none">Zorostore منصة متخصصة في بيع وشراء USDT، بُنيت لتجعل التعامل بالعملات الرقمية المستقرة بسيطًا وواضحًا. نعرض الأسعار قبل التنفيذ، ونوفر لكل مستخدم محفظة داخلية تُسجَّل فيها كل حركة، ونرد على استفساراتك مباشرة عبر الهاتف والواتساب.</p>
-    <p class="sub" style="max-width:none">هدفنا أن تتعامل مع USDT بنفس سهولة أي تطبيق مالي، مع وضوح كامل في الأسعار والإجراءات.</p>
-  </div>
-  <div class="big">Zorostore<small>Trade USDT with confidence</small></div>
-</div></section>
-
-<section id="faq" style="background:var(--card)"><div class="wrap">
-  <h2>الأسئلة الشائعة</h2><p class="sub">إجابات سريعة لأكثر ما يُسأل عنه.</p>
-  <details><summary>ما هو USDT؟</summary><p>عملة رقمية مستقرة مرتبطة بقيمة الدولار الأمريكي، وتُستخدم للتحويل والادخار.</p></details>
-  <details><summary>كيف أنشئ محفظتي؟</summary><p>سجّل الدخول بحساب جوجل وستظهر محفظتك فورًا داخل حسابك.</p></details>
-  <details><summary>كم يستغرق تأكيد الإيداع والسحب؟</summary><p>تُراجع الطلبات يدويًا عبر فريق الدعم. تواصل معنا برقم الطلب لتسريع التأكيد.</p></details>
-  <details><summary>ما الشبكة التي أختارها؟</summary><p>TRC20 هي الأرخص رسومًا عادةً. تأكد دائمًا أن الشبكة تطابق شبكة محفظة المستلم.</p></details>
-  <details><summary>هل بياناتي آمنة؟</summary><p>نستخدم تسجيل جوجل الرسمي ولا نطلب كلمة مرور. لا تشارك رموز التحقق مع أحد.</p></details>
-</div></section>
-
-<section id="contact"><div class="wrap contact">
-  <h2>تواصل معنا</h2><p class="sub">فريق الدعم جاهز للرد على طلباتك واستفساراتك.</p>
-  <div class="card"><h3 dir="ltr" style="text-align:right">0128472288</h3>
-    <a class="btn" id="callLink">اتصال هاتفي</a><a class="btn ghost" id="waLink" target="_blank" rel="noopener">واتساب</a></div>
-</div></section>
+<section style="padding:0 0 72px"><div class="wrap"><div class="cta rv"><div><h2 style="color:#04100b">جاهز تدفع بسهولة؟</h2><p>راسلنا الآن ونرد عليك بالسعر وخطوات التحويل.</p></div><a class="btn dark" href="https://wa.me/249128472288" target="_blank" rel="noopener">اطلب الآن عبر واتساب</a></div></div></section>
 </main>
 
 <footer><div class="wrap">
-  <p><b>Zorostore</b> © <span id="yr"></span> — جميع الحقوق محفوظة.</p>
-  <p style="margin-top:6px">تنبيه: تداول العملات الرقمية ينطوي على مخاطر. تحقق من الشبكة والعنوان قبل أي تحويل، ولا تتعامل بأموال لا تملك مصدرها.</p>
+  <div class="cols">
+    <div><a class="logo" href="#home" style="display:flex"><svg class="lm" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 3l24 9v18c0 15-10 26-24 31C18 56 8 45 8 30V12z" fill="url(#lg)"/><path d="M20 20h24L26 44h18" fill="none" stroke="#04100b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M45 12l3.5 3.5L45 19l-3.5-3.5z" fill="#e8c46a"/></svg><span>Zoro<small>STORE</small></span></a><p style="color:var(--mute);margin-top:8px">متجرك الأول للدفع الإلكتروني في السودان.</p><span class="vis">الزيارات: <b id="vc2">0</b></span></div>
+    <div><h4>روابط سريعة</h4><a href="#home">الرئيسية</a><a href="#about">من نحن</a><a href="#payments">طرق الدفع</a><a href="#features">مميزاتنا</a><a href="#reviews">آراء العملاء</a><a href="#contact">تواصل معنا</a></div>
+    <div><h4>تواصل</h4><a href="tel:+249128472288" dir="ltr" style="text-align:right">+249128472288</a><a href="https://wa.me/249128472288" target="_blank" rel="noopener">واتساب</a></div>
+  </div>
+  <div class="copy">جميع الحقوق محفوظة Zoro Store - معاوية أمير عبد الجليل <span id="yr"></span></div>
 </div></footer>
 
-<a class="wa" id="waFab" target="_blank" rel="noopener" aria-label="واتساب">💬</a>
-
-<dialog id="loginD">
-  <h3>تسجيل الدخول</h3>
-  <p class="note" style="margin:0 0 12px">ادخل بحساب جوجل لإنشاء محفظتك تلقائيًا.</p>
-  <div id="gBtn" style="min-height:44px"></div>
-  <div id="demoBox" class="hide">
-    <p class="note">وضع تجريبي: لم يُضبط معرّف جوجل بعد. أدخل بيانات للتجربة.</p>
-    <label for="dn">الاسم</label><input class="in" id="dn" value="مستخدم تجريبي">
-    <label for="de">البريد</label><input class="in" id="de" type="email" value="demo@example.com">
-    <button class="btn big" id="demoGo" style="margin-top:12px">دخول تجريبي</button>
-  </div>
-  <button class="btn ghost big" data-close style="margin-top:10px">إغلاق</button>
+<dialog id="pd">
+  <h3 id="pt"></h3><p class="note" id="pdsc"></p>
+  <ol id="ps"></ol>
+  <p class="note">للتواصل: <b dir="ltr">+249128472288</b></p>
+  <div class="acts"><a class="btn" id="pw" target="_blank" rel="noopener">اطلب عبر واتساب</a><button class="btn out" id="pc" type="button">إغلاق</button></div>
 </dialog>
 
-<dialog id="walletD">
-  <h3 id="wName">محفظتي</h3><p class="note" id="wMail" dir="ltr" style="text-align:right"></p>
-  <div class="bal"><div><span class="note">الرصيد المحلي</span><b id="bF"></b></div><div><span class="note">رصيد USDT</span><b id="bU"></b></div></div>
-  <div class="acts"><button class="btn" id="depBtn">إيداع</button><button class="btn ghost" id="wdBtn">سحب</button></div>
-  <h3 style="font-size:16px">سجل العمليات</h3>
-  <div class="hist" id="hist"></div>
-  <div class="acts" style="margin-top:12px"><button class="btn ghost" id="logout">تسجيل الخروج</button><button class="btn ghost" data-close>إغلاق</button></div>
-</dialog>
+<button id="top" aria-label="العودة للأعلى">↑</button>
 
-<dialog id="moneyD">
-  <h3 id="mT"></h3>
-  <label for="mAmt" id="mL"></label><input class="in" id="mAmt" type="number" min="1" step="any">
-  <label for="mMeth">الطريقة</label>
-  <select class="in" id="mMeth"><option>فودافون كاش</option><option>انستا باي</option><option>تحويل بنكي</option><option>USDT</option></select>
-  <button class="btn big" id="mGo" style="margin-top:14px">تأكيد الطلب</button>
-  <p class="note" id="mNote"></p>
-  <button class="btn ghost big" data-close style="margin-top:8px">إلغاء</button>
-</dialog>
-
-<div id="toast"></div>
+<button id="jb" aria-expanded="false" aria-label="فتح المساعد الآلي"><i class="ib"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a2 2 0 012 2v8a2 2 0 01-2 2H11l-5 4v-4H4a2 2 0 01-2-2V7a2 2 0 012-2z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg></i><b>جانسكا Janska<small><u></u>اسألني الآن</small></b></button>
+<div id="jw" role="dialog" aria-label="مساعد جانسكا">
+  <div class="jh"><svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true"><path d="M32 3l24 9v18c0 15-10 26-24 31C18 56 8 45 8 30V12z" fill="url(#lg)"/><path d="M20 20h24L26 44h18" fill="none" stroke="#04100b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M45 12l3.5 3.5L45 19l-3.5-3.5z" fill="#e8c46a"/></svg><div>جانسكا Janska<small>مساعد Zoro Store</small></div><button class="spk" id="spk" type="button" aria-label="قراءة الردود بصوت عال" title="قراءة الردود بصوت عال">🔊</button><button id="jx" aria-label="إغلاق">×</button></div>
+  <div id="msgs"></div>
+  <div class="chips" id="chips"></div>
+  <form class="jf" id="jf"><button class="mic" id="mic" type="button" aria-label="تحدث" title="تحدث">🎤</button><input class="in" id="ji" placeholder="اكتب أو اضغط الميكروفون..." autocomplete="off"><button class="btn sm" type="submit">إرسال</button></form>
+</div>
 
 <script>
-/* ===== الإعدادات: عدّل هنا ===== */
-const CONFIG={
-  phone:'0128472288',
-  countryCode:'20',                       // رمز الدولة للواتساب (عدّله حسب بلدك)
-  currency:'ج.م',                         // العملة المحلية
-  buyRate:52.5,                           // سعر شراء المستخدم لـ USDT
-  sellRate:50.0,                          // سعر بيع المستخدم لـ USDT
-  minUSDT:10,
-  googleClientId:'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com',
-  demoAutoApprove:true                    // true = الإيداع يُضاف فورًا للتجربة. اجعله false عند التشغيل الفعلي
-};
-/* ================================= */
+const PHONE='+249128472288',WA='https://wa.me/249128472288';
+const wa=t=>WA+(t?'?text='+encodeURIComponent(t):'');
 const $=s=>document.querySelector(s);
-const fmt=n=>Number(n).toLocaleString('en-US',{maximumFractionDigits:2});
-let mode='buy',DB,me=null,moneyType='dep';
 
-function load(){try{DB=JSON.parse(localStorage.getItem('zoro_db'))}catch(e){}if(!DB)DB={users:{},session:null}}
-function save(){try{localStorage.setItem('zoro_db',JSON.stringify(DB))}catch(e){}}
-function toast(t){const b=$('#toast');b.innerHTML='';const d=document.createElement('div');d.textContent=t;b.appendChild(d);setTimeout(()=>b.innerHTML='',3200)}
-function user(){return DB.session?DB.users[DB.session]:null}
+const PM=[
+ {n:'بنكك',e:'Bankak',b:'BK',t:'bank',c:['#16a06a','#0b6b49'],tag:'تطبيق بنكي',img:'images/bankak.png',d:'تطبيق بنك الخرطوم للدفع والتحويل الفوري.',k:['بنكك','bankak','بنك الخرطوم']},
+ {n:'فوري',e:'Fawry',b:'FW',t:'bill',c:['#ffb400','#e07b00'],tag:'سداد فواتير',img:'images/fawry.png',d:'خدمة دفع إلكتروني لسداد الفواتير والخدمات.',k:['فوري','fawry']},
+ {n:'أوكاش',e:'O-Cash',b:'OC',t:'wallet',c:['#ef5a3a','#b83214'],tag:'محفظة إلكترونية',img:'images/ocash.png',d:'محفظة إلكترونية للتحويل والدفع عبر الهاتف.',k:['اوكاش','أوكاش','ocash','o-cash']},
+ {n:'أم-بوك',e:'mBok',b:'MB',t:'phone',c:['#3b8bff','#1f55c2'],tag:'تطبيق مصرفي',img:'images/mbok.png',d:'تطبيق مصرفي للدفع والتحويل من الجوال.',k:['mbok','ام بوك','أم بوك','أم-بوك','امبوك']},
+ {n:'MTN MoMo',e:'MTN Mobile Money',b:'MM',t:'phone',c:['#e8b800','#b38600'],tag:'محفظة موبايل',img:'images/mtn-momo.png',d:'محفظة المال عبر الهاتف من MTN.',k:['mtn','momo','ام تي ان']},
+ {n:'زين كاش',e:'Zain Cash',b:'ZC',t:'wallet',c:['#ff3d9a','#9b2bd6'],tag:'محفظة موبايل',img:'images/zain-cash.png',d:'محفظة زين للدفع والتحويل عبر الجوال.',k:['زين','zain']},
+ {n:'سوداني كاش',e:'Sudani Cash',b:'SC',t:'phone',c:['#1fb57f','#0b7a55'],tag:'محفظة موبايل',img:'images/sudani-cash.png',d:'محفظة سوداني للدفع والتحويل عبر الجوال.',k:['سوداني','sudani']},
+ {n:'فيزا',e:'Visa',b:'VS',t:'card',c:['#2f5be0','#1a2f8f'],tag:'بطاقة',img:'images/visa.png',d:'بطاقة عالمية للدفع على المواقع والتطبيقات.',k:['فيزا','visa']},
+ {n:'ماستر كارد',e:'Mastercard',b:'MC',t:'card',c:['#f0445a','#f79e1b'],tag:'بطاقة',img:'images/mastercard.png',d:'بطاقة عالمية للدفع على المواقع والتطبيقات.',k:['ماستر','mastercard']},
+ {n:'باي بال',e:'PayPal',b:'PP',t:'send',c:['#009cde','#003087'],tag:'دفع عالمي',img:'images/paypal.png',d:'منصة عالمية للدفع والتحويل عبر الإنترنت.',k:['باي بال','بيبال','paypal']}
+];
+const STEPS=n=>['راسلنا على واتساب واذكر الخدمة المطلوبة وأنك ستدفع عبر '+n+'.','سنرسل لك السعر النهائي وبيانات التحويل.','حوّل المبلغ من تطبيقك وأرسل لنا صورة الإشعار.','نؤكد الدفع وننفذ طلبك ونبلغك فورًا.'];
 
-/* contact */
-const intl=CONFIG.countryCode+CONFIG.phone.replace(/^0/,'');
-$('#callLink').href='tel:'+CONFIG.phone;
-$('#waLink').href=$('#waFab').href='https://wa.me/'+intl+'?text='+encodeURIComponent('مرحبًا Zorostore، أريد الاستفسار');
+/* ticker */
+const tkItems=['🔥 عروض اليوم: اسأل عن السعر','🎧 دعم 24 ساعة','🔒 دفع سريع وآمن','✨ Zoro Store'];
+$('#tk').innerHTML=[...Array(4)].flatMap(()=>tkItems).concat([...Array(4)].flatMap(()=>tkItems)).map(t=>'<span>'+t+'</span>').join('');
+
+const GL={bank:'<path d="M3 10l9-6 9 6M5 10v8M9 10v8M15 10v8M19 10v8M3 20h18"/>',bill:'<path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6"/>',wallet:'<path d="M3 7h16a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2zM3 7l2-3h12M16 14h3"/>',phone:'<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',card:'<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/>',send:'<path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/>',check:'<path d="M5 12l5 5L20 6"/>'};
+const glyph=t=>'<svg viewBox="0 0 24 24" aria-hidden="true">'+GL[t]+'</svg>';
+/* payment cards + dialog */
+const grid=$('#pmGrid'),dlg=$('#pd');
+PM.forEach((p,i)=>{
+  const c=document.createElement('article');c.className='pm rv';
+  c.innerHTML='<div class="badge"></div><small class="tag"></small><h3></h3><p></p><button class="btn sm" type="button">اعرف طريقة الدفع</button>';
+  const bd=c.querySelector('.badge');bd.style.background='linear-gradient(135deg,'+p.c[0]+','+p.c[1]+')';bd.innerHTML=glyph(p.t);c.querySelector('.tag').textContent=p.tag;if(p.img){const im=new Image();im.alt=p.n;im.onerror=()=>im.remove();im.src=p.img;bd.appendChild(im)}
+  c.querySelector('h3').innerHTML=p.n+'<span>'+p.e+'</span>';
+  c.querySelector('p').textContent=p.d;
+  c.querySelector('button').onclick=()=>openPM(i);
+  grid.appendChild(c);
+});
+function openPM(i){
+  const p=PM[i];
+  $('#pt').textContent='الدفع عبر '+p.n;$('#pdsc').textContent=p.d;
+  $('#ps').innerHTML='';STEPS(p.n).forEach(s=>{const l=document.createElement('li');l.textContent=s;$('#ps').appendChild(l)});
+  $('#pw').href=wa('مرحبًا، أريد الدفع عبر '+p.n);
+  dlg.showModal();
+}
+/* steps */
+[['card','اختر وسيلة الدفع','حدد الوسيلة المناسبة لك من القائمة أعلاه.',['#e8c46a','#c9a13b']],['send','راسلنا على واتساب','اذكر الخدمة المطلوبة وسنرسل لك السعر وبيانات التحويل.',['#25d366','#128c4a']],['check','حوّل واستلم','أرسل إشعار التحويل ونؤكد طلبك وننفذه فورًا.',['#22d18b','#0f9e66']]].forEach((x,i)=>{
+  const d=document.createElement('div');d.className='step rv';
+  d.innerHTML='<span class="n">'+(i+1)+'</span><div class="badge" style="width:58px;height:58px;border-radius:16px;display:grid;place-items:center"></div><h3></h3><p></p><a class="btn sm" target="_blank" rel="noopener">ابدأ الآن</a>';
+  const b=d.querySelector('.badge');b.style.background='linear-gradient(135deg,'+x[3][0]+','+x[3][1]+')';b.innerHTML=glyph(x[0]);
+  d.querySelector('h3').textContent=x[1];d.querySelector('p').textContent=x[2];d.querySelector('a').href=wa('مرحبًا، أريد تقديم طلب');
+  $('#stepGrid').appendChild(d);
+});
+$('#pc').onclick=()=>dlg.close();
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+
+/* nav */
+const lk=$('#links'),bg=$('#burger');
+bg.onclick=()=>{const o=lk.classList.toggle('open');bg.setAttribute('aria-expanded',o)};
+lk.querySelectorAll('a').forEach(a=>a.onclick=()=>{lk.classList.remove('open');bg.setAttribute('aria-expanded',false)});
+
+/* back to top */
+const tp=$('#top');
+addEventListener('scroll',()=>tp.classList.toggle('on',scrollY>500),{passive:true});
+tp.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+
+/* reveal */
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+}else document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+
+/* visit counter: per-browser (localStorage) */
+(function(){
+  let n=0;try{n=(parseInt(localStorage.getItem('unico_visits'))||0)+1;localStorage.setItem('unico_visits',n)}catch(e){n=1}
+  let cur=0;const step=()=>{cur+=Math.max(1,Math.ceil((n-cur)/8));if(cur>=n)cur=n;$('#vc').textContent=$('#vc2').textContent=cur;if(cur<n)setTimeout(step,70)};step();
+})();
 $('#yr').textContent=new Date().getFullYear();
 
-/* theme */
-function setTheme(t){document.documentElement.dataset.theme=t;$('#themeBtn').textContent=t==='dark'?'☀️':'🌙';try{localStorage.setItem('zoro_theme',t)}catch(e){}}
-let th='light';try{th=localStorage.getItem('zoro_theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light')}catch(e){}
-setTheme(th);
-$('#themeBtn').onclick=()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark');
-
-/* converter */
-function calc(){
-  const a=parseFloat($('#amt').value)||0,r=mode==='buy'?CONFIG.buyRate:CONFIG.sellRate;
-  $('#rate').textContent='1 USDT = '+fmt(r)+' '+CONFIG.currency;
-  $('#tot').textContent=fmt(a*r)+' '+CONFIG.currency;
-  $('#totLbl').textContent=mode==='buy'?'ستدفع':'ستستلم';
-  $('#go').textContent=mode==='buy'?'اشترِ USDT':'بِع USDT';
-  $('#limit').textContent=a>0&&a<CONFIG.minUSDT?'أقل كمية هي '+CONFIG.minUSDT+' USDT':'الأسعار إرشادية وتتغير حسب السوق.';
-}
-document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');mode=b.dataset.m;calc()});
-$('#amt').oninput=calc;calc();
-
-$('#go').onclick=()=>{
-  const u=user();if(!u){toast('سجّل الدخول أولًا');$('#loginD').showModal();return}
-  const a=parseFloat($('#amt').value)||0;
-  if(a<CONFIG.minUSDT){toast('أقل كمية '+CONFIG.minUSDT+' USDT');return}
-  const net=$('#net').value.split(' ')[0];
-  if(mode==='buy'){
-    const cost=a*CONFIG.buyRate;
-    if(u.fiat<cost){toast('رصيدك المحلي غير كافٍ. اشحن محفظتك أولًا');openWallet();return}
-    u.fiat-=cost;u.usdt+=a;addTx(u,'شراء '+fmt(a)+' USDT ('+net+')','-'+fmt(cost)+' '+CONFIG.currency,'done');
-  }else{
-    if(u.usdt<a){toast('رصيد USDT غير كافٍ');openWallet();return}
-    u.usdt-=a;u.fiat+=a*CONFIG.sellRate;addTx(u,'بيع '+fmt(a)+' USDT ('+net+')','+'+fmt(a*CONFIG.sellRate)+' '+CONFIG.currency,'done');
-  }
-  save();paint();toast('تمت العملية بنجاح');
+/* contact form -> WhatsApp */
+$('#cf').onsubmit=e=>{
+  e.preventDefault();
+  window.open(wa('الاسم: '+$('#cn').value.trim()+'\nالرسالة: '+$('#cm').value.trim()),'_blank','noopener');
 };
 
-/* auth */
-function login(p){
-  const k=p.email.toLowerCase();
-  if(!DB.users[k])DB.users[k]={name:p.name,email:k,picture:p.picture||'',fiat:0,usdt:0,tx:[]};
-  else{DB.users[k].name=p.name;if(p.picture)DB.users[k].picture=p.picture}
-  DB.session=k;save();paint();$('#loginD').close();toast('أهلًا '+p.name);
-}
-function onCred(res){
-  try{
-    const b=res.credential.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');
-    const j=JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(b),c=>c.charCodeAt(0))));
-    login({name:j.name||j.email,email:j.email,picture:j.picture});
-  }catch(e){toast('تعذر تسجيل الدخول')}
-}
-const gReady=!CONFIG.googleClientId.startsWith('YOUR');
-function initG(){
-  if(!gReady){$('#demoBox').classList.remove('hide');return}
-  if(!window.google){setTimeout(initG,400);return}
-  google.accounts.id.initialize({client_id:CONFIG.googleClientId,callback:onCred});
-  google.accounts.id.renderButton($('#gBtn'),{theme:'filled_black',size:'large',text:'continue_with',locale:'ar',width:300});
-}
-initG();
-$('#demoGo').onclick=()=>{const e=$('#de').value.trim();if(!/\S+@\S+\.\S+/.test(e)){toast('بريد غير صالح');return}login({name:$('#dn').value.trim()||'مستخدم',email:e})};
-$('#logout').onclick=()=>{DB.session=null;save();paint();$('#walletD').close();toast('تم تسجيل الخروج')};
-
-/* wallet */
-function addTx(u,t,amt,st){u.tx.unshift({t,amt,st,d:new Date().toLocaleString('ar-EG'),id:'Z'+Date.now().toString().slice(-6)});u.tx=u.tx.slice(0,50)}
-function paint(){
-  const u=user(),b=$('#userBtn');b.innerHTML='';
-  if(u){
-    if(u.picture){const i=document.createElement('img');i.src=u.picture;i.alt='';i.referrerPolicy='no-referrer';b.appendChild(i)}
-    const s=document.createElement('span');s.textContent=u.name.split(' ')[0];b.appendChild(s);
-  }else b.textContent='تسجيل الدخول';
-  if($('#walletD').open&&u)fillWallet(u);
-}
-function fillWallet(u){
-  $('#wName').textContent='محفظة '+u.name;$('#wMail').textContent=u.email;
-  $('#bF').textContent=fmt(u.fiat)+' '+CONFIG.currency;$('#bU').textContent=fmt(u.usdt);
-  const h=$('#hist');h.innerHTML='';
-  if(!u.tx.length){h.innerHTML='<p class="note">لا توجد عمليات بعد. ابدأ بإيداع رصيد.</p>';return}
-  u.tx.forEach(x=>{
-    const r=document.createElement('div');r.className='row';
-    const a=document.createElement('span'),c=document.createElement('span');
-    a.textContent=x.t+' — '+x.amt;
-    c.innerHTML='<span class="'+(x.st==='done'?'done':'pend')+'">'+(x.st==='done'?'مكتمل':'قيد المراجعة')+'</span> · '+x.id;
-    r.append(a,c);h.appendChild(r);
-  });
-}
-function openWallet(){const u=user();if(!u)return;fillWallet(u);$('#walletD').showModal()}
-$('#userBtn').onclick=()=>user()?openWallet():$('#loginD').showModal();
-
-function openMoney(t){
-  moneyType=t;const dep=t==='dep';
-  $('#mT').textContent=dep?'إيداع رصيد':'سحب رصيد';
-  $('#mL').textContent='المبلغ ('+CONFIG.currency+')';$('#mAmt').value='';
-  $('#mNote').textContent=dep?(CONFIG.demoAutoApprove?'وضع تجريبي: يُضاف المبلغ فورًا.':'بعد الطلب تواصل معنا على الواتساب لتأكيد التحويل.'):'يُراجع طلب السحب يدويًا قبل التحويل.';
-  $('#moneyD').showModal();
-}
-$('#depBtn').onclick=()=>openMoney('dep');$('#wdBtn').onclick=()=>openMoney('wd');
-$('#mGo').onclick=()=>{
-  const u=user(),a=parseFloat($('#mAmt').value)||0,m=$('#mMeth').value;
-  if(a<=0){toast('أدخل مبلغًا صحيحًا');return}
-  if(moneyType==='dep'){
-    if(CONFIG.demoAutoApprove){u.fiat+=a;addTx(u,'إيداع عبر '+m,'+'+fmt(a)+' '+CONFIG.currency,'done')}
-    else addTx(u,'طلب إيداع عبر '+m,fmt(a)+' '+CONFIG.currency,'pending');
-  }else{
-    if(u.fiat<a){toast('رصيدك غير كافٍ');return}
-    u.fiat-=a;addTx(u,'طلب سحب عبر '+m,'-'+fmt(a)+' '+CONFIG.currency,'pending');
-  }
-  save();paint();$('#moneyD').close();toast('تم إرسال الطلب');
+/* Janska assistant (rule-based, works offline) */
+const jw=$('#jw'),jb=$('#jb'),msgs=$('#msgs');
+var say=function(t,who,link){
+  const m=document.createElement('div');m.className='m '+who;m.textContent=t;
+  if(link){m.appendChild(document.createElement('br'));const a=document.createElement('a');a.href=wa(link);a.target='_blank';a.rel='noopener';a.textContent='كلمنا على واتساب';m.appendChild(a)}
+  msgs.appendChild(m);msgs.scrollTop=msgs.scrollHeight;
 };
-document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>b.closest('dialog').close());
+const norm=s=>s.toLowerCase().replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي');
+const has=(q,ks)=>ks.some(k=>q.includes(norm(k)));
+function reply(raw){
+  const q=norm(raw);
+  const pm=PM.find(p=>p.k.some(k=>q.includes(norm(k))));
+  if(pm)return['يا زول حبابك! '+pm.n+' من الوسايل الموجودة عندنا. الخطوات ببساطة: '+STEPS(pm.n).map((s,i)=>(i+1)+') '+s).join(' '),'أريد الدفع عبر '+pm.n];
+  if(has(q,['سعر','اسعار','كم','بكم','تكلف','رسوم','عرض','عروض']))return['الاسعار بتختلف حسب الخدمة والوسيله وسعر الصرف وقت الطلب. كلمنا على الواتساب وبنرسل ليك السعر النهائي قبل ما تحول، من غير ما تلتزم بشي.','أريد معرفة السعر'];
+  if(has(q,['اطلب','طلب','كيف','ازاي','خطوات','اشتري','ادفع']))return['الطلب سهل: 1) اختار وسيله الدفع 2) كلمنا على الواتساب واذكر الخدمه 3) نرسل ليك السعر وبيانات التحويل، تحول وترسل الاشعار، ونكمل ليك الطلب. تمام؟','أريد تقديم طلب'];
+  if(has(q,['وسايل','وسيله','طرق','طريقه','يدفع','دفع','بنوك','محفظه']))return['عندنا 10 وسايل: بنكك، فوري، أوكاش، أم-بوك، MTN MoMo، زين كاش، سوداني كاش، فيزا، ماستر كارد وباي بال. اكتب اسم الوسيله البتهمك وانا اشرحها ليك.','أريد معرفة وسائل الدفع'];
+  if(has(q,['وقت','دوام','ساعه','متي','مفتوح','24']))return['بنستقبل الطلبات على مدار الساعه، وممكن الرد يتأخر شويه وقت الزحمه. اكتب لينا في أي وقت.','متى أوقات العمل؟'];
+  if(has(q,['رقم','تواصل','واتس','هاتف','اتصال','تلفون']))return['رقمنا للاتصال والواتساب: '+PHONE+'. حبابك في أي وقت.','أريد التواصل'];
+  if(has(q,['امان','امن','موثوق','نصب','ثقه']))return['الامان اهم شي عندنا. بنشرح ليك كل خطوه قبل التحويل، ومستحيل نطلب منك كلمه سر او رمز سري. لو في اي زول طلب منك كده، ما تدي.','هل الدفع آمن؟'];
+  if(has(q,['شكرا','تسلم','يعطيك','جزاك']))return['العفو يا غالي، دايما في الخدمه! 🌟',null];
+  if(has(q,['مرحبا','اهلا','سلام','هلا','ازيك','كيفك','صباح','مساء']))return['وعليكم السلام ورحمه الله! انا جانسكا، مساعد Zoro Store. اسألني عن طرق الدفع او كيفيه الطلب او الاسعار او رقم التواصل.',null];
+  return['ما فهمت سؤالك كويس 😅 جرب تسأل عن طرق الدفع او كيفيه الطلب او الاسعار، او كلمنا مباشره على الواتساب ونخدمك.','لدي سؤال'];
+}
+/* ضع هنا رابط الـ Worker بعد نشره، مثال: https://janska.YOURNAME.workers.dev
+   إذا تُرك فارغًا أو فشل الاتصال، يرد جانسكا بالردود المدمجة */
+const AI_ENDPOINT='';
+const hist=[];
+let busy=false;
+async function askAI(t){
+  const r=await fetch(AI_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:hist})});
+  if(!r.ok)throw new Error('http');
+  const d=await r.json();
+  if(!d.reply)throw new Error('empty');
+  return d.reply;
+}
+async function ask(t){
+  t=t.trim();if(!t||busy)return;
+  busy=true;say(t,'u');
+  hist.push({role:'user',content:t});
+  let out=null,link='لدي سؤال';
+  if(AI_ENDPOINT){
+    const wait=document.createElement('div');wait.className='m b';wait.textContent='جانسكا بيكتب...';msgs.appendChild(wait);msgs.scrollTop=msgs.scrollHeight;
+    try{out=await askAI(t)}catch(e){out=null}
+    wait.remove();
+  }
+  if(!out){const[r,l]=reply(t);out=r;link=l}
+  hist.push({role:'assistant',content:out});
+  if(hist.length>12)hist.splice(0,hist.length-12);
+  say(out,'b',link);
+  busy=false;
+}
+['طرق الدفع','كيف أطلب؟','الأسعار','أوقات العمل','رقم التواصل'].forEach(t=>{
+  const b=document.createElement('button');b.type='button';b.textContent=t;b.onclick=()=>ask(t);$('#chips').appendChild(b);
+});
+function toggleJ(o){jw.classList.toggle('open',o);jb.setAttribute('aria-expanded',o);if(o&&!msgs.children.length)say('حبابك! أنا جانسكا Janska، مساعد Zoro Store. اسألني عن طرق الدفع أو كيفية الطلب أو الأسعار.','b',''),$('#ji').focus()}
+jb.onclick=()=>toggleJ(!jw.classList.contains('open'));
+$('#jx').onclick=()=>toggleJ(false);
+$('#jf').onsubmit=e=>{e.preventDefault();ask($('#ji').value);$('#ji').value=''};
 
-load();paint();
+/* ===== الصوت: قراءة الردود + الإدخال الصوتي ===== */
+const synth=window.speechSynthesis;
+let speakOn=false;
+const spk=$('#spk');
+if(!synth||!window.SpeechSynthesisUtterance){spk.style.display='none'}
+function speak(t){
+  if(!speakOn||!synth)return;
+  synth.cancel();
+  const u=new SpeechSynthesisUtterance(t.replace(/https?:\/\/\S+/g,'').replace(/[🌟😅🔥🎧🔒✨]/g,''));
+  u.lang='ar-SA';u.rate=.95;
+  const v=synth.getVoices().find(x=>x.lang&&x.lang.toLowerCase().startsWith('ar'));
+  if(v)u.voice=v;
+  synth.speak(u);
+}
+spk.classList.add('off');
+spk.onclick=()=>{speakOn=!speakOn;spk.classList.toggle('off',!speakOn);spk.textContent=speakOn?'🔊':'🔇';if(!speakOn&&synth)synth.cancel();else speak('تم تفعيل القراءة الصوتية')};
+const _say=say;
+say=function(t,who,link){_say(t,who,link);if(who==='b')speak(t)};
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+const mic=$('#mic');
+if(!SR){mic.style.display='none'}else{
+  const rec=new SR();rec.lang='ar-SD';rec.interimResults=false;rec.maxAlternatives=1;
+  let on=false;
+  rec.onresult=e=>{const t=e.results[0][0].transcript;ask(t)};
+  rec.onend=()=>{on=false;mic.classList.remove('rec')};
+  rec.onerror=()=>{on=false;mic.classList.remove('rec');say('ما قدرت أسمعك، تأكد إنك سمحت للمتصفح باستخدام الميكروفون وجرب تاني.','b','')};
+  mic.onclick=()=>{
+    if(on){rec.stop();return}
+    if(synth)synth.cancel();
+    try{rec.start();on=true;mic.classList.add('rec')}catch(e){}
+  };
+}
 </script>
 </body>
 </html>
