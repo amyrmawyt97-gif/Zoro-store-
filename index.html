@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zorostore | منصة بيع وشراء USDT</title>
+<meta name="description" content="Zorostore منصة آمنة وسريعة لبيع وشراء USDT مع محفظة داخلية وتسجيل دخول عبر جوجل.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<style>
+:root{--bg:#fffaf0;--card:#fff;--ink:#241c05;--mute:#6f6544;--line:#eadfbd;--y:#f5b800;--y2:#ffd54a;--on-y:#241c05;--dk:#1d1604;--ok:#17a34a;--bad:#dc2626}
+:root[data-theme=dark]{--bg:#14100a;--card:#1f1a0f;--ink:#fff6dc;--mute:#b3a67c;--line:#3a3014;--dk:#0d0a05}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:Cairo,Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.8}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--y);outline-offset:2px}
+.wrap{max-width:1120px;margin:auto;padding:0 18px}
+header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:14px;height:64px}
+.logo{font-weight:900;font-size:22px;display:flex;align-items:center;gap:8px}
+.logo i{width:32px;height:32px;border-radius:9px;background:var(--y);color:var(--on-y);display:grid;place-items:center;font-style:normal}
+.links{display:flex;gap:18px;margin-inline-start:auto;font-weight:600;color:var(--mute)}
+.links a:hover{color:var(--ink)}
+.btn{border:0;border-radius:10px;padding:9px 18px;font-weight:800;cursor:pointer;background:var(--y);color:var(--on-y);transition:transform .15s,background .15s}
+.btn:hover{background:var(--y2)}.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--y)}
+.btn.big{padding:13px 22px;width:100%;font-size:17px}
+.btn.sm{padding:5px 12px;font-size:14px}
+.ic{width:38px;height:38px;border-radius:10px;border:1.5px solid var(--line);background:transparent;cursor:pointer;font-size:17px}
+#userBtn{display:flex;align-items:center;gap:8px}
+#userBtn img{width:26px;height:26px;border-radius:50%}
+.hero{background:var(--dk);color:#fff6dc;padding:54px 0 60px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+.hero h1{font-size:clamp(34px,5.4vw,58px);line-height:1.25;font-weight:900}
+.hero h1 b{color:var(--y)}
+.hero p{color:#cdbf90;margin:14px 0 22px;max-width:48ch}
+.trust{display:flex;gap:10px;flex-wrap:wrap}
+.trust span{border:1px solid #4a3d14;border-radius:99px;padding:3px 14px;font-size:14px;color:#e7d9a6}
+.conv{background:var(--card);color:var(--ink);border-radius:22px;padding:20px;box-shadow:0 0 0 6px rgba(245,184,0,.25)}
+.tabs{display:grid;grid-template-columns:1fr 1fr;background:var(--bg);border-radius:12px;padding:4px;margin-bottom:16px}
+.tabs button{border:0;background:transparent;padding:9px;border-radius:9px;font-weight:800;cursor:pointer}
+.tabs button.on{background:var(--y);color:var(--on-y)}
+label{display:block;font-weight:600;font-size:14px;color:var(--mute);margin:10px 0 4px}
+.in{width:100%;padding:11px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);font-size:17px}
+.row{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.row b{font-weight:800}
+.total{font-size:26px;font-weight:900;color:var(--ink)}
+section{padding:60px 0}
+section h2{font-size:clamp(26px,4vw,36px);font-weight:900;margin-bottom:6px}
+.sub{color:var(--mute);margin-bottom:28px;max-width:60ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h3{font-size:18px;margin-bottom:4px}
+.card p{color:var(--mute);font-size:15px}
+.card .e{font-size:28px}
+.stats{background:var(--y);color:var(--on-y);padding:26px 0}
+.stats .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;text-align:center}
+.stats b{font-size:30px;font-weight:900;display:block;line-height:1.2}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.steps .card{counter-increment:s;position:relative;padding-top:34px}
+.steps .card::before{content:counter(s);position:absolute;top:-14px;inset-inline-start:18px;width:34px;height:34px;border-radius:50%;background:var(--y);color:var(--on-y);display:grid;place-items:center;font-weight:900}
+.pay{display:flex;flex-wrap:wrap;gap:10px}
+.pay span{border:1.5px solid var(--line);background:var(--card);border-radius:12px;padding:8px 18px;font-weight:700}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+summary{font-weight:800;cursor:pointer}
+details p{color:var(--mute);margin-top:6px}
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+.about .big{background:var(--dk);color:var(--y);border-radius:22px;padding:30px;font-size:40px;font-weight:900;text-align:center;line-height:1.3}
+.about .big small{display:block;font-size:15px;color:#cdbf90;font-weight:600}
+.contact a.btn{display:inline-block;margin:6px 6px 0 0}
+footer{background:var(--dk);color:#b3a67c;padding:30px 0;font-size:14px}
+footer b{color:var(--y)}
+dialog{border:0;border-radius:20px;padding:22px;width:min(440px,94vw);background:var(--card);color:var(--ink);margin:auto}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+dialog h3{font-size:22px;margin-bottom:8px}
+.bal{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.bal div{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:12px}
+.bal b{display:block;font-size:22px;font-weight:900;color:var(--ink)}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.hist{max-height:200px;overflow:auto;font-size:14px}
+.hist .row span:last-child{color:var(--mute)}
+.pend{color:#b45309}.done{color:var(--ok)}
+.note{font-size:13px;color:var(--mute);margin-top:8px}
+#toast{position:fixed;bottom:20px;inset-inline:0;display:flex;justify-content:center;z-index:99;pointer-events:none}
+#toast div{background:var(--dk);color:var(--y2);padding:10px 20px;border-radius:12px;font-weight:700;box-shadow:0 8px 30px rgba(0,0,0,.35)}
+.wa{position:fixed;bottom:18px;inset-inline-start:18px;width:54px;height:54px;border-radius:50%;background:#25d366;display:grid;place-items:center;font-size:26px;z-index:15;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.hide{display:none!important}
+@media(max-width:820px){.links{display:none}.nav{justify-content:space-between}.hero .wrap,.about{grid-template-columns:1fr}.logo{margin-inline-end:auto}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap nav">
+  <a class="logo" href="#top"><i>Z</i>Zorostore</a>
+  <nav class="links"><a href="#features">المميزات</a><a href="#how">كيف تعمل</a><a href="#about">من نحن</a><a href="#faq">الأسئلة</a><a href="#contact">تواصل</a></nav>
+  <button class="ic" id="themeBtn" aria-label="تبديل الوضع">🌙</button>
+  <button class="btn" id="userBtn">تسجيل الدخول</button>
+</div></header>
+
+<main id="top">
+<div class="hero"><div class="wrap">
+  <div>
+    <h1>بيع واشتري <b>USDT</b> بثقة وسرعة</h1>
+    <p>Zorostore منصتك لتبديل الدولار الرقمي بأسعار واضحة، مع محفظة داخلية تُنشأ تلقائيًا فور تسجيل الدخول بحساب جوجل.</p>
+    <div class="trust"><span>محفظة داخلية فورية</span><span>دعم مباشر</span><span>أسعار شفافة</span></div>
+  </div>
+  <div class="conv" id="conv">
+    <div class="tabs" role="tablist"><button class="on" data-m="buy">شراء USDT</button><button data-m="sell">بيع USDT</button></div>
+    <label for="amt">الكمية (USDT)</label>
+    <input class="in" id="amt" type="number" min="10" step="any" value="100" inputmode="decimal">
+    <label for="net">الشبكة</label>
+    <select class="in" id="net"><option>TRC20 (Tron)</option><option>BEP20 (BSC)</option><option>ERC20 (Ethereum)</option></select>
+    <div class="row"><span>السعر</span><b id="rate"></b></div>
+    <div class="row"><span id="totLbl">ستدفع</span><b class="total" id="tot"></b></div>
+    <p class="note" id="limit"></p>
+    <button class="btn big" id="go" style="margin-top:10px">نفّذ العملية</button>
+  </div>
+</div></div>
+
+<div class="stats"><div class="wrap">
+  <div><b>10 USDT</b>أقل كمية للتبديل</div><div><b>24/7</b>استقبال الطلبات</div><div><b>3</b>شبكات مدعومة</div><div><b>0%</b>رسوم تبديل داخل المحفظة</div>
+</div></div>
+
+<section id="features"><div class="wrap">
+  <h2>لماذا Zorostore؟</h2><p class="sub">كل ما تحتاجه لإدارة أموالك الرقمية في مكان واحد.</p>
+  <div class="grid">
+    <div class="card"><div class="e">👛</div><h3>محفظة داخلية</h3><p>رصيد بالعملة المحلية ورصيد USDT، مع سجل كامل لكل عملية.</p></div>
+    <div class="card"><div class="e">🔐</div><h3>دخول بحساب جوجل</h3><p>بدون كلمات مرور جديدة. حسابك جاهز بضغطة واحدة.</p></div>
+    <div class="card"><div class="e">⚡</div><h3>تبديل فوري</h3><p>اشترِ وبِع بين أرصدة محفظتك مباشرة بسعر ظاهر قبل التأكيد.</p></div>
+    <div class="card"><div class="e">🧮</div><h3>حاسبة واضحة</h3><p>تعرف المبلغ النهائي قبل أي خطوة، دون رسوم مخفية.</p></div>
+    <div class="card"><div class="e">🌗</div><h3>وضع ليلي</h3><p>واجهة مريحة للعين نهارًا وليلًا وتحفظ اختيارك.</p></div>
+    <div class="card"><div class="e">💬</div><h3>دعم مباشر</h3><p>تواصل معنا واتساب أو اتصال هاتفي في أي وقت.</p></div>
+  </div>
+</div></section>
+
+<section id="how" style="background:var(--card)"><div class="wrap">
+  <h2>كيف تعمل المنصة</h2><p class="sub">أربع خطوات فقط من التسجيل إلى استلام USDT.</p>
+  <div class="steps">
+    <div class="card"><h3>سجّل بحساب جوجل</h3><p>تُنشأ محفظتك تلقائيًا.</p></div>
+    <div class="card"><h3>اشحن رصيدك</h3><p>اطلب إيداعًا بإحدى طرق الدفع المتاحة.</p></div>
+    <div class="card"><h3>بدّل بين الأرصدة</h3><p>اشترِ أو بِع USDT بالسعر المعروض.</p></div>
+    <div class="card"><h3>اسحب أرباحك</h3><p>أرسل طلب سحب وسنؤكده معك مباشرة.</p></div>
+  </div>
+  <h3 style="margin:30px 0 10px">طرق الدفع</h3>
+  <div class="pay"><span>فودافون كاش</span><span>انستا باي</span><span>تحويل بنكي</span><span>USDT مباشر</span></div>
+</div></section>
+
+<section id="about"><div class="wrap about">
+  <div>
+    <h2>نبذة عن Zorostore</h2>
+    <p class="sub" style="max-width:none">Zorostore منصة متخصصة في بيع وشراء USDT، بُنيت لتجعل التعامل بالعملات الرقمية المستقرة بسيطًا وواضحًا. نعرض الأسعار قبل التنفيذ، ونوفر لكل مستخدم محفظة داخلية تُسجَّل فيها كل حركة، ونرد على استفساراتك مباشرة عبر الهاتف والواتساب.</p>
+    <p class="sub" style="max-width:none">هدفنا أن تتعامل مع USDT بنفس سهولة أي تطبيق مالي، مع وضوح كامل في الأسعار والإجراءات.</p>
+  </div>
+  <div class="big">Zorostore<small>Trade USDT with confidence</small></div>
+</div></section>
+
+<section id="faq" style="background:var(--card)"><div class="wrap">
+  <h2>الأسئلة الشائعة</h2><p class="sub">إجابات سريعة لأكثر ما يُسأل عنه.</p>
+  <details><summary>ما هو USDT؟</summary><p>عملة رقمية مستقرة مرتبطة بقيمة الدولار الأمريكي، وتُستخدم للتحويل والادخار.</p></details>
+  <details><summary>كيف أنشئ محفظتي؟</summary><p>سجّل الدخول بحساب جوجل وستظهر محفظتك فورًا داخل حسابك.</p></details>
+  <details><summary>كم يستغرق تأكيد الإيداع والسحب؟</summary><p>تُراجع الطلبات يدويًا عبر فريق الدعم. تواصل معنا برقم الطلب لتسريع التأكيد.</p></details>
+  <details><summary>ما الشبكة التي أختارها؟</summary><p>TRC20 هي الأرخص رسومًا عادةً. تأكد دائمًا أن الشبكة تطابق شبكة محفظة المستلم.</p></details>
+  <details><summary>هل بياناتي آمنة؟</summary><p>نستخدم تسجيل جوجل الرسمي ولا نطلب كلمة مرور. لا تشارك رموز التحقق مع أحد.</p></details>
+</div></section>
+
+<section id="contact"><div class="wrap contact">
+  <h2>تواصل معنا</h2><p class="sub">فريق الدعم جاهز للرد على طلباتك واستفساراتك.</p>
+  <div class="card"><h3 dir="ltr" style="text-align:right">0128472288</h3>
+    <a class="btn" id="callLink">اتصال هاتفي</a><a class="btn ghost" id="waLink" target="_blank" rel="noopener">واتساب</a></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <p><b>Zorostore</b> © <span id="yr"></span> — جميع الحقوق محفوظة.</p>
+  <p style="margin-top:6px">تنبيه: تداول العملات الرقمية ينطوي على مخاطر. تحقق من الشبكة والعنوان قبل أي تحويل، ولا تتعامل بأموال لا تملك مصدرها.</p>
+</div></footer>
+
+<a class="wa" id="waFab" target="_blank" rel="noopener" aria-label="واتساب">💬</a>
+
+<dialog id="loginD">
+  <h3>تسجيل الدخول</h3>
+  <p class="note" style="margin:0 0 12px">ادخل بحساب جوجل لإنشاء محفظتك تلقائيًا.</p>
+  <div id="gBtn" style="min-height:44px"></div>
+  <div id="demoBox" class="hide">
+    <p class="note">وضع تجريبي: لم يُضبط معرّف جوجل بعد. أدخل بيانات للتجربة.</p>
+    <label for="dn">الاسم</label><input class="in" id="dn" value="مستخدم تجريبي">
+    <label for="de">البريد</label><input class="in" id="de" type="email" value="demo@example.com">
+    <button class="btn big" id="demoGo" style="margin-top:12px">دخول تجريبي</button>
+  </div>
+  <button class="btn ghost big" data-close style="margin-top:10px">إغلاق</button>
+</dialog>
+
+<dialog id="walletD">
+  <h3 id="wName">محفظتي</h3><p class="note" id="wMail" dir="ltr" style="text-align:right"></p>
+  <div class="bal"><div><span class="note">الرصيد المحلي</span><b id="bF"></b></div><div><span class="note">رصيد USDT</span><b id="bU"></b></div></div>
+  <div class="acts"><button class="btn" id="depBtn">إيداع</button><button class="btn ghost" id="wdBtn">سحب</button></div>
+  <h3 style="font-size:16px">سجل العمليات</h3>
+  <div class="hist" id="hist"></div>
+  <div class="acts" style="margin-top:12px"><button class="btn ghost" id="logout">تسجيل الخروج</button><button class="btn ghost" data-close>إغلاق</button></div>
+</dialog>
+
+<dialog id="moneyD">
+  <h3 id="mT"></h3>
+  <label for="mAmt" id="mL"></label><input class="in" id="mAmt" type="number" min="1" step="any">
+  <label for="mMeth">الطريقة</label>
+  <select class="in" id="mMeth"><option>فودافون كاش</option><option>انستا باي</option><option>تحويل بنكي</option><option>USDT</option></select>
+  <button class="btn big" id="mGo" style="margin-top:14px">تأكيد الطلب</button>
+  <p class="note" id="mNote"></p>
+  <button class="btn ghost big" data-close style="margin-top:8px">إلغاء</button>
+</dialog>
+
+<div id="toast"></div>
+
+<script>
+/* ===== الإعدادات: عدّل هنا ===== */
+const CONFIG={
+  phone:'0128472288',
+  countryCode:'20',                       // رمز الدولة للواتساب (عدّله حسب بلدك)
+  currency:'ج.م',                         // العملة المحلية
+  buyRate:52.5,                           // سعر شراء المستخدم لـ USDT
+  sellRate:50.0,                          // سعر بيع المستخدم لـ USDT
+  minUSDT:10,
+  googleClientId:'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com',
+  demoAutoApprove:true                    // true = الإيداع يُضاف فورًا للتجربة. اجعله false عند التشغيل الفعلي
+};
+/* ================================= */
+const $=s=>document.querySelector(s);
+const fmt=n=>Number(n).toLocaleString('en-US',{maximumFractionDigits:2});
+let mode='buy',DB,me=null,moneyType='dep';
+
+function load(){try{DB=JSON.parse(localStorage.getItem('zoro_db'))}catch(e){}if(!DB)DB={users:{},session:null}}
+function save(){try{localStorage.setItem('zoro_db',JSON.stringify(DB))}catch(e){}}
+function toast(t){const b=$('#toast');b.innerHTML='';const d=document.createElement('div');d.textContent=t;b.appendChild(d);setTimeout(()=>b.innerHTML='',3200)}
+function user(){return DB.session?DB.users[DB.session]:null}
+
+/* contact */
+const intl=CONFIG.countryCode+CONFIG.phone.replace(/^0/,'');
+$('#callLink').href='tel:'+CONFIG.phone;
+$('#waLink').href=$('#waFab').href='https://wa.me/'+intl+'?text='+encodeURIComponent('مرحبًا Zorostore، أريد الاستفسار');
+$('#yr').textContent=new Date().getFullYear();
+
+/* theme */
+function setTheme(t){document.documentElement.dataset.theme=t;$('#themeBtn').textContent=t==='dark'?'☀️':'🌙';try{localStorage.setItem('zoro_theme',t)}catch(e){}}
+let th='light';try{th=localStorage.getItem('zoro_theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light')}catch(e){}
+setTheme(th);
+$('#themeBtn').onclick=()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark');
+
+/* converter */
+function calc(){
+  const a=parseFloat($('#amt').value)||0,r=mode==='buy'?CONFIG.buyRate:CONFIG.sellRate;
+  $('#rate').textContent='1 USDT = '+fmt(r)+' '+CONFIG.currency;
+  $('#tot').textContent=fmt(a*r)+' '+CONFIG.currency;
+  $('#totLbl').textContent=mode==='buy'?'ستدفع':'ستستلم';
+  $('#go').textContent=mode==='buy'?'اشترِ USDT':'بِع USDT';
+  $('#limit').textContent=a>0&&a<CONFIG.minUSDT?'أقل كمية هي '+CONFIG.minUSDT+' USDT':'الأسعار إرشادية وتتغير حسب السوق.';
+}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');mode=b.dataset.m;calc()});
+$('#amt').oninput=calc;calc();
+
+$('#go').onclick=()=>{
+  const u=user();if(!u){toast('سجّل الدخول أولًا');$('#loginD').showModal();return}
+  const a=parseFloat($('#amt').value)||0;
+  if(a<CONFIG.minUSDT){toast('أقل كمية '+CONFIG.minUSDT+' USDT');return}
+  const net=$('#net').value.split(' ')[0];
+  if(mode==='buy'){
+    const cost=a*CONFIG.buyRate;
+    if(u.fiat<cost){toast('رصيدك المحلي غير كافٍ. اشحن محفظتك أولًا');openWallet();return}
+    u.fiat-=cost;u.usdt+=a;addTx(u,'شراء '+fmt(a)+' USDT ('+net+')','-'+fmt(cost)+' '+CONFIG.currency,'done');
+  }else{
+    if(u.usdt<a){toast('رصيد USDT غير كافٍ');openWallet();return}
+    u.usdt-=a;u.fiat+=a*CONFIG.sellRate;addTx(u,'بيع '+fmt(a)+' USDT ('+net+')','+'+fmt(a*CONFIG.sellRate)+' '+CONFIG.currency,'done');
+  }
+  save();paint();toast('تمت العملية بنجاح');
+};
+
+/* auth */
+function login(p){
+  const k=p.email.toLowerCase();
+  if(!DB.users[k])DB.users[k]={name:p.name,email:k,picture:p.picture||'',fiat:0,usdt:0,tx:[]};
+  else{DB.users[k].name=p.name;if(p.picture)DB.users[k].picture=p.picture}
+  DB.session=k;save();paint();$('#loginD').close();toast('أهلًا '+p.name);
+}
+function onCred(res){
+  try{
+    const b=res.credential.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');
+    const j=JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(b),c=>c.charCodeAt(0))));
+    login({name:j.name||j.email,email:j.email,picture:j.picture});
+  }catch(e){toast('تعذر تسجيل الدخول')}
+}
+const gReady=!CONFIG.googleClientId.startsWith('YOUR');
+function initG(){
+  if(!gReady){$('#demoBox').classList.remove('hide');return}
+  if(!window.google){setTimeout(initG,400);return}
+  google.accounts.id.initialize({client_id:CONFIG.googleClientId,callback:onCred});
+  google.accounts.id.renderButton($('#gBtn'),{theme:'filled_black',size:'large',text:'continue_with',locale:'ar',width:300});
+}
+initG();
+$('#demoGo').onclick=()=>{const e=$('#de').value.trim();if(!/\S+@\S+\.\S+/.test(e)){toast('بريد غير صالح');return}login({name:$('#dn').value.trim()||'مستخدم',email:e})};
+$('#logout').onclick=()=>{DB.session=null;save();paint();$('#walletD').close();toast('تم تسجيل الخروج')};
+
+/* wallet */
+function addTx(u,t,amt,st){u.tx.unshift({t,amt,st,d:new Date().toLocaleString('ar-EG'),id:'Z'+Date.now().toString().slice(-6)});u.tx=u.tx.slice(0,50)}
+function paint(){
+  const u=user(),b=$('#userBtn');b.innerHTML='';
+  if(u){
+    if(u.picture){const i=document.createElement('img');i.src=u.picture;i.alt='';i.referrerPolicy='no-referrer';b.appendChild(i)}
+    const s=document.createElement('span');s.textContent=u.name.split(' ')[0];b.appendChild(s);
+  }else b.textContent='تسجيل الدخول';
+  if($('#walletD').open&&u)fillWallet(u);
+}
+function fillWallet(u){
+  $('#wName').textContent='محفظة '+u.name;$('#wMail').textContent=u.email;
+  $('#bF').textContent=fmt(u.fiat)+' '+CONFIG.currency;$('#bU').textContent=fmt(u.usdt);
+  const h=$('#hist');h.innerHTML='';
+  if(!u.tx.length){h.innerHTML='<p class="note">لا توجد عمليات بعد. ابدأ بإيداع رصيد.</p>';return}
+  u.tx.forEach(x=>{
+    const r=document.createElement('div');r.className='row';
+    const a=document.createElement('span'),c=document.createElement('span');
+    a.textContent=x.t+' — '+x.amt;
+    c.innerHTML='<span class="'+(x.st==='done'?'done':'pend')+'">'+(x.st==='done'?'مكتمل':'قيد المراجعة')+'</span> · '+x.id;
+    r.append(a,c);h.appendChild(r);
+  });
+}
+function openWallet(){const u=user();if(!u)return;fillWallet(u);$('#walletD').showModal()}
+$('#userBtn').onclick=()=>user()?openWallet():$('#loginD').showModal();
+
+function openMoney(t){
+  moneyType=t;const dep=t==='dep';
+  $('#mT').textContent=dep?'إيداع رصيد':'سحب رصيد';
+  $('#mL').textContent='المبلغ ('+CONFIG.currency+')';$('#mAmt').value='';
+  $('#mNote').textContent=dep?(CONFIG.demoAutoApprove?'وضع تجريبي: يُضاف المبلغ فورًا.':'بعد الطلب تواصل معنا على الواتساب لتأكيد التحويل.'):'يُراجع طلب السحب يدويًا قبل التحويل.';
+  $('#moneyD').showModal();
+}
+$('#depBtn').onclick=()=>openMoney('dep');$('#wdBtn').onclick=()=>openMoney('wd');
+$('#mGo').onclick=()=>{
+  const u=user(),a=parseFloat($('#mAmt').value)||0,m=$('#mMeth').value;
+  if(a<=0){toast('أدخل مبلغًا صحيحًا');return}
+  if(moneyType==='dep'){
+    if(CONFIG.demoAutoApprove){u.fiat+=a;addTx(u,'إيداع عبر '+m,'+'+fmt(a)+' '+CONFIG.currency,'done')}
+    else addTx(u,'طلب إيداع عبر '+m,fmt(a)+' '+CONFIG.currency,'pending');
+  }else{
+    if(u.fiat<a){toast('رصيدك غير كافٍ');return}
+    u.fiat-=a;addTx(u,'طلب سحب عبر '+m,'-'+fmt(a)+' '+CONFIG.currency,'pending');
+  }
+  save();paint();$('#moneyD').close();toast('تم إرسال الطلب');
+};
+document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>b.closest('dialog').close());
+
+load();paint();
+</script>
+</body>
+</html>
