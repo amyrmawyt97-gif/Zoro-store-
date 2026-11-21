@@ -734,6 +734,7 @@ window.addEventListener('DOMContentLoaded', () => {
 <button id="btn" onclick="sendOrder()">تأكيد الطلب</button>
 <div id="msg" style="display:none; color:#00ff88; text-align:center; margin-top:15px; font-weight:bold;">تم استلام طلبك ✅<br>العملية قيد الإجراء، انتظر التأكيد</div>
 
+<script>html
 <script>
 async function sendOrder(){
   let amount = document.getElementById("amount").value;
@@ -745,7 +746,7 @@ async function sendOrder(){
   btn.disabled = true;
   let token = "حط_التوكن_هنا";
   let chat_id = "1899516589";
-  let text = "طلب شحن USDT جديد 🔥\nالكمية: " + amount + " USDT\nرقم حساب بنكك: " + bank;
+  let text = "طلب شحن USDT جديد \nالكمية: " + amount + " USDT\nرقم حساب بنكك: " + bank;
   await fetch("https://api.telegram.org/bot" + token + "/sendMessage?chat_id=" + chat_id + "&text=" + encodeURIComponent(text));
   if(file){
     let form = new FormData();
@@ -761,6 +762,3 @@ async function sendOrder(){
   document.getElementById("msg").style.display = "block";
 }
 </script>
-</script>
-</body>
-</html>
