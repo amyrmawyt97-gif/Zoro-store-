@@ -4,10 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Zoro Store | متجرك الأول للدفع الإلكتروني في السودان</title>
-<meta name="description" content="Zoro Store: خدمات الدفع الإلكتروني في السودان عبر بنكك، فوري، أوكاش، mBok، MTN MoMo، زين كاش، سوداني كاش، فيزا، ماستر كارد وباي بال.">
+<meta name="description" content="Zoro Store: خدمات الدفع الإلكتروني في السودان عبر بنكك، فوري، أوكاش، فيزا، ماستر كارد، USDT وBNB Smart. وشحن فري فاير وببجي.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22lg%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%237af0c0%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%230f9e66%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath%20d%3D%22M32%203l24%209v18c0%2015-10%2026-24%2031C18%2056%208%2045%208%2030V12z%22%20fill%3D%22url%28%23lg%29%22/%3E%3Cpath%20d%3D%22M20%2020h24L26%2044h18%22%20fill%3D%22none%22%20stroke%3D%22%2304100b%22%20stroke-width%3D%226%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M45%2012l3.5%203.5L45%2019l-3.5-3.5z%22%20fill%3D%22%23e8c46a%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<!-- مكتبة Google الرسمية لتسجيل الدخول -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 <style>
 :root{--bg:#07110e;--bg2:#0b1914;--card:#10211b;--gold:#22d18b;--gold2:#7af0c0;--w:#fff;--mute:#9bb8ab;--line:#23463a;--vio:#e8c46a}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -29,7 +31,7 @@ h2{font-size:clamp(26px,4vw,38px);font-weight:900;color:var(--gold);line-height:
 .btn.sm{padding:7px 16px;font-size:14px}
 /* nav */
 header{position:fixed;top:0;inset-inline:0;z-index:50;background:rgba(7,17,14,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;gap:20px;height:66px}
+.nav{display:flex;align-items:center;gap:14px;height:66px}
 .logo{display:flex;align-items:center;gap:10px;font-family:Cairo;font-weight:900;font-size:21px;color:var(--gold)}
 .logo i{width:36px;height:36px;border-radius:10px;background:var(--gold);color:#04100b;display:grid;place-items:center;font-style:normal;font-size:20px}
 .logo small{display:block;font-size:10px;color:var(--mute);font-weight:600;line-height:1}
@@ -37,11 +39,15 @@ header{position:fixed;top:0;inset-inline:0;z-index:50;background:rgba(7,17,14,.9
 .links a{padding:6px 12px;border-radius:9px;font-weight:600;color:var(--mute);transition:.2s}
 .links a:hover{color:var(--gold);background:rgba(34,209,139,.1)}
 .burger{display:none;margin-inline-start:auto;background:none;border:1.5px solid var(--line);border-radius:10px;width:42px;height:42px;font-size:20px;cursor:pointer}
-/* ticker */
-.tick{margin-top:66px;background:var(--gold);color:#04100b;overflow:hidden;white-space:nowrap;font-weight:800;font-family:Cairo}
-.tick div{display:inline-flex;animation:mq 30s linear infinite}
-.tick span{padding:7px 34px}
-@keyframes mq{to{transform:translateX(50%)}}
+/* google auth element */
+.auth-wrap{display:flex;align-items:center;gap:8px}
+.user-profile{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:99px;padding:3px 12px 3px 4px}
+.u-avatar{width:32px;height:32px;border-radius:50%;object-fit:cover;border:1.5px solid var(--gold)}
+.u-name{font-size:13px;font-weight:700;color:var(--w);max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.u-logout{background:none;border:0;color:var(--mute);cursor:pointer;font-size:12px;padding:4px 8px;border-radius:6px;transition:.2s}
+.u-logout:hover{color:#ff6b6b;background:rgba(255,107,107,.1)}
+/* main offset (بدل الشريط الإعلاني المحذوف) */
+main{margin-top:66px}
 /* hero */
 .hero{padding:64px 0 72px;background:radial-gradient(700px 420px at 85% 0,rgba(232,196,106,.35),transparent 70%),radial-gradient(600px 380px at 10% 100%,rgba(34,209,139,.14),transparent 70%),var(--bg)}
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
@@ -84,8 +90,8 @@ details p{color:var(--mute);margin-top:8px}
 .box{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px}
 .phone{font:900 30px Cairo;color:var(--gold);direction:ltr;text-align:right;display:block;margin:6px 0 14px}
 label{display:block;font-weight:700;margin:10px 0 4px;font-size:14px;color:var(--mute)}
-.in{width:100%;padding:11px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);font-size:16px}
-.in:focus{border-color:var(--gold)}
+input.in,textarea.in{width:100%;padding:11px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);font-size:16px}
+input.in:focus,textarea.in:focus{border-color:var(--gold)}
 footer{background:#030a07;border-top:1px solid var(--line);padding:38px 0 90px}
 footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:24px}
 footer h4{color:var(--gold);font-family:Cairo;margin-bottom:6px}
@@ -102,40 +108,17 @@ dialog .acts{margin-top:14px}
 /* floating */
 #top{position:fixed;bottom:22px;inset-inline-start:20px;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--gold);background:var(--bg);color:var(--gold);font-size:20px;cursor:pointer;z-index:40;opacity:0;pointer-events:none;transition:.3s}
 #top.on{opacity:1;pointer-events:auto}
-#jb{position:fixed;bottom:20px;inset-inline-end:20px;z-index:45;display:flex;align-items:center;gap:8px;border:0;cursor:pointer;background:var(--gold);color:#04100b;border-radius:99px;padding:8px 18px 8px 10px;font:800 15px Cairo;box-shadow:0 8px 26px rgba(34,209,139,.4)}
-#jb span{width:36px;height:36px;border-radius:50%;background:#04100b;display:grid;place-items:center;font-size:20px}
-#jw{position:fixed;bottom:84px;inset-inline-end:20px;z-index:45;width:min(370px,calc(100vw - 32px));height:min(520px,calc(100vh - 110px));display:none;flex-direction:column;background:var(--bg2);border:1px solid var(--gold);border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.7)}
-#jw.open{display:flex}
-.jh{background:var(--gold);color:#04100b;padding:12px 16px;display:flex;align-items:center;gap:10px;font:900 17px Cairo}
-.jh small{display:block;font-weight:600;font-size:12px}
-.jh button{margin-inline-start:auto;background:none;border:0;font-size:22px;cursor:pointer;color:#04100b}
-#msgs{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
-.m{max-width:86%;padding:9px 14px;border-radius:16px;font-size:15px;line-height:1.7}
-.m.b{background:var(--card);border:1px solid var(--line);align-self:flex-start}
-.m.u{background:var(--gold);color:#04100b;align-self:flex-end}
-.m a{display:inline-block;margin-top:6px;background:#25d366;color:#04200e;font-weight:800;padding:3px 14px;border-radius:99px}
-.chips{display:flex;gap:6px;flex-wrap:wrap;padding:0 14px 8px}
-.chips button{background:none;border:1px solid var(--line);color:var(--gold2);border-radius:99px;padding:3px 12px;font-size:13px;cursor:pointer}
-.chips button:hover{border-color:var(--gold)}
-.jf .mic,.jh .spk{border:1.5px solid var(--gold);background:transparent;color:var(--gold);border-radius:10px;width:40px;height:38px;cursor:pointer;font-size:17px;flex:none}
-.jf .mic.rec{background:#c0392b;border-color:#c0392b;color:#fff;animation:pl 1s infinite}
-@keyframes pl{50%{opacity:.55}}
-.jh .spk{width:34px;height:34px;border-color:#04100b;color:#04100b;margin-inline-start:auto;font-size:16px}
-.jh .spk.off{opacity:.45}
-.jh .spk+button{margin-inline-start:0}
-
-.jf{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line)}
-.jf .in{padding:8px 12px}
-
 .hero h1{background:linear-gradient(90deg,#7af0c0,#22d18b,#4be3a6);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero h1 small{-webkit-text-fill-color:#fff}
 .visual{background:linear-gradient(160deg,#14302a,#04100b);box-shadow:0 30px 80px rgba(232,196,106,.25)}
 .fl{animation:fl 5s ease-in-out infinite}@keyframes fl{50%{transform:translateY(-10px)}}
+.fsh{animation:fsh 5s ease-in-out infinite;transform-origin:101px 186px;transform-box:view-box}@keyframes fsh{50%{transform:scale(.8);opacity:.15}}
 .chips2{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
 .chips2 span{border:1px solid var(--line);background:rgba(232,196,106,.12);border-radius:99px;padding:3px 14px;font-size:14px;color:var(--gold2)}
 .badge{position:relative;overflow:hidden;color:#fff;box-shadow:0 8px 22px rgba(0,0,0,.35)}
 .badge svg{width:28px;height:28px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .badge img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;padding:7px;border-radius:inherit}
+.badge svg.lg{width:100%;height:100%;stroke:none}
 .tag{align-self:flex-start;border:1px solid var(--line);border-radius:99px;padding:0 10px;font-size:12px;color:var(--gold2);line-height:1.7}
 .pm{background:linear-gradient(180deg,var(--card),#0b1914)}
 .pm:hover,.f:hover,.t:hover,.step:hover{border-color:var(--vio)}
@@ -146,7 +129,6 @@ dialog .acts{margin-top:14px}
 .cta p{font-weight:600}.btn.dark{background:#04100b;color:var(--gold)}.btn.dark:hover{background:#10211b}
 .rv{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
 .rv.in{opacity:1;transform:none}
-
 .logo{gap:10px}.lm{width:42px;height:42px;flex:none;filter:drop-shadow(0 4px 12px rgba(34,209,139,.35))}
 .logo span{line-height:1.05;font-size:23px}.logo small{letter-spacing:.38em;color:var(--gold);font-size:10px}
 .hero h1{font-size:clamp(44px,9vw,86px);line-height:1.15}
@@ -159,53 +141,141 @@ dialog .acts{margin-top:14px}
 .btn.sm{padding:8px 18px;border-radius:12px}
 .cta .btn{background:#04100b;color:var(--gold2)}.cta{background:linear-gradient(120deg,#22d18b,#7af0c0)}
 .ads{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px}
-.ad{position:relative;overflow:hidden;border-radius:24px;padding:26px;min-height:250px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;align-items:flex-start;border:1px solid var(--line);transition:transform .3s}
+.ad{position:relative;overflow:hidden;border-radius:24px;padding:26px;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;align-items:flex-start;border:1px solid var(--line);transition:transform .3s}
 .ad:hover{transform:translateY(-5px)}
-.ad .art{position:absolute;top:14px;inset-inline-end:14px;width:44%;max-width:210px}
+.ad .art{position:absolute;top:8px;inset-inline-end:10px;width:50%;max-width:250px}
 .ad h3{font:900 22px Cairo;line-height:1.35;position:relative}.ad p{font-size:15px;opacity:.85;margin-bottom:8px;position:relative}
 .a1{background:radial-gradient(circle at 15% 10%,#16b877,#0b3a2b 60%,#04100b)}
 .a2{background:linear-gradient(150deg,#f3d98b,#c9a13b);color:#04100b}
 .a3{background:linear-gradient(160deg,#14302a,#07110e)}
-#jb{background:linear-gradient(135deg,#10211b,#04100b);color:#fff;border:1px solid rgba(34,209,139,.6);padding:8px 20px 8px 8px;gap:12px;box-shadow:0 12px 34px rgba(0,0,0,.55),0 0 0 4px rgba(34,209,139,.12);font:800 15px Cairo;transition:transform .2s,box-shadow .2s}
-#jb:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.6),0 0 0 6px rgba(34,209,139,.2)}
-#jb .ib{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7af0c0,#16b877);display:grid;place-items:center;flex:none}
-#jb .ib svg{width:22px;height:22px;fill:none;stroke:#04100b;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-#jb b{display:block;text-align:start;line-height:1.3;font-weight:800}
-#jb small{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gold2);font-weight:600}
-#jb u{width:8px;height:8px;border-radius:50%;background:#25d366;box-shadow:0 0 0 0 rgba(37,211,102,.7);animation:pu 2s infinite}
-@keyframes pu{70%{box-shadow:0 0 0 8px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+/* ===== إضافات: المتاجر + البوسترات الصوتية + تلجرام (بنفس ألوان وشكل الموقع) ===== */
+.btn.tg{background:linear-gradient(135deg,#3db8f5,#1b8fd0);color:#04100b}
+.btn.tg:hover{background:linear-gradient(135deg,#6ccfff,#2aabee)}
+.stores{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
+.st{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;cursor:pointer;transition:transform .25s,border-color .25s,box-shadow .25s;font:inherit;color:inherit}
+.st:hover{transform:translateY(-5px);border-color:var(--vio);box-shadow:0 14px 34px rgba(0,0,0,.5)}
+.st .badge{width:54px;height:54px;font-size:17px}
+.st h3{font-size:16px}.st small{color:var(--mute);font-size:13px;line-height:1.5}
+.posters{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.poster{position:relative;overflow:hidden;border-radius:24px;padding:24px;min-height:390px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;align-items:flex-start;border:1px solid var(--line);cursor:pointer;text-align:start;transition:transform .3s,box-shadow .3s,border-color .3s;font:inherit;color:var(--w)}
+.poster:hover{transform:translateY(-5px);border-color:var(--vio)}
+.poster .art{position:absolute;top:10px;inset-inline-end:8px;width:80%;max-width:250px}
+.poster h3{font:900 22px Cairo;line-height:1.35;position:relative}
+.poster p{font-size:15px;opacity:.88;position:relative;margin-bottom:6px}
+.p1{background:radial-gradient(circle at 15% 10%,#16b877,#0b3a2b 60%,#04100b)}
+.p2{background:linear-gradient(150deg,#f3d98b,#c9a13b);color:#04100b}
+.p3{background:linear-gradient(160deg,#14302a,#07110e)}
+.p4{background:linear-gradient(150deg,#1f55c2,#0b1f55)}
+/* نافذة اختيار وسيلة الدفع للمتجر */
+#sd{width:min(560px,94vw)}
+.pmlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin:14px 0}
+.pmo{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 8px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;font:700 14px Cairo;color:var(--w);transition:transform .2s,border-color .2s}
+.pmo:hover{transform:translateY(-3px);border-color:var(--vio)}
+.pmo .badge{width:46px;height:46px;border-radius:12px}
+/* شريط الشعارات + أيقونات مصورة */
+.strip{padding:26px 0 30px;background:var(--bg2);border-block:1px solid var(--line)}
+.strip-t{text-align:center;color:var(--mute);font-weight:600;margin-bottom:16px}
+.marq{overflow:hidden;direction:ltr;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+#mqTrack{display:flex;gap:18px;width:max-content;animation:mq 45s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+.lgi{width:60px;height:60px;border-radius:15px;overflow:hidden;flex:none;box-shadow:0 8px 22px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.08)}
+.lgi svg{width:100%;height:100%;display:block}
+.fi{width:76px;height:76px;border-radius:20px;display:grid;place-items:center;margin-bottom:12px;background:linear-gradient(135deg,#16b877,#0b6b49);box-shadow:0 10px 26px rgba(34,209,139,.25)}
+.fi svg{width:40px;height:40px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cta{position:relative;overflow:hidden}
+.cta-art{width:170px;height:auto;flex:none}
+/* أزرار التواصل العائمة في الأسفل */
+.fc{position:fixed;bottom:78px;inset-inline-start:20px;z-index:40;display:flex;flex-direction:column;gap:10px}
+.fc a{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.5);transition:transform .2s}
+.fc a:hover{transform:translateY(-3px)}
+.fc svg{width:24px;height:24px;fill:#fff}
+/* ===== استبدال USDT / بنكك ===== */
+.xgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;max-width:760px}
+.xc{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px 20px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;cursor:pointer;font:inherit;color:inherit;transition:transform .25s,border-color .25s,box-shadow .25s}
+.xc:hover{transform:translateY(-5px);border-color:var(--vio);box-shadow:0 14px 34px rgba(0,0,0,.5)}
+.xc h3{font-size:20px;color:var(--gold)}.xc p{color:var(--mute);font-size:14.5px}
+.xrow{display:flex;align-items:center;gap:14px;direction:ltr}
+.xrow .badge{width:60px;height:60px}
+.xrow>svg{width:30px;height:30px;fill:none;stroke:var(--gold2);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+#xd{width:min(480px,94vw)}
+.xaddr{margin:12px 0 4px;border:1.5px dashed var(--gold);border-radius:14px;padding:12px 14px;background:rgba(34,209,139,.06)}
+.xaddr small{display:block;color:var(--mute);font-size:13px}
+.xaddr b{display:block;font:800 16px Cairo;color:var(--gold2);direction:ltr;text-align:right;word-break:break-all;margin:4px 0 8px}
+.xaddr .btn{width:100%}
+.xwait{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:26px 6px 6px}
+.xwait[hidden]{display:none}
+.xwait h4{font:900 22px Cairo;color:var(--gold)}.xwait p{color:var(--mute)}
+.dots{display:flex;gap:10px;margin-bottom:10px;direction:ltr}
+.dots i{width:14px;height:14px;border-radius:50%;background:var(--gold);animation:dt 1.2s ease-in-out infinite}
+.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}
+@keyframes dt{0%,80%,100%{transform:scale(.5);opacity:.35}40%{transform:scale(1);opacity:1}}
+.xup{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+#xfn{color:var(--mute);font-size:13px;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;direction:ltr}
+.xprev{position:relative;margin-top:10px;width:fit-content;max-width:100%}
+.xprev[hidden],.xerr[hidden],#xnote[hidden]{display:none}
+.xprev img{display:block;max-width:100%;max-height:150px;border-radius:12px;border:1px solid var(--line)}
+.xprev button{position:absolute;top:-8px;inset-inline-start:-8px;width:26px;height:26px;border-radius:50%;border:0;background:#ff6b6b;color:#fff;font-size:14px;line-height:1;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.5)}
+.xerr{color:#ff8a8a;font-size:13px;margin-top:6px}
+.xchips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 10px}
+.xchips button{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:3px 14px;font:700 14px Cairo;cursor:pointer;color:var(--w);transition:.2s}
+.xchips button:hover{border-color:var(--vio)}
+.xchips button.on{border-color:var(--gold);background:rgba(34,209,139,.18);color:var(--gold2)}
+#xamt[hidden]{display:none}
+.xcalc{margin-top:10px;border:1.5px solid var(--gold);border-radius:14px;padding:10px 14px;background:rgba(34,209,139,.06);text-align:center}
+.xcalc small{display:block;color:var(--mute);font-size:13px}
+.xcalc b{display:block;font:900 26px Cairo;color:var(--gold);line-height:1.5}
+#xd .btn[disabled]{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
 @media(max-width:860px){.ads{grid-template-columns:1fr}}
 @media(max-width:860px){
  .links{display:none;position:absolute;top:66px;inset-inline:0;flex-direction:column;background:var(--bg);padding:10px 18px 16px;border-bottom:1px solid var(--line)}
- .links.open{display:flex}.burger{display:block}.nav>.btn{display:none}
+ .links.open{display:flex}.burger{display:block}
  .hero .wrap,.about,.contact,footer .cols{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-
 <header><div class="wrap nav">
   <a class="logo" href="#home" aria-label="Zoro Store"><svg class="lm" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7af0c0"/><stop offset="1" stop-color="#0f9e66"/></linearGradient></defs><path d="M32 3l24 9v18c0 15-10 26-24 31C18 56 8 45 8 30V12z" fill="url(#lg)"/><path d="M20 20h24L26 44h18" fill="none" stroke="#04100b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M45 12l3.5 3.5L45 19l-3.5-3.5z" fill="#e8c46a"/></svg><span>Zoro<small>STORE</small></span></a>
   <nav class="links" id="links">
-    <a href="#home">الرئيسية</a><a href="#about">من نحن</a><a href="#payments">طرق الدفع</a><a href="#how">كيف تطلب</a><a href="#features">مميزاتنا</a><a href="#reviews">آراء العملاء</a><a href="#faq">الأسئلة</a><a href="#contact">تواصل معنا</a>
+    <a href="#home">الرئيسية</a><a href="#about">من نحن</a><a href="#stores">المتاجر</a><a href="#exchange">استبدال</a><a href="#how">كيف تطلب</a><a href="#features">مميزاتنا</a><a href="#reviews">آراء العملاء</a><a href="#faq">الأسئلة</a><a href="#contact">تواصل معنا</a>
   </nav>
+
+  <!-- تسجيل الدخول بحساب قوقل -->
+  <div class="auth-wrap">
+    <div id="gSignInWrapper">
+      <div id="g_id_onload"
+           data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
+           data-callback="handleCredentialResponse"
+           data-auto_prompt="false">
+      </div>
+      <div class="g_id_signin"
+           data-type="standard"
+           data-size="medium"
+           data-theme="outline"
+           data-text="signin_with"
+           data-shape="pill"
+           data-logo_alignment="right">
+      </div>
+    </div>
+    <div id="userProfile" class="user-profile" style="display:none;">
+      <img id="uAvatar" class="u-avatar" src="" alt="المستخدم">
+      <span id="uName" class="u-name"></span>
+      <button class="u-logout" id="uLogout" type="button" title="تسجيل الخروج">خروج</button>
+    </div>
+  </div>
+
   <button class="burger" id="burger" aria-label="القائمة" aria-expanded="false">☰</button>
-  <a class="btn sm" href="https://wa.me/249128472288" target="_blank" rel="noopener">اطلب الآن</a>
 </div></header>
-
-<div class="tick" aria-hidden="true"><div id="tk"></div></div>
-
 <main>
 <section class="hero" id="home"><div class="wrap">
   <div>
     <h1>Zoro Store<small>متجرك للدفع الإلكتروني</small></h1>
     <p>متجرك الأول للدفع الإلكتروني في السودان. ندفع عنك بسرعة وأمان عبر أشهر وسائل الدفع.</p>
     <div class="acts">
-      <a class="btn" href="https://wa.me/249128472288" target="_blank" rel="noopener">اطلب الآن عبر واتساب</a>
-      <a class="btn out" href="#payments">اكتشف طرق الدفع</a>
+      <a class="btn out" href="#stores">اختر متجرك</a>
     </div>
-    <div class="chips2"><span>دفع آمن</span><span>تنفيذ سريع</span><span>دعم 24 ساعة</span><span>10 وسائل دفع</span></div>
+    <div class="chips2"><span>دفع آمن</span><span>تنفيذ سريع</span><span>دعم 24 ساعة</span><span>7 وسائل دفع</span><span>شحن فري فاير وببجي</span></div>
   </div>
   <div class="visual">
     <svg viewBox="0 0 420 360" role="img" aria-label="تطبيق دفع إلكتروني">
@@ -220,60 +290,71 @@ dialog .acts{margin-top:14px}
 <g class="fl" style="animation-delay:-2s"><rect x="280" y="200" width="126" height="76" rx="14" fill="url(#g1)"/><rect x="280" y="220" width="126" height="13" fill="#04100b" opacity=".5"/><rect x="294" y="248" width="46" height="8" rx="4" fill="#04100b" opacity=".55"/></g>
 <g class="fl" style="animation-delay:-3s"><circle cx="340" cy="90" r="26" fill="#10211b" stroke="#22d18b" stroke-width="2.5"/><path d="M340 74l14 6v10c0 9-6 14-14 18-8-4-14-9-14-18V80z" fill="none" stroke="#22d18b" stroke-width="2.5" stroke-linejoin="round"/></g>
 </svg>
-
   </div>
 </div></section>
-
+<section class="strip"><div class="wrap"><p class="strip-t">نتعامل مع أشهر المتاجر والمنصات العالمية</p></div><div class="marq"><div id="mqTrack"></div></div></section>
 <section id="offers"><div class="wrap">
   <h2 class="rv">عروض وخدمات</h2><p class="sub rv">كل ما تحتاجه للدفع الإلكتروني في مكان واحد.</p>
   <div class="ads">
-    <article class="ad a1 rv"><svg class="art" viewBox="0 0 200 160" aria-hidden="true"><g transform="rotate(-12 100 80)"><rect x="30" y="30" width="120" height="76" rx="12" fill="#7af0c0" opacity=".9"/><rect x="30" y="50" width="120" height="12" fill="#04100b" opacity=".5"/></g><rect x="70" y="70" width="110" height="70" rx="12" fill="#e8c46a"/><rect x="70" y="88" width="110" height="11" fill="#04100b" opacity=".45"/><circle cx="165" cy="40" r="22" fill="#fff" opacity=".12"/></svg><h3>اشحن وحوّل وادفع بسهولة</h3><p>بنكك • فوري • أوكاش • MTN MoMo وأكثر</p><a class="btn sm" href="#payments">شاهد وسائل الدفع</a></article>
-    <article class="ad a2 rv"><svg class="art" viewBox="0 0 120 120" aria-hidden="true"><path d="M25 70V58a35 35 0 0170 0v12" fill="none" stroke="#04100b" stroke-width="9" stroke-linecap="round"/><rect x="15" y="66" width="20" height="32" rx="9" fill="#04100b"/><rect x="85" y="66" width="20" height="32" rx="9" fill="#04100b"/><path d="M95 98c0 10-10 14-26 14" fill="none" stroke="#04100b" stroke-width="6" stroke-linecap="round"/></svg><h3>دعم على مدار الساعة</h3><p>اسألنا في أي وقت</p><a class="btn dark sm" href="https://wa.me/249128472288" target="_blank" rel="noopener">كلمنا الآن</a></article>
-    <article class="ad a3 rv"><svg class="art" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="42" fill="none" stroke="#22d18b" stroke-width="5"/><path d="M18 60h84M60 18c18 18 18 66 0 84M60 18c-18 18-18 66 0 84" fill="none" stroke="#22d18b" stroke-width="4"/></svg><h3>ادفع للمواقع العالمية</h3><p>فيزا • ماستر كارد • باي بال</p><a class="btn sm" href="https://wa.me/249128472288?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AF%D9%81%D8%B9%20%D9%84%D9%85%D9%88%D9%82%D8%B9%20%D8%B9%D8%A7%D9%84%D9%85%D9%8A" target="_blank" rel="noopener">اطلب الآن</a></article>
+    <article class="ad a1 rv"><svg class="art" viewBox="0 0 220 200" aria-hidden="true"><circle cx="28" cy="58" r="13" fill="#e8c46a"/><circle cx="28" cy="58" r="8" fill="none" stroke="#04100b" stroke-opacity=".4" stroke-width="2.5"/><circle cx="40" cy="118" r="8" fill="#e8c46a"/><circle cx="196" cy="150" r="9" fill="#e8c46a"/><g transform="rotate(10 164 58)"><rect x="124" y="34" width="76" height="48" rx="8" fill="#1a1f71" stroke="#ffffff" stroke-opacity=".25" stroke-width="1.5"/><rect x="134" y="44" width="15" height="11" rx="2.5" fill="#e8c46a"/><text direction="ltr" x="190" y="72" text-anchor="end" font-family="Arial,sans-serif" font-weight="900" font-style="italic" font-size="17" fill="#fff">VISA</text></g><ellipse class="fsh" cx="101" cy="186" rx="34" ry="5" fill="#000" opacity=".28"/><g class="fl"><g transform="translate(-10 0)"><rect x="68" y="16" width="86" height="152" rx="15" fill="#04100b" stroke="#3a7a63" stroke-width="2.5"/><rect x="74" y="26" width="74" height="132" rx="9" fill="#10211b"/><rect x="100" y="19" width="22" height="4" rx="2" fill="#2f6150"/><circle cx="111" cy="58" r="17" fill="#22d18b"/><path d="M103 58l6 6 12-13" fill="none" stroke="#04100b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><text x="111" y="92" text-anchor="middle" font-family="Cairo,Arial,sans-serif" font-weight="800" font-size="9" fill="#fff">تم الدفع</text><rect x="90" y="102" width="42" height="5" rx="2.5" fill="#23463a"/></g></g></svg><h3>اشحن وحوّل وادفع بسهولة</h3><p>بنكك • فوري • أوكاش • USDT وأكثر</p><a class="btn sm" href="#stores">شاهد المتاجر</a></article>
+    <article class="ad a2 rv"><svg class="art" viewBox="0 0 220 200" aria-hidden="true"><circle cx="110" cy="100" r="84" fill="#04100b" opacity=".08"/><path d="M48 200 C48 150 78 132 110 132 C142 132 172 150 172 200Z" fill="#04100b"/><rect x="98" y="106" width="24" height="28" rx="9" fill="#d29a72"/><circle cx="110" cy="76" r="32" fill="#f0c4a0"/><path d="M77 72 C78 38 142 38 143 72 C132 56 90 56 77 72Z" fill="#04100b"/><path d="M74 80 V70 a36 36 0 0 1 72 0 V80" fill="none" stroke="#22d18b" stroke-width="7" stroke-linecap="round"/><rect x="65" y="70" width="14" height="28" rx="7" fill="#22d18b"/><rect x="141" y="70" width="14" height="28" rx="7" fill="#22d18b"/><path d="M72 96 C72 114 92 118 106 115" fill="none" stroke="#22d18b" stroke-width="4" stroke-linecap="round"/><circle cx="108" cy="115" r="5.5" fill="#22d18b"/><circle cx="98" cy="78" r="3.2" fill="#04100b"/><circle cx="122" cy="78" r="3.2" fill="#04100b"/><path d="M100 92 q10 9 20 0" fill="none" stroke="#04100b" stroke-width="3" stroke-linecap="round"/><rect x="140" y="14" width="68" height="42" rx="15" fill="#fff"/><path d="M158 56 l-8 14 18-14z" fill="#fff"/><text x="174" y="42" text-anchor="middle" font-family="Cairo,Arial,sans-serif" font-weight="900" font-size="17" fill="#04100b">24/7</text></svg><h3>دعم على مدار الساعة</h3><p>اسألنا في أي وقت</p><a class="btn dark sm" href="https://wa.me/249128472288" target="_blank" rel="noopener">كلمنا الآن</a></article>
+    <article class="ad a3 rv"><svg class="art" viewBox="0 0 220 200" aria-hidden="true"><circle cx="28" cy="58" r="13" fill="#e8c46a"/><circle cx="28" cy="58" r="8" fill="none" stroke="#04100b" stroke-opacity=".4" stroke-width="2.5"/><circle cx="40" cy="118" r="8" fill="#e8c46a"/><circle cx="196" cy="150" r="9" fill="#e8c46a"/><g transform="rotate(10 164 58)"><rect x="124" y="34" width="76" height="48" rx="8" fill="#1b1b1f" stroke="#ffffff" stroke-opacity=".25" stroke-width="1.5"/><rect x="134" y="44" width="15" height="11" rx="2.5" fill="#e8c46a"/><circle cx="170" cy="65" r="11" fill="#eb001b"/><circle cx="181" cy="65" r="11" fill="#f79e1b" fill-opacity=".92"/></g><ellipse class="fsh" cx="101" cy="186" rx="34" ry="5" fill="#000" opacity=".28"/><g class="fl"><g transform="translate(-10 0)"><rect x="68" y="16" width="86" height="152" rx="15" fill="#04100b" stroke="#3a7a63" stroke-width="2.5"/><rect x="74" y="26" width="74" height="132" rx="9" fill="#10211b"/><rect x="100" y="19" width="22" height="4" rx="2" fill="#2f6150"/><circle cx="111" cy="72" r="26" fill="none" stroke="#22d18b" stroke-width="3.5"/><path d="M85 72h52M111 46c14 14 14 38 0 52M111 46c-14 14-14 38 0 52" fill="none" stroke="#22d18b" stroke-width="3"/><rect x="90" y="108" width="42" height="8" rx="4" fill="#22d18b"/><rect x="98" y="122" width="26" height="5" rx="2.5" fill="#23463a"/></g></g></svg><h3>ادفع للمواقع العالمية</h3><p>فيزا • ماستر كارد • USDT</p><a class="btn sm" href="https://wa.me/249128472288?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AF%D9%81%D8%B9%20%D9%84%D9%85%D9%88%D9%82%D8%B9%20%D8%B9%D8%A7%D9%84%D9%85%D9%8A" target="_blank" rel="noopener">اطلب الآن</a></article>
   </div>
 </div></section>
 
-<section class="alt" id="about"><div class="wrap about">
-  <div class="owner rv"><div class="avatar">م</div><h3>معاوية أمير عبد الجليل</h3><p>مؤسس Zoro Store</p></div>
+<!-- ===== استبدال USDT وبنكك ===== -->
+<section id="exchange"><div class="wrap">
+  <h2 class="rv">استبدال USDT وبنكك</h2><p class="sub rv">حوّل بين USDT وبنكك بسهولة. اختر اتجاه الاستبدال.</p>
+  <div class="xgrid">
+    <button class="xc rv" type="button" data-x="u2b"><div class="xrow"><div class="badge" data-l="USDT"></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg><div class="badge" data-l="Bankak"></div></div><h3>USDT مقابل بنكك</h3><p>أرسل USDT واستلم الرصيد في حسابك ببنكك.</p></button>
+    <button class="xc rv" type="button" data-x="b2u"><div class="xrow"><div class="badge" data-l="Bankak"></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg><div class="badge" data-l="USDT"></div></div><h3>بنكك مقابل USDT</h3><p>حوّل عبر بنكك واستلم USDT في محفظتك.</p></button>
+  </div>
+</div></section>
+
+<!-- ===== عروض إعلانية ===== -->
+<section class="alt" id="posters"><div class="wrap">
+  <h2 class="rv">عروض مميزة</h2><p class="sub rv">اختر العرض المناسب لك واطلبه مباشرة عبر واتساب.</p>
+  <div class="posters" id="posterGrid"></div>
+</div></section>
+
+<section id="about"><div class="wrap about">
+  <div class="owner rv"><div class="avatar">Z</div><h3>Zoro Store</h3><p>متجرك للدفع الإلكتروني</p></div>
   <div class="rv">
     <h2>من نحن</h2>
     <p class="sub" style="margin-bottom:12px">متجر متخصص في خدمات الدفع الإلكتروني للسودانيين.</p>
-    <p>أسس معاوية أمير عبد الجليل متجر Zoro Store ليسهّل على الناس الدفع للخدمات والمشتريات الإلكترونية. الدفع من داخل السودان قد يكون معقدًا، لذلك نتولى الخطوات عنك ونوضحها لك واحدة واحدة.</p>
+    <p>تأسس متجر Zoro Store ليسهّل على الناس الدفع للخدمات والمشتريات الإلكترونية. الدفع من داخل السودان قد يكون معقدًا، لذلك نتولى الخطوات عنك ونوضحها لك واحدة واحدة.</p>
     <p>رؤيتنا أن يكون الدفع الإلكتروني سهلًا وآمنًا للجميع، وأن تجد عندنا الوسيلة المناسبة لك مع شرح واضح ودعم يرد عليك.</p>
-    <div class="facts"><div><b>10</b><span>وسائل دفع</span></div><div><b>24/7</b><span>استقبال الطلبات</span></div><div><b id="vc">0</b><span>زيارات من هذا المتصفح</span></div></div>
+    <div class="facts"><div><b>7</b><span>وسائل دفع</span></div><div><b>24/7</b><span>استقبال الطلبات</span></div><div><b id="vc">0</b><span>زيارات من هذا المتصفح</span></div></div>
   </div>
 </div></section>
 
-<section id="payments"><div class="wrap">
-  <h2 class="rv">ادفع بالطريقة التي تناسبك</h2>
-  <p class="sub rv">اختر وسيلة الدفع واضغط لمعرفة خطواتها.</p>
-  <div class="grid" id="pmGrid"></div>
+<!-- ===== المتاجر ===== -->
+<section class="alt" id="stores"><div class="wrap">
+  <h2 class="rv">ندفع لك في هذه المتاجر</h2>
+  <p class="sub rv">اختر المتجر أو الخدمة التي تريد الدفع لها وسنتواصل معك فورًا. كما نقوم بشحن فري فاير وببجي.</p>
+  <div class="grid stores" id="storeGrid"></div>
 </div></section>
 
-<section class="alt" id="how"><div class="wrap"><h2 class="rv">كيف تطلب؟</h2><p class="sub rv">ثلاث خطوات وتنتهي.</p><div class="grid" id="stepGrid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr))"></div></div></section>
-
-<section id="features"><div class="wrap">
+<section id="how"><div class="wrap"><h2 class="rv">كيف تطلب؟</h2><p class="sub rv">ثلاث خطوات وتنتهي.</p><div class="grid" id="stepGrid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr))"></div></div></section>
+<section class="alt" id="features"><div class="wrap">
   <h2 class="rv">لماذا Zoro Store؟</h2><p class="sub rv">ثلاثة أسباب تجعل تجربتك معنا مريحة.</p>
   <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
-    <div class="f rv"><div class="e">⚡</div><h3>سرعة</h3><p>نرد على طلبك مباشرة على واتساب وننفذه بأسرع وقت ممكن.</p></div>
-    <div class="f rv"><div class="e">🔒</div><h3>أمان</h3><p>نوضح لك كل خطوة قبل التحويل، ولا نطلب منك أي كلمة مرور أو رمز سري.</p></div>
-    <div class="f rv"><div class="e">🎧</div><h3>دعم 24 ساعة</h3><p>فريقنا متاح لاستقبال أسئلتك وطلباتك في أي وقت.</p></div>
+    <div class="f rv"><div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 10-13h-7z"/></svg></div><h3>سرعة</h3><p>نرد على طلبك مباشرة على واتساب وننفذه بأسرع وقت ممكن.</p></div>
+    <div class="f rv"><div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>أمان</h3><p>نوضح لك كل خطوة قبل التحويل، ولا نطلب منك أي كلمة مرور أو رمز سري.</p></div>
+    <div class="f rv"><div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-2a8 8 0 0116 0v2"/><rect x="2" y="14" width="4" height="6" rx="2"/><rect x="18" y="14" width="4" height="6" rx="2"/><path d="M20 20c0 1.5-2 2-5 2"/></svg></div><h3>دعم 24 ساعة</h3><p>فريقنا متاح لاستقبال أسئلتك وطلباتك في أي وقت.</p></div>
   </div>
   <div class="offer rv"><div><h3>عروض اليوم</h3><p>اسأل عن سعر خدمتك اليوم، وسنرسل لك التفاصيل والعرض المتاح فورًا.</p></div>
   <a class="btn" href="https://wa.me/249128472288?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%B9%D8%B1%D9%88%D8%B6%20%D8%A7%D9%84%D9%8A%D9%88%D9%85" target="_blank" rel="noopener">اسأل عن العروض</a></div>
 </div></section>
-
-<section class="alt" id="reviews"><div class="wrap">
+<section id="reviews"><div class="wrap">
   <h2 class="rv">آراء العملاء</h2><p class="sub rv">ماذا يقول من جرّب خدماتنا.</p>
-  <!-- استبدل هذه الآراء بآراء عملائك الحقيقيين -->
   <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
     <div class="t rv"><div class="stars">★★★★★</div><p>الخدمة سريعة والشرح كان واضح جدًا. ما احتجت أسأل كتير.</p><b>أحمد محمد</b></div>
     <div class="t rv"><div class="stars">★★★★★</div><p>تعامل محترم ورد على الواتساب في دقايق. أنصح بيهم.</p><b>سارة عثمان</b></div>
     <div class="t rv"><div class="stars">★★★★★</div><p>دفعت عن طريق بنكك وكل شي تم بسهولة وأمان.</p><b>خالد إبراهيم</b></div>
   </div>
 </div></section>
-
-<section id="faq"><div class="wrap">
+<section class="alt" id="faq"><div class="wrap">
   <h2 class="rv">الأسئلة الشائعة</h2><p class="sub rv">إجابات سريعة لأكثر الأسئلة.</p>
   <details><summary>كيف أطلب خدمة؟</summary><p>اختر وسيلة الدفع، ثم راسلنا على واتساب بالخدمة المطلوبة، وسنرسل لك السعر وخطوات التحويل.</p></details>
   <details><summary>كم تستغرق العملية؟</summary><p>غالبًا تُنفذ بعد وصول إشعار التحويل وتأكيده، وتختلف المدة حسب الوسيلة وظروف الشبكة.</p></details>
@@ -281,13 +362,12 @@ dialog .acts{margin-top:14px}
   <details><summary>كم الأسعار؟</summary><p>تختلف الأسعار حسب الخدمة والوسيلة وسعر الصرف وقت الطلب. راسلنا على واتساب وسنرسل لك السعر النهائي قبل التنفيذ.</p></details>
   <details><summary>ما هي أوقات العمل؟</summary><p>نستقبل الطلبات على مدار الساعة، وقد يتأخر الرد أحيانًا وقت الذروة.</p></details>
 </div></section>
-
-<section class="alt" id="contact"><div class="wrap contact">
+<section id="contact"><div class="wrap contact">
   <div class="box rv">
     <h2>تواصل معنا</h2>
     <p class="sub" style="margin-bottom:6px">نحن في انتظار طلبك.</p>
     <a class="phone" href="tel:+249128472288">+249128472288</a>
-    <div class="acts"><a class="btn" href="https://wa.me/249128472288" target="_blank" rel="noopener">واتساب</a><a class="btn out" href="tel:+249128472288">اتصال</a></div>
+    <div class="acts"><a class="btn" href="https://wa.me/249128472288" target="_blank" rel="noopener">واتساب</a><a class="btn tg" href="https://t.me/Moawia2001" target="_blank" rel="noopener">تلجرام</a><a class="btn out" href="tel:+249128472288">اتصال</a></div>
   </div>
   <form class="box rv" id="cf">
     <h3 style="color:var(--gold);font-family:Cairo">أرسل رسالة</h3>
@@ -296,209 +376,336 @@ dialog .acts{margin-top:14px}
     <button class="btn" style="margin-top:14px;width:100%" type="submit">إرسال عبر واتساب</button>
   </form>
 </div></section>
-<section style="padding:0 0 72px"><div class="wrap"><div class="cta rv"><div><h2 style="color:#04100b">جاهز تدفع بسهولة؟</h2><p>راسلنا الآن ونرد عليك بالسعر وخطوات التحويل.</p></div><a class="btn dark" href="https://wa.me/249128472288" target="_blank" rel="noopener">اطلب الآن عبر واتساب</a></div></div></section>
+<section style="padding:0 0 72px"><div class="wrap"><div class="cta rv"><div><h2 style="color:#04100b">جاهز تدفع بسهولة؟</h2><p>راسلنا الآن ونرد عليك بالسعر وخطوات التحويل.</p></div><svg class="cta-art" viewBox="0 0 200 150" aria-hidden="true"><circle cx="100" cy="75" r="62" fill="#04100b" opacity=".12"/><path d="M100 18l42 16v32c0 28-18 46-42 54-24-8-42-26-42-54V34z" fill="#04100b"/><path d="M80 72l14 14 28-30" fill="none" stroke="#7af0c0" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="34" cy="110" r="14" fill="#e8c46a"/><circle cx="34" cy="110" r="8" fill="none" stroke="#04100b" stroke-width="3" opacity=".5"/><circle cx="168" cy="40" r="10" fill="#e8c46a"/><circle cx="170" cy="118" r="7" fill="#04100b" opacity=".5"/></svg><a class="btn dark" href="https://wa.me/249128472288" target="_blank" rel="noopener">اطلب الآن عبر واتساب</a></div></div></section>
 </main>
-
 <footer><div class="wrap">
   <div class="cols">
     <div><a class="logo" href="#home" style="display:flex"><svg class="lm" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 3l24 9v18c0 15-10 26-24 31C18 56 8 45 8 30V12z" fill="url(#lg)"/><path d="M20 20h24L26 44h18" fill="none" stroke="#04100b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M45 12l3.5 3.5L45 19l-3.5-3.5z" fill="#e8c46a"/></svg><span>Zoro<small>STORE</small></span></a><p style="color:var(--mute);margin-top:8px">متجرك الأول للدفع الإلكتروني في السودان.</p><span class="vis">الزيارات: <b id="vc2">0</b></span></div>
-    <div><h4>روابط سريعة</h4><a href="#home">الرئيسية</a><a href="#about">من نحن</a><a href="#payments">طرق الدفع</a><a href="#features">مميزاتنا</a><a href="#reviews">آراء العملاء</a><a href="#contact">تواصل معنا</a></div>
-    <div><h4>تواصل</h4><a href="tel:+249128472288" dir="ltr" style="text-align:right">+249128472288</a><a href="https://wa.me/249128472288" target="_blank" rel="noopener">واتساب</a></div>
+    <div><h4>روابط سريعة</h4><a href="#home">الرئيسية</a><a href="#about">من نحن</a><a href="#stores">المتاجر</a><a href="#features">مميزاتنا</a><a href="#reviews">آراء العملاء</a><a href="#contact">تواصل معنا</a></div>
+    <div><h4>تواصل</h4><a href="tel:+249128472288" dir="ltr" style="text-align:right">+249128472288</a><a href="https://wa.me/249128472288" target="_blank" rel="noopener">واتساب</a><a href="https://t.me/Moawia2001" target="_blank" rel="noopener">تلجرام</a></div>
   </div>
-  <div class="copy">جميع الحقوق محفوظة Zoro Store - معاوية أمير عبد الجليل <span id="yr"></span></div>
+  <div class="copy">جميع الحقوق محفوظة Zoro Store <span id="yr"></span></div>
 </div></footer>
-
-<dialog id="pd">
-  <h3 id="pt"></h3><p class="note" id="pdsc"></p>
-  <ol id="ps"></ol>
-  <p class="note">للتواصل: <b dir="ltr">+249128472288</b></p>
-  <div class="acts"><a class="btn" id="pw" target="_blank" rel="noopener">اطلب عبر واتساب</a><button class="btn out" id="pc" type="button">إغلاق</button></div>
+<dialog id="sd">
+  <h3 id="st"></h3><p class="note">اختر وسيلة الدفع:</p>
+  <div class="pmlist" id="sl"></div>
+  <div class="acts"><button class="btn out" id="sc" type="button">إغلاق</button></div>
 </dialog>
-
+<dialog id="xd">
+  <h3 id="xt"></h3>
+  <div id="xform">
+  <div id="xamt" hidden>
+    <label for="xq">اختر الكمية (USDT)</label>
+    <div class="xchips" id="xchips"></div>
+    <input class="in" id="xq" type="number" inputmode="decimal" step="any" placeholder="أو اكتب الكمية" dir="ltr">
+    <div class="xcalc" aria-live="polite"><small id="xcl"></small><b id="xtot">—</b><small id="xrate"></small></div>
+    <p class="xerr" id="xqerr" hidden></p>
+  </div>
+  <div class="xaddr">
+    <small id="xl1"></small>
+    <b id="xv" dir="ltr"></b>
+    <small id="xnet"></small>
+    <button class="btn out sm" id="xcp" type="button">نسخ</button>
+  </div>
+  <label for="xin" id="xl2"></label>
+  <input class="in" id="xin" autocomplete="off" dir="ltr">
+  <label id="xl3" style="margin-top:14px"></label>
+  <input type="file" id="xfile" accept="image/*" hidden>
+  <div class="xup"><button class="btn out sm" id="xpick" type="button">اختر صورة</button><span id="xfn"></span></div>
+  <div class="xprev" id="xprev" hidden><img id="xim" alt="معاينة صورة الإشعار"><button id="xrm" type="button" aria-label="إزالة الصورة">✕</button></div>
+  <p class="xerr" id="xerr" hidden role="alert"></p>
+  <div class="acts" style="margin-top:16px"><button class="btn" id="xsend" type="button" disabled>إرسال</button><button class="btn out" id="xc2" type="button">إغلاق</button></div>
+  </div>
+  <div class="xwait" id="xwait" hidden role="status" aria-live="polite">
+    <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    <h4>جاري التنفيذ</h4>
+    <p>يرجى الانتظار بعض الوقت</p>
+    <p id="xnote" hidden style="color:var(--gold2);font-weight:700"></p>
+    <button class="btn out sm" id="xc3" type="button" style="margin-top:14px">إغلاق</button>
+  </div>
+</dialog>
 <button id="top" aria-label="العودة للأعلى">↑</button>
-
-<button id="jb" aria-expanded="false" aria-label="فتح المساعد الآلي"><i class="ib"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a2 2 0 012 2v8a2 2 0 01-2 2H11l-5 4v-4H4a2 2 0 01-2-2V7a2 2 0 012-2z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg></i><b>جانسكا Janska<small><u></u>اسألني الآن</small></b></button>
-<div id="jw" role="dialog" aria-label="مساعد جانسكا">
-  <div class="jh"><svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true"><path d="M32 3l24 9v18c0 15-10 26-24 31C18 56 8 45 8 30V12z" fill="url(#lg)"/><path d="M20 20h24L26 44h18" fill="none" stroke="#04100b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M45 12l3.5 3.5L45 19l-3.5-3.5z" fill="#e8c46a"/></svg><div>جانسكا Janska<small>مساعد Zoro Store</small></div><button class="spk" id="spk" type="button" aria-label="قراءة الردود بصوت عال" title="قراءة الردود بصوت عال">🔊</button><button id="jx" aria-label="إغلاق">×</button></div>
-  <div id="msgs"></div>
-  <div class="chips" id="chips"></div>
-  <form class="jf" id="jf"><button class="mic" id="mic" type="button" aria-label="تحدث" title="تحدث">🎤</button><input class="in" id="ji" placeholder="اكتب أو اضغط الميكروفون..." autocomplete="off"><button class="btn sm" type="submit">إرسال</button></form>
+<!-- أزرار واتساب وتلجرام في الأسفل -->
+<div class="fc">
+  <a href="https://wa.me/249128472288" target="_blank" rel="noopener" style="background:#25d366" aria-label="واتساب"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.1-1.3A10 10 0 1012 2z"/><path fill="#25d366" d="M8.6 7c-.4 0-.9.4-1 1-.2 1.500.6 3.200 2 4.600 1.400 1.400 3.100 2.200 4.600 2 .6-.1 1-.6 1-1l-.1-.5-1.800-.8-.9 1c-1-.4-2-1.400-2.400-2.400l1-.9-.8-1.800z"/></svg></a>
+  <a href="https://t.me/Moawia2001" target="_blank" rel="noopener" style="background:#2aabee" aria-label="تلجرام"><svg viewBox="0 0 24 24"><path d="M21.500 3.500L2.700 10.800c-.8.300-.8 1.300 0 1.600l4.600 1.500 1.800 5.600c.2.600.9.800 1.400.4l2.600-2.200 4.700 3.500c.5.400 1.200.1 1.400-.5L22.900 4.800c.2-.8-.6-1.600-1.400-1.300z"/></svg></a>
 </div>
-
 <script>
-const PHONE='+249128472288',WA='https://wa.me/249128472288';
+const PHONE='+249128472288',WA='https://wa.me/249128472288',TG='https://t.me/Moawia2001';
 const wa=t=>WA+(t?'?text='+encodeURIComponent(t):'');
 const $=s=>document.querySelector(s);
-
 const PM=[
  {n:'بنكك',e:'Bankak',b:'BK',t:'bank',c:['#16a06a','#0b6b49'],tag:'تطبيق بنكي',img:'images/bankak.png',d:'تطبيق بنك الخرطوم للدفع والتحويل الفوري.',k:['بنكك','bankak','بنك الخرطوم']},
  {n:'فوري',e:'Fawry',b:'FW',t:'bill',c:['#ffb400','#e07b00'],tag:'سداد فواتير',img:'images/fawry.png',d:'خدمة دفع إلكتروني لسداد الفواتير والخدمات.',k:['فوري','fawry']},
  {n:'أوكاش',e:'O-Cash',b:'OC',t:'wallet',c:['#ef5a3a','#b83214'],tag:'محفظة إلكترونية',img:'images/ocash.png',d:'محفظة إلكترونية للتحويل والدفع عبر الهاتف.',k:['اوكاش','أوكاش','ocash','o-cash']},
- {n:'أم-بوك',e:'mBok',b:'MB',t:'phone',c:['#3b8bff','#1f55c2'],tag:'تطبيق مصرفي',img:'images/mbok.png',d:'تطبيق مصرفي للدفع والتحويل من الجوال.',k:['mbok','ام بوك','أم بوك','أم-بوك','امبوك']},
- {n:'MTN MoMo',e:'MTN Mobile Money',b:'MM',t:'phone',c:['#e8b800','#b38600'],tag:'محفظة موبايل',img:'images/mtn-momo.png',d:'محفظة المال عبر الهاتف من MTN.',k:['mtn','momo','ام تي ان']},
- {n:'زين كاش',e:'Zain Cash',b:'ZC',t:'wallet',c:['#ff3d9a','#9b2bd6'],tag:'محفظة موبايل',img:'images/zain-cash.png',d:'محفظة زين للدفع والتحويل عبر الجوال.',k:['زين','zain']},
- {n:'سوداني كاش',e:'Sudani Cash',b:'SC',t:'phone',c:['#1fb57f','#0b7a55'],tag:'محفظة موبايل',img:'images/sudani-cash.png',d:'محفظة سوداني للدفع والتحويل عبر الجوال.',k:['سوداني','sudani']},
  {n:'فيزا',e:'Visa',b:'VS',t:'card',c:['#2f5be0','#1a2f8f'],tag:'بطاقة',img:'images/visa.png',d:'بطاقة عالمية للدفع على المواقع والتطبيقات.',k:['فيزا','visa']},
  {n:'ماستر كارد',e:'Mastercard',b:'MC',t:'card',c:['#f0445a','#f79e1b'],tag:'بطاقة',img:'images/mastercard.png',d:'بطاقة عالمية للدفع على المواقع والتطبيقات.',k:['ماستر','mastercard']},
- {n:'باي بال',e:'PayPal',b:'PP',t:'send',c:['#009cde','#003087'],tag:'دفع عالمي',img:'images/paypal.png',d:'منصة عالمية للدفع والتحويل عبر الإنترنت.',k:['باي بال','بيبال','paypal']}
+ {n:'USDT',e:'USDT',b:'UT',t:'send',c:['#26a17b','#0e6b4f'],tag:'عملة رقمية',img:'images/usdt.png',d:'عملة رقمية مستقرة مرتبطة بالدولار للدفع والتحويل.',k:['usdt','تيثر','تذر','يو اس دي تي']},
+ {n:'BNB Smart',e:'BNB Smart',b:'BN',t:'send',c:['#f3ba2f','#a87c00'],tag:'عملة رقمية',img:'images/bnb.png',d:'الدفع عبر شبكة BNB Smart Chain.',k:['bnb','بي ان بي','smart chain','بينانس']}
+];
+/* ===== المتاجر (إضافة) ===== */
+const STORES=[
+ {n:'أمازون',e:'Amazon',b:'AZ',t:'bag',c:['#ffb347','#e07b00'],d:'تسوق وشحن لأي دولة',k:['امازون','amazon']},
+ {n:'شي إن',e:'SHEIN',b:'SH',t:'bag',c:['#3a3a3a','#111'],d:'ملابس وأزياء وإكسسوارات',k:['شي ان','شي إن','شيان','shein']},
+ {n:'علي إكسبريس',e:'AliExpress',b:'AE',t:'bag',c:['#ff5a3a','#c4260a'],d:'منتجات بأسعار مخفضة',k:['علي اكسبريس','على اكسبريس','اليكسبريس','aliexpress']},
+ {n:'تيمو',e:'Temu',b:'TM',t:'bag',c:['#ff7a1a','#d94a00'],d:'عروض وأسعار منافسة',k:['تيمو','temu']},
+ {n:'نون',e:'Noon',b:'NN',t:'bag',c:['#ffe14d','#d6b400'],d:'تسوق إلكتروني متنوع',k:['نون','noon']},
+ {n:'إيباي',e:'eBay',b:'EB',t:'bag',c:['#e53238','#0064d2'],d:'مزادات ومنتجات مستعملة وجديدة',k:['ايباي','ebay']},
+ {n:'نتفليكس',e:'Netflix',b:'NF',t:'play',c:['#e50914','#8b0000'],d:'اشتراك أفلام ومسلسلات',k:['نتفلكس','نتفليكس','netflix']},
+ {n:'سبوتيفاي',e:'Spotify',b:'SP',t:'play',c:['#1ed760','#0b7a35'],d:'اشتراك موسيقى وبودكاست',k:['سبوتيفاي','spotify']},
+ {n:'ستيم',e:'Steam',b:'ST',t:'game',c:['#2b5876','#0b1f2e'],d:'ألعاب الكمبيوتر وبطاقات المحفظة',k:['ستيم','steam']},
+ {n:'بلايستيشن',e:'PlayStation',b:'PS',t:'game',c:['#2f5be0','#0b1f55'],d:'بطاقات واشتراكات الألعاب',k:['بلايستيشن','بلاي ستيشن','playstation','psn']},
+ {n:'جوجل بلاي',e:'Google Play',b:'GP',t:'game',c:['#34a853','#0f6b2e'],d:'تطبيقات وألعاب الأندرويد',k:['جوجل بلاي','قوقل بلاي','google play']},
+ {n:'آب ستور',e:'App Store',b:'AS',t:'phone',c:['#3b8bff','#1f55c2'],d:'تطبيقات وألعاب الآيفون',k:['اب ستور','ابل','apple','app store']},
+ {n:'كانفا',e:'Canva',b:'CV',t:'bag',c:['#7d2ae8','#00c4cc'],d:'اشتراك تصميم احترافي',k:['كانفا','canva']},
+ {n:'فري فاير',e:'Free Fire',b:'FF',t:'game',c:['#ff6a00','#b33c00'],d:'شحن جواهر فري فاير',k:['فري فاير','فرى فاير','free fire','freefire','جواهر']},
+ {n:'ببجي',e:'PUBG',b:'PG',t:'game',c:['#f2a900','#8a5a00'],d:'شحن شدات ببجي (UC)',k:['ببجي','pubg','شدات']},
+ {n:'مواقع أخرى',e:'Other',b:'+',t:'send',c:['#22d18b','#0f9e66'],d:'أي موقع عالمي تريد الدفع له',k:['موقع اخر','مواقع اخرى']}
 ];
 const STEPS=n=>['راسلنا على واتساب واذكر الخدمة المطلوبة وأنك ستدفع عبر '+n+'.','سنرسل لك السعر النهائي وبيانات التحويل.','حوّل المبلغ من تطبيقك وأرسل لنا صورة الإشعار.','نؤكد الدفع وننفذ طلبك ونبلغك فورًا.'];
-
-/* ticker */
-const tkItems=['🔥 عروض اليوم: اسأل عن السعر','🎧 دعم 24 ساعة','🔒 دفع سريع وآمن','✨ Zoro Store'];
-$('#tk').innerHTML=[...Array(4)].flatMap(()=>tkItems).concat([...Array(4)].flatMap(()=>tkItems)).map(t=>'<span>'+t+'</span>').join('');
-
-const GL={bank:'<path d="M3 10l9-6 9 6M5 10v8M9 10v8M15 10v8M19 10v8M3 20h18"/>',bill:'<path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6"/>',wallet:'<path d="M3 7h16a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2zM3 7l2-3h12M16 14h3"/>',phone:'<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',card:'<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/>',send:'<path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/>',check:'<path d="M5 12l5 5L20 6"/>'};
+const GL={bank:'<path d="M3 10l9-6 9 6M5 10v8M9 10v8M15 10v8M19 10v8M3 20h18"/>',bill:'<path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6"/>',wallet:'<path d="M3 7h16a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2zM3 7l2-3h12M16 14h3"/>',phone:'<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',card:'<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/>',send:'<path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/>',check:'<path d="M5 12l5 5L20 6"/>',bag:'<path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/>',play:'<circle cx="12" cy="12" r="9"/><path d="M10 8l6 4-6 4z"/>',game:'<rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 10v5M4.5 12.5h5M16 11h.01M18 14h.01"/>'};
 const glyph=t=>'<svg viewBox="0 0 24 24" aria-hidden="true">'+GL[t]+'</svg>';
-/* payment cards + dialog */
-const grid=$('#pmGrid'),dlg=$('#pd');
-PM.forEach((p,i)=>{
-  const c=document.createElement('article');c.className='pm rv';
-  c.innerHTML='<div class="badge"></div><small class="tag"></small><h3></h3><p></p><button class="btn sm" type="button">اعرف طريقة الدفع</button>';
-  const bd=c.querySelector('.badge');bd.style.background='linear-gradient(135deg,'+p.c[0]+','+p.c[1]+')';bd.innerHTML=glyph(p.t);c.querySelector('.tag').textContent=p.tag;if(p.img){const im=new Image();im.alt=p.n;im.onerror=()=>im.remove();im.src=p.img;bd.appendChild(im)}
-  c.querySelector('h3').innerHTML=p.n+'<span>'+p.e+'</span>';
-  c.querySelector('p').textContent=p.d;
-  c.querySelector('button').onclick=()=>openPM(i);
-  grid.appendChild(c);
+/* ===== شعارات وسائل الدفع والمتاجر (رسوم SVG مدمجة) ===== */
+const T=(s,z,f,y)=>'<text x="24" y="'+(y||30)+'" text-anchor="middle" font-family="Cairo,Arial,sans-serif" font-weight="900" font-size="'+z+'" fill="'+f+'">'+s+'</text>';
+const LG={
+'Bankak':['#16a06a',T('بنكك',15,'#fff')],
+'Fawry':['#ffb400',T('fawry',12,'#1b1b1b')],
+'O-Cash':['#ef5a3a',T('OCash',11,'#fff')],
+'Visa':['#1a1f71','<g transform="skewX(-10) translate(5 0)">'+T('VISA',15,'#fff')+'</g>'],
+'Mastercard':['#1b1b1f','<circle cx="18" cy="24" r="11" fill="#eb001b"/><circle cx="30" cy="24" r="11" fill="#f79e1b" fill-opacity=".9"/>'],
+'USDT':['#26a17b','<path d="M12 11h24v6h-9v3c6 .3 10 1.5 10 3s-4 2.7-10 3v12h-6V26c-6-.3-10-1.5-10-3s4-2.7 10-3v-3h-9z" fill="#fff"/><ellipse cx="24" cy="23" rx="7" ry="1.6" fill="#26a17b"/>'],
+'BNB Smart':['#12161c','<g fill="#f3ba2f"><path d="M24 8l-6.5 6.5 3 3L24 14l3.5 3.5 3-3z"/><path d="M24 40l-6.5-6.5 3-3L24 34l3.5-3.5 3 3z"/><path d="M10 24l3.5-3.5 3.5 3.5-3.5 3.5z"/><path d="M38 24l-3.5-3.5L31 24l3.5 3.5z"/><path d="M24 19.5L28.5 24 24 28.5 19.5 24z"/></g>'],
+'Amazon':['#232f3e',T('amazon',11,'#fff',25)+'<path d="M10 33q14 7 28 0" fill="none" stroke="#ff9900" stroke-width="3" stroke-linecap="round"/>'],
+'SHEIN':['#000',T('SHEIN',11,'#fff')],
+'AliExpress':['#e62e04',T('Ali',14,'#fff',22)+T('Express',9,'#fff',34)],
+'Temu':['#fb7701',T('TEMU',13,'#fff')],
+'Noon':['#feee00',T('noon',15,'#1b1b1b')],
+'eBay':['#fff','<text x="24" y="31" text-anchor="middle" font-family="Arial" font-weight="900" font-size="16"><tspan fill="#e53238">e</tspan><tspan fill="#0064d2">b</tspan><tspan fill="#f5af02">a</tspan><tspan fill="#86b817">y</tspan></text>'],
+'Netflix':['#000',T('N',34,'#e50914',36)],
+'Spotify':['#1ed760','<circle cx="24" cy="24" r="16" fill="#000"/><path d="M15 20q10-3 19 2M16 26q9-2 16 2M17 31q7-2 13 1" fill="none" stroke="#1ed760" stroke-width="2.6" stroke-linecap="round"/>'],
+'Steam':['#1b2838',T('STEAM',10,'#fff')],
+'PlayStation':['#003791','<g transform="skewX(-8) translate(4 0)">'+T('PS',20,'#fff',32)+'</g>'],
+'Google Play':['#fff','<path d="M14 10v28l13-14z" fill="#4285f4"/><path d="M14 10l22 14h-9z" fill="#fbbc04"/><path d="M14 38l22-14h-9z" fill="#ea4335"/><path d="M14 10l13 14 9 0z" fill="#34a853" opacity=".9"/>'],
+'App Store':['#0d84ff',T('A',30,'#fff',36)],
+'Canva':['#7d2ae8',T('Canva',12,'#fff')],
+'Free Fire':['#ff6a00',T('FREE',10,'#fff',22)+T('FIRE',10,'#fff',35)],
+'PUBG':['#f2a900',T('PUBG',13,'#1b1b1b')]
+};
+const logo=(e,t)=>{const l=LG[e];return l?'<svg class="lg" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" fill="'+l[0]+'"/>'+l[1]+'</svg>':glyph(t)};
+/* شريط شعارات المتاجر */
+(function(){
+  const names=STORES.filter(x=>LG[x.e]).map(x=>x.e);
+  const html=names.map(e=>'<div class="lgi" title="'+e+'">'+logo(e,'bag')+'</div>').join('');
+  $('#mqTrack').innerHTML=html+html;
+})();
+/* stores grid */
+STORES.forEach(s=>{
+  const b=document.createElement('button');b.type='button';b.className='st rv';
+  b.innerHTML='<div class="badge"></div><h3></h3><small></small>';
+  const bd=b.querySelector('.badge');bd.style.background='linear-gradient(135deg,'+s.c[0]+','+s.c[1]+')';bd.innerHTML=logo(s.e,s.t);
+  b.querySelector('h3').textContent=s.n;b.querySelector('small').textContent=s.d;
+  b.onclick=()=>openStore(s);
+  $('#storeGrid').appendChild(b);
 });
-function openPM(i){
-  const p=PM[i];
-  $('#pt').textContent='الدفع عبر '+p.n;$('#pdsc').textContent=p.d;
-  $('#ps').innerHTML='';STEPS(p.n).forEach(s=>{const l=document.createElement('li');l.textContent=s;$('#ps').appendChild(l)});
-  $('#pw').href=wa('مرحبًا، أريد الدفع عبر '+p.n);
-  dlg.showModal();
+/* اختيار وسيلة الدفع بعد اختيار المتجر */
+const sdlg=$('#sd');
+function openStore(s){
+  $('#st').textContent='الدفع في '+s.n;
+  const l=$('#sl');l.innerHTML='';
+  PM.forEach(p=>{
+    const b=document.createElement('button');b.type='button';b.className='pmo';
+    b.innerHTML='<div class="badge"></div><span></span>';
+    const bd=b.querySelector('.badge');bd.style.background='linear-gradient(135deg,'+p.c[0]+','+p.c[1]+')';bd.innerHTML=logo(p.e,p.t);if(p.img){const im=new Image();im.alt=p.n;im.onerror=()=>im.remove();im.src=p.img;bd.appendChild(im)}
+    b.querySelector('span').textContent=p.n;
+    b.onclick=()=>{sdlg.close();window.open(wa('مرحبًا، أريد الدفع في '+s.n+' ('+s.e+') عبر '+p.n),'_blank','noopener')};
+    l.appendChild(b);
+  });
+  sdlg.showModal();
 }
+$('#sc').onclick=()=>sdlg.close();
+sdlg.addEventListener('click',e=>{if(e.target===sdlg)sdlg.close()});
 /* steps */
-[['card','اختر وسيلة الدفع','حدد الوسيلة المناسبة لك من القائمة أعلاه.',['#e8c46a','#c9a13b']],['send','راسلنا على واتساب','اذكر الخدمة المطلوبة وسنرسل لك السعر وبيانات التحويل.',['#25d366','#128c4a']],['check','حوّل واستلم','أرسل إشعار التحويل ونؤكد طلبك وننفذه فورًا.',['#22d18b','#0f9e66']]].forEach((x,i)=>{
+[['card','اختر وسيلة الدفع','اختر المتجر أو الخدمة التي تريدها، ثم اختر وسيلة الدفع.',['#e8c46a','#c9a13b']],['send','راسلنا على واتساب','اذكر الخدمة المطلوبة وسنرسل لك السعر وبيانات التحويل.',['#25d366','#128c4a']],['check','حوّل واستلم','أرسل إشعار التحويل ونؤكد طلبك وننفذه فورًا.',['#22d18b','#0f9e66']]].forEach((x,i)=>{
   const d=document.createElement('div');d.className='step rv';
   d.innerHTML='<span class="n">'+(i+1)+'</span><div class="badge" style="width:58px;height:58px;border-radius:16px;display:grid;place-items:center"></div><h3></h3><p></p><a class="btn sm" target="_blank" rel="noopener">ابدأ الآن</a>';
   const b=d.querySelector('.badge');b.style.background='linear-gradient(135deg,'+x[3][0]+','+x[3][1]+')';b.innerHTML=glyph(x[0]);
   d.querySelector('h3').textContent=x[1];d.querySelector('p').textContent=x[2];d.querySelector('a').href=wa('مرحبًا، أريد تقديم طلب');
   $('#stepGrid').appendChild(d);
 });
-$('#pc').onclick=()=>dlg.close();
-dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
-
 /* nav */
 const lk=$('#links'),bg=$('#burger');
 bg.onclick=()=>{const o=lk.classList.toggle('open');bg.setAttribute('aria-expanded',o)};
 lk.querySelectorAll('a').forEach(a=>a.onclick=()=>{lk.classList.remove('open');bg.setAttribute('aria-expanded',false)});
-
 /* back to top */
 const tp=$('#top');
 addEventListener('scroll',()=>tp.classList.toggle('on',scrollY>500),{passive:true});
 tp.onclick=()=>scrollTo({top:0,behavior:'smooth'});
-
-/* reveal */
-if('IntersectionObserver' in window){
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-}else document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
-
-/* visit counter: per-browser (localStorage) */
+/* visit counter */
 (function(){
   let n=0;try{n=(parseInt(localStorage.getItem('unico_visits'))||0)+1;localStorage.setItem('unico_visits',n)}catch(e){n=1}
   let cur=0;const step=()=>{cur+=Math.max(1,Math.ceil((n-cur)/8));if(cur>=n)cur=n;$('#vc').textContent=$('#vc2').textContent=cur;if(cur<n)setTimeout(step,70)};step();
 })();
 $('#yr').textContent=new Date().getFullYear();
-
 /* contact form -> WhatsApp */
 $('#cf').onsubmit=e=>{
   e.preventDefault();
   window.open(wa('الاسم: '+$('#cn').value.trim()+'\nالرسالة: '+$('#cm').value.trim()),'_blank','noopener');
 };
-
-/* Janska assistant (rule-based, works offline) */
-const jw=$('#jw'),jb=$('#jb'),msgs=$('#msgs');
-var say=function(t,who,link){
-  const m=document.createElement('div');m.className='m '+who;m.textContent=t;
-  if(link){m.appendChild(document.createElement('br'));const a=document.createElement('a');a.href=wa(link);a.target='_blank';a.rel='noopener';a.textContent='كلمنا على واتساب';m.appendChild(a)}
-  msgs.appendChild(m);msgs.scrollTop=msgs.scrollHeight;
-};
-const norm=s=>s.toLowerCase().replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي');
-const has=(q,ks)=>ks.some(k=>q.includes(norm(k)));
-function reply(raw){
-  const q=norm(raw);
-  const pm=PM.find(p=>p.k.some(k=>q.includes(norm(k))));
-  if(pm)return['يا زول حبابك! '+pm.n+' من الوسايل الموجودة عندنا. الخطوات ببساطة: '+STEPS(pm.n).map((s,i)=>(i+1)+') '+s).join(' '),'أريد الدفع عبر '+pm.n];
-  if(has(q,['سعر','اسعار','كم','بكم','تكلف','رسوم','عرض','عروض']))return['الاسعار بتختلف حسب الخدمة والوسيله وسعر الصرف وقت الطلب. كلمنا على الواتساب وبنرسل ليك السعر النهائي قبل ما تحول، من غير ما تلتزم بشي.','أريد معرفة السعر'];
-  if(has(q,['اطلب','طلب','كيف','ازاي','خطوات','اشتري','ادفع']))return['الطلب سهل: 1) اختار وسيله الدفع 2) كلمنا على الواتساب واذكر الخدمه 3) نرسل ليك السعر وبيانات التحويل، تحول وترسل الاشعار، ونكمل ليك الطلب. تمام؟','أريد تقديم طلب'];
-  if(has(q,['وسايل','وسيله','طرق','طريقه','يدفع','دفع','بنوك','محفظه']))return['عندنا 10 وسايل: بنكك، فوري، أوكاش، أم-بوك، MTN MoMo، زين كاش، سوداني كاش، فيزا، ماستر كارد وباي بال. اكتب اسم الوسيله البتهمك وانا اشرحها ليك.','أريد معرفة وسائل الدفع'];
-  if(has(q,['وقت','دوام','ساعه','متي','مفتوح','24']))return['بنستقبل الطلبات على مدار الساعه، وممكن الرد يتأخر شويه وقت الزحمه. اكتب لينا في أي وقت.','متى أوقات العمل؟'];
-  if(has(q,['رقم','تواصل','واتس','هاتف','اتصال','تلفون']))return['رقمنا للاتصال والواتساب: '+PHONE+'. حبابك في أي وقت.','أريد التواصل'];
-  if(has(q,['امان','امن','موثوق','نصب','ثقه']))return['الامان اهم شي عندنا. بنشرح ليك كل خطوه قبل التحويل، ومستحيل نطلب منك كلمه سر او رمز سري. لو في اي زول طلب منك كده، ما تدي.','هل الدفع آمن؟'];
-  if(has(q,['شكرا','تسلم','يعطيك','جزاك']))return['العفو يا غالي، دايما في الخدمه! 🌟',null];
-  if(has(q,['مرحبا','اهلا','سلام','هلا','ازيك','كيفك','صباح','مساء']))return['وعليكم السلام ورحمه الله! انا جانسكا، مساعد Zoro Store. اسألني عن طرق الدفع او كيفيه الطلب او الاسعار او رقم التواصل.',null];
-  return['ما فهمت سؤالك كويس 😅 جرب تسأل عن طرق الدفع او كيفيه الطلب او الاسعار، او كلمنا مباشره على الواتساب ونخدمك.','لدي سؤال'];
-}
-/* ضع هنا رابط الـ Worker بعد نشره، مثال: https://janska.YOURNAME.workers.dev
-   إذا تُرك فارغًا أو فشل الاتصال، يرد جانسكا بالردود المدمجة */
-const AI_ENDPOINT='';
-const hist=[];
-let busy=false;
-async function askAI(t){
-  const r=await fetch(AI_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:hist})});
-  if(!r.ok)throw new Error('http');
-  const d=await r.json();
-  if(!d.reply)throw new Error('empty');
-  return d.reply;
-}
-async function ask(t){
-  t=t.trim();if(!t||busy)return;
-  busy=true;say(t,'u');
-  hist.push({role:'user',content:t});
-  let out=null,link='لدي سؤال';
-  if(AI_ENDPOINT){
-    const wait=document.createElement('div');wait.className='m b';wait.textContent='جانسكا بيكتب...';msgs.appendChild(wait);msgs.scrollTop=msgs.scrollHeight;
-    try{out=await askAI(t)}catch(e){out=null}
-    wait.remove();
-  }
-  if(!out){const[r,l]=reply(t);out=r;link=l}
-  hist.push({role:'assistant',content:out});
-  if(hist.length>12)hist.splice(0,hist.length-12);
-  say(out,'b',link);
-  busy=false;
-}
-['طرق الدفع','كيف أطلب؟','الأسعار','أوقات العمل','رقم التواصل'].forEach(t=>{
-  const b=document.createElement('button');b.type='button';b.textContent=t;b.onclick=()=>ask(t);$('#chips').appendChild(b);
+/* ===== العروض ===== */
+const POSTERS=[
+ {cls:'p1',h:'تسوق من أمازون وشي إن',p:'نحن ندفع عنك ونوصل لك الطلب بسهولة.',art:'<g transform="rotate(10 180 80)"><path d="M146 50h50l5 56h-60z" fill="#e8c46a"/><path d="M158 50v-8a13 13 0 0126 0v8" fill="none" stroke="#04100b" stroke-opacity=".5" stroke-width="5" stroke-linecap="round"/></g><g transform="rotate(-8 30 100)"><path d="M10 74h40l4 46H6z" fill="#7af0c0"/><path d="M20 74v-6a10 10 0 0120 0v6" fill="none" stroke="#04100b" stroke-opacity=".5" stroke-width="4" stroke-linecap="round"/></g><ellipse class="fsh" cx="101" cy="186" rx="34" ry="5" fill="#000" opacity=".28"/><g class="fl"><g transform="translate(-10 0)"><rect x="68" y="16" width="86" height="152" rx="15" fill="#04100b" stroke="#3a7a63" stroke-width="2.5"/><rect x="74" y="26" width="74" height="132" rx="9" fill="#10211b"/><rect x="100" y="19" width="22" height="4" rx="2" fill="#2f6150"/><path d="M92 56h38l4 44H88z" fill="#22d18b"/><path d="M100 56v-6a11 11 0 0122 0v6" fill="none" stroke="#e8c46a" stroke-width="5" stroke-linecap="round"/><rect x="88" y="112" width="46" height="7" rx="3.5" fill="#23463a"/><rect x="96" y="126" width="30" height="5" rx="2.5" fill="#23463a"/></g></g>',link:'أريد التسوق من أمازون أو شي إن'},
+ {cls:'p2',h:'اشتراكات نتفليكس وسبوتيفاي',p:'اشترك في خدماتك المفضلة بدون تعقيد.',art:'<circle cx="30" cy="70" r="16" fill="#22d18b"/><path d="M26 64v14M26 64l10-3v14" fill="none" stroke="#04100b" stroke-width="3.5" stroke-linecap="round"/><rect x="150" y="40" width="58" height="38" rx="8" fill="#e50914" opacity=".95"/><path d="M172 51l16 8-16 8z" fill="#fff"/><ellipse class="fsh" cx="101" cy="186" rx="34" ry="5" fill="#000" opacity=".28"/><g class="fl"><g transform="translate(-10 0)"><rect x="68" y="16" width="86" height="152" rx="15" fill="#04100b" stroke="#3a7a63" stroke-width="2.5"/><rect x="74" y="26" width="74" height="132" rx="9" fill="#10211b"/><rect x="100" y="19" width="22" height="4" rx="2" fill="#2f6150"/><circle cx="111" cy="70" r="24" fill="#e8c46a"/><path d="M104 58l22 12-22 12z" fill="#04100b"/><rect x="88" y="108" width="46" height="7" rx="3.5" fill="#23463a"/><rect x="96" y="122" width="30" height="5" rx="2.5" fill="#23463a"/></g></g>',link:'أريد اشتراك نتفليكس أو سبوتيفاي'},
+ {cls:'p3',h:'شحن الألعاب والبطاقات',p:'فري فاير • ببجي • ستيم • بلايستيشن',art:'<path d="M44 96 C44 62 66 54 88 56 H132 C154 54 176 62 176 96 C180 138 166 158 150 158 C134 158 130 138 120 130 H100 C90 138 86 158 70 158 C54 158 40 138 44 96Z" fill="#22d18b" stroke="#7af0c0" stroke-width="3"/><rect x="64" y="86" width="26" height="9" rx="4" fill="#04100b"/><rect x="72.500" y="77.500" width="9" height="26" rx="4" fill="#04100b"/><circle cx="142" cy="82" r="7" fill="#04100b"/><circle cx="158" cy="97" r="7" fill="#04100b"/><circle cx="126" cy="97" r="7" fill="#04100b"/><circle cx="142" cy="112" r="7" fill="#04100b"/><circle cx="98" cy="118" r="10" fill="#04100b" opacity=".85"/><circle cx="122" cy="118" r="10" fill="#04100b" opacity=".85"/><path d="M30 36l14-14 14 14-14 22z" fill="#ff6a00"/><path d="M30 36h28" stroke="#fff" stroke-opacity=".5" stroke-width="2"/><circle cx="190" cy="40" r="15" fill="#f2a900" stroke="#fff" stroke-opacity=".5" stroke-width="2"/><text x="190" y="46" text-anchor="middle" font-family="Arial" font-weight="900" font-size="14" fill="#04100b">UC</text><path d="M184 150l10-10 10 10-10 16z" fill="#ff6a00" opacity=".9"/>',link:'أريد شحن الألعاب'},
+ {cls:'p4',h:'ادفع بفيزا وUSDT',p:'للمواقع العالمية من داخل السودان.',art:'<g transform="rotate(-8 164 120)"><rect x="126" y="96" width="76" height="48" rx="8" fill="#1b1b1f" stroke="#ffffff" stroke-opacity=".25" stroke-width="1.5"/><rect x="136" y="106" width="15" height="11" rx="2.5" fill="#e8c46a"/><circle cx="172" cy="127" r="11" fill="#eb001b"/><circle cx="183" cy="127" r="11" fill="#f79e1b" fill-opacity=".92"/></g><g transform="rotate(10 164 54)"><rect x="124" y="30" width="76" height="48" rx="8" fill="#1a1f71" stroke="#ffffff" stroke-opacity=".25" stroke-width="1.5"/><rect x="134" y="40" width="15" height="11" rx="2.5" fill="#e8c46a"/><text direction="ltr" x="190" y="68" text-anchor="end" font-family="Arial,sans-serif" font-weight="900" font-style="italic" font-size="17" fill="#fff">VISA</text></g><ellipse class="fsh" cx="101" cy="186" rx="34" ry="5" fill="#000" opacity=".28"/><g class="fl"><g transform="translate(-10 0)"><rect x="68" y="16" width="86" height="152" rx="15" fill="#04100b" stroke="#3a7a63" stroke-width="2.5"/><rect x="74" y="26" width="74" height="132" rx="9" fill="#10211b"/><rect x="100" y="19" width="22" height="4" rx="2" fill="#2f6150"/><path d="M111 48l22 8v16c0 14-9 22-22 27-13-5-22-13-22-27V56z" fill="#22d18b"/><path d="M101 74l8 8 14-16" fill="none" stroke="#04100b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><rect x="88" y="112" width="46" height="7" rx="3.5" fill="#23463a"/><rect x="96" y="126" width="30" height="5" rx="2.5" fill="#23463a"/></g></g>',link:'أريد الدفع لموقع عالمي'}
+];
+POSTERS.forEach(p=>{
+  const a=document.createElement('a');a.className='poster '+p.cls+' rv';a.href=wa(p.link);a.target='_blank';a.rel='noopener';
+  a.innerHTML='<svg class="art" viewBox="0 0 220 200" aria-hidden="true">'+p.art+'</svg><h3></h3><p></p><span class="btn sm">اطلب الآن</span>';
+  a.querySelector('h3').textContent=p.h;a.querySelector('p').textContent=p.p;
+  $('#posterGrid').appendChild(a);
 });
-function toggleJ(o){jw.classList.toggle('open',o);jb.setAttribute('aria-expanded',o);if(o&&!msgs.children.length)say('حبابك! أنا جانسكا Janska، مساعد Zoro Store. اسألني عن طرق الدفع أو كيفية الطلب أو الأسعار.','b',''),$('#ji').focus()}
-jb.onclick=()=>toggleJ(!jw.classList.contains('open'));
-$('#jx').onclick=()=>toggleJ(false);
-$('#jf').onsubmit=e=>{e.preventDefault();ask($('#ji').value);$('#ji').value=''};
 
-/* ===== الصوت: قراءة الردود + الإدخال الصوتي ===== */
-const synth=window.speechSynthesis;
-let speakOn=false;
-const spk=$('#spk');
-if(!synth||!window.SpeechSynthesisUtterance){spk.style.display='none'}
-function speak(t){
-  if(!speakOn||!synth)return;
-  synth.cancel();
-  const u=new SpeechSynthesisUtterance(t.replace(/https?:\/\/\S+/g,'').replace(/[🌟😅🔥🎧🔒✨]/g,''));
-  u.lang='ar-SA';u.rate=.95;
-  const v=synth.getVoices().find(x=>x.lang&&x.lang.toLowerCase().startsWith('ar'));
-  if(v)u.voice=v;
-  synth.speak(u);
+/* ===== استبدال USDT / بنكك ===== */
+/* عدّل هذه البيانات ببياناتك الحقيقية */
+const XCFG={
+ usdtAddress:'ضع_عنوان_محفظة_USDT_هنا',
+ usdtNetwork:'TRC20',
+ bankakAccount:'4078228',
+ bankakName:'معاوية أمير عبد الجليل',
+ buyRate:13000, /* العميل يشتري USDT: سعر الواحد بالجنيه */
+ sellRate:10000, /* العميل يبيع USDT: سعر الواحد بالجنيه */
+ minUsdt:5,maxUsdt:1000,quick:[5,10,20,50,100,200,500,1000],
+ receiptRequired:false, /* اجعلها true لإلزام العميل برفع صورة الإشعار */
+ endpoint:'' /* رابط الخادم لاستقبال الطلبات بدون فتح واتساب (اختياري) */
+};
+document.querySelectorAll('#exchange .badge[data-l]').forEach(b=>{const e=b.dataset.l;b.style.background='linear-gradient(135deg,'+(e==='USDT'?'#26a17b,#0e6b4f':'#e5252a,#a8121a')+')';b.innerHTML=e==='Bankak'?logo(e,'send').replace('#16a06a','#d71920'):logo(e,'send')});
+const xd=$('#xd'),xin=$('#xin'),xsend=$('#xsend');
+const XM={
+ u2b:{t:'استبدال USDT مقابل بنكك',l1:'عنوان الدفع: أرسل USDT إلى هذا العنوان',v:()=>XCFG.usdtAddress,net:()=>'الشبكة: '+XCFG.usdtNetwork+' — تأكد من الشبكة قبل التحويل',amt:true,rate:()=>XCFG.sellRate,cl:'المبلغ الذي ستستلمه في حسابك ببنكك',rl:'سعر البيع',l3:'صورة إشعار تحويل USDT (اختياري)',l2:'رقم حسابك في بنكك',ph:'مثال: 1234567',mode:'numeric',msg:v=>'مرحبًا، أريد استبدال USDT مقابل بنكك\nالكمية: '+xq()+' USDT\nسأستلم: '+fmt(xq()*xr())+' جنيه\nرقم حسابي في بنكك: '+v},
+ b2u:{t:'استبدال بنكك مقابل USDT',l1:'عنوان الدفع: حوّل المبلغ إلى حساب بنكك هذا',v:()=>XCFG.bankakAccount,net:()=>'الاسم: '+XCFG.bankakName,amt:true,rate:()=>XCFG.buyRate,cl:'المبلغ المطلوب تحويله عبر بنكك',rl:'سعر الشراء',l3:'صورة إشعار تحويل بنكك (اختياري)',l2:'عنوان محفظتك USDT ('+XCFG.usdtNetwork+')',ph:'ألصق عنوان محفظتك هنا',mode:'text',msg:v=>'مرحبًا، أريد استبدال بنكك مقابل USDT\nالكمية: '+xq()+' USDT\nالمبلغ: '+fmt(xq()*xr())+' جنيه\nعنوان محفظتي ('+XCFG.usdtNetwork+'): '+v}
+};
+let xcur=null;
+function openX(k){
+  xcur=XM[k];
+  $('#xt').textContent=xcur.t;$('#xl1').textContent=xcur.l1;$('#xv').textContent=xcur.v();
+  $('#xnet').textContent=xcur.net();$('#xl2').textContent=xcur.l2;
+  xin.value='';xin.placeholder=xcur.ph;xin.inputMode=xcur.mode;$('#xamt').hidden=!xcur.amt;$('#xcl').textContent=xcur.cl;$('#xrate').textContent=xcur.rl+': 1 USDT = '+fmt(xr())+' جنيه';$('#xq').value='';$('#xqerr').hidden=true;$('#xtot').textContent='—';$('#xl3').textContent=xcur.l3;$('#xnote').hidden=true;setFile(null);xsend.disabled=true;$('#xform').hidden=false;$('#xwait').hidden=true;
+  $('#xcp').textContent='نسخ';
+  xd.showModal();
 }
-spk.classList.add('off');
-spk.onclick=()=>{speakOn=!speakOn;spk.classList.toggle('off',!speakOn);spk.textContent=speakOn?'🔊':'🔇';if(!speakOn&&synth)synth.cancel();else speak('تم تفعيل القراءة الصوتية')};
-const _say=say;
-say=function(t,who,link){_say(t,who,link);if(who==='b')speak(t)};
-const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-const mic=$('#mic');
-if(!SR){mic.style.display='none'}else{
-  const rec=new SR();rec.lang='ar-SD';rec.interimResults=false;rec.maxAlternatives=1;
-  let on=false;
-  rec.onresult=e=>{const t=e.results[0][0].transcript;ask(t)};
-  rec.onend=()=>{on=false;mic.classList.remove('rec')};
-  rec.onerror=()=>{on=false;mic.classList.remove('rec');say('ما قدرت أسمعك، تأكد إنك سمحت للمتصفح باستخدام الميكروفون وجرب تاني.','b','')};
-  mic.onclick=()=>{
-    if(on){rec.stop();return}
-    if(synth)synth.cancel();
-    try{rec.start();on=true;mic.classList.add('rec')}catch(e){}
-  };
+document.querySelectorAll('#exchange .xc').forEach(b=>b.onclick=()=>openX(b.dataset.x));
+let xf=null,xurl=null;
+const fmt=n=>Number(n).toLocaleString('en-US',{maximumFractionDigits:2});
+const xr=()=>xcur?xcur.rate():0;
+function xq(){const n=parseFloat($('#xq').value);return n>=XCFG.minUsdt&&n<=XCFG.maxUsdt?n:0}
+const xcheck=()=>{xsend.disabled=!xin.value.trim()||(xcur&&xcur.amt&&!xq())||(XCFG.receiptRequired&&!xf)};
+function xcalc(){
+  const raw=parseFloat($('#xq').value),n=xq(),e=$('#xqerr');
+  $('#xtot').textContent=n?fmt(n*xr())+' جنيه':'—';
+  e.hidden=!(raw&&!n);e.textContent='الكمية من '+XCFG.minUsdt+' إلى '+fmt(XCFG.maxUsdt)+' USDT.';
+  document.querySelectorAll('#xchips button').forEach(b=>b.classList.toggle('on',n&&+b.dataset.q===n));
+  xcheck();
 }
+XCFG.quick.forEach(q=>{const b=document.createElement('button');b.type='button';b.dataset.q=q;b.textContent=fmt(q)+' USDT';b.onclick=()=>{$('#xq').value=q;xcalc()};$('#xchips').appendChild(b)});
+$('#xq').addEventListener('input',xcalc);
+
+function xErr(t){const e=$('#xerr');e.textContent=t||'';e.hidden=!t}
+function setFile(f){
+  if(xurl){URL.revokeObjectURL(xurl);xurl=null}
+  xf=f||null;xfile.value='';
+  $('#xprev').hidden=!xf;$('#xfn').textContent=xf?xf.name:'';
+  $('#xpick').textContent=xf?'تغيير الصورة':'اختر صورة';
+  if(xf){xurl=URL.createObjectURL(xf);$('#xim').src=xurl}
+  xErr('');xcheck();
+}
+const xfile=$('#xfile');
+$('#xpick').onclick=()=>xfile.click();
+$('#xrm').onclick=()=>setFile(null);
+xfile.addEventListener('change',()=>{
+  const f=xfile.files[0];if(!f)return;
+  if(!/^image\//.test(f.type)){xErr('اختر ملف صورة فقط.');xfile.value='';return}
+  if(f.size>8*1024*1024){xErr('حجم الصورة كبير، الحد الأقصى 8 ميجا.');xfile.value='';return}
+  setFile(f);
+});
+xin.addEventListener('input',xcheck);
+xsend.onclick=async()=>{
+  const v=xin.value.trim();if(!v||!xcur)return;
+  const msg=xcur.msg(v);
+  xsend.disabled=true;$('#xnote').hidden=true;
+  if(XCFG.endpoint){
+    try{
+      const fd=new FormData();fd.append('type',xcur.t);fd.append('value',v);fd.append('text',msg);
+      if(xf)fd.append('receipt',xf,xf.name);
+      const r=await fetch(XCFG.endpoint,{method:'POST',body:fd});
+      if(!r.ok)throw new Error('bad');
+    }catch(e){xcheck();alert('تعذر التنفيذ الآن، حاول مرة أخرى.');return}
+  }else{
+    window.open(wa(msg+(xf?'\n(سأرسل صورة الإشعار هنا في المحادثة)':'')),'_blank','noopener');
+    if(xf){const n=$('#xnote');n.textContent='لا تنسَ إرسال صورة الإشعار في المحادثة المفتوحة.';n.hidden=false}
+  }
+  $('#xform').hidden=true;$('#xwait').hidden=false;
+};
+$('#xcp').onclick=async()=>{
+  try{await navigator.clipboard.writeText($('#xv').textContent);$('#xcp').textContent='تم النسخ ✓'}catch(e){$('#xcp').textContent='انسخه يدويًا'}
+};
+$('#xc2').onclick=$('#xc3').onclick=()=>xd.close();
+xd.addEventListener('click',e=>{if(e.target===xd)xd.close()});
+
+/* reveal (بعد إنشاء كل العناصر) */
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+}else document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+
+/* ===== إدارة تسجيل الدخول عبر Google ===== */
+function decodeJwt(token) {
+  try {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+    return JSON.parse(jsonPayload);
+  } catch(e) { return null; }
+}
+
+function showUserProfile(user) {
+  $('#gSignInWrapper').style.display = 'none';
+  const up = $('#userProfile');
+  up.style.display = 'inline-flex';
+  $('#uAvatar').src = user.picture || '';
+  $('#uName').textContent = user.name || user.email;
+  // ملء حقل الاسم تلقائياً في نموذج التواصل إن وُجد
+  const cn = $('#cn');
+  if(cn && !cn.value && user.name) cn.value = user.name;
+}
+
+function handleCredentialResponse(response) {
+  const user = decodeJwt(response.credential);
+  if(user) {
+    try{localStorage.setItem('zoro_user', JSON.stringify(user))}catch(e){}
+    showUserProfile(user);
+  }
+}
+
+function logoutGoogle() {
+  try{localStorage.removeItem('zoro_user')}catch(e){}
+  if(window.google && google.accounts && google.accounts.id) {
+    google.accounts.id.disableAutoSelect();
+  }
+  $('#userProfile').style.display = 'none';
+  $('#gSignInWrapper').style.display = 'block';
+}
+$('#uLogout').onclick = logoutGoogle;
+
+// استعادة الجلسة السابقة عند فتح الصفحة
+window.addEventListener('DOMContentLoaded', () => {
+  try {
+    const saved = localStorage.getItem('zoro_user');
+    if(saved) {
+      const user = JSON.parse(saved);
+      if(user && user.name) showUserProfile(user);
+    }
+  } catch(e){}
+});
 </script>
 </body>
-</ht ml>
+</html>
